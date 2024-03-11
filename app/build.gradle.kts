@@ -46,7 +46,8 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation ("com.airbnb.android:lottie:4.1.0")
-    implementation ("com.github.JakeWharton:ViewPagerIndicator:2.4.1")
+
+
 
 
 }

@@ -19,13 +19,33 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="179dp"
+            android:layout_height="96dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="30dp"
-            android:text="@string/topic4"
+            android:text="@string/topic5"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold" />
+        <Button
+            android:id="@+id/Next_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="170dp"
+            android:layout_marginStart="290dp"
+            android:textColor="@color/pink"
+            android:backgroundTint="@color/white"
+            android:textSize="20dp"
+            android:text="Next" />
+        <Button
+            android:id="@+id/back_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="170dp"
+            android:layout_marginStart="16dp"
+            android:textColor="@color/pink"
+            android:backgroundTint="@color/white"
+            android:textSize="20dp"
+            android:text="Back" />
 
 
 
@@ -33,17 +53,17 @@
 
 
     <com.airbnb.lottie.LottieAnimationView
-        android:layout_width="492dp"
-        android:layout_height="478dp"
+        android:layout_width="446dp"
+        android:layout_height="479dp"
         app:layout_constraintBottom_toTopOf="@id/frame1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/report">
+        app:lottie_rawRes="@raw/frag2">
 
     </com.airbnb.lottie.LottieAnimationView>
 
