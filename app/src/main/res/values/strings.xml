@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Care Place</string>
+    <string name="next">NEXT</string>
+    <string name="topic1">Our platform provides communication between
+the patient and the doctor, You will be able to choose the Suitable Doctor for Your Medical Case.</string>
+    <string name="topic2">You will be able to choose the appropriate Doctor
+        based on Standrads and Feedbacks
+that will indicate the quality of medical care
+</string>
+    <string name="topic3">You can make appoiment for the examintion for Doctor </string>
+    <string name="topic4">The patient will record a list of the drugs that
+are treated for the disease, including all the medical data (time, number of times a day,
+number of doses of the prescribed treatment).</string>
+    <string name="topic5">We provide you a full recover for the Medical treatment operation which me it Easier.</string>
+    <string name="back">BACK</string>
 </resources>
