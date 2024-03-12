@@ -29,12 +29,12 @@
             android:id="@+id/Next_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="170dp"
             android:layout_marginStart="290dp"
-            android:textColor="@color/pink"
+            android:layout_marginTop="170dp"
             android:backgroundTint="@color/white"
-            android:textSize="20dp"
-            android:text="Next" />
+            android:text="Next"
+            android:textColor="@color/pink"
+            android:textSize="20dp" />
 
     </FrameLayout>
 

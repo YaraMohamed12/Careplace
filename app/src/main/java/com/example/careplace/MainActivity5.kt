@@ -18,7 +18,7 @@ class MainActivity5 : AppCompatActivity() {
         Next_5 = findViewById(R.id.Next_5)
         Back_5 = findViewById(R.id.back_5)
         Next_5.setOnClickListener {
-            val myIntent = Intent(this,MainActivity:: class.java)
+            val myIntent = Intent(this,DocOrPat:: class.java)
             startActivity(myIntent)
         }
         Back_5.setOnClickListener {
