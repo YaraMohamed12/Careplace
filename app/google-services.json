@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "897534424420",
+    "project_id": "careplace-8c132",
+    "storage_bucket": "careplace-8c132.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897534424420:android:96d822875b101fec1bf671",
+        "android_client_info": {
+          "package_name": "com.example.careplace"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClORG8gvm-Cg8rEPFaOXGNf3pK__zwJHo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

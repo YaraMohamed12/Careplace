@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 
 
 class MainActivity : AppCompatActivity() {
@@ -18,6 +19,7 @@ lateinit var Next_1 : Button
             val myIntent = Intent(this,MainActivity2:: class.java)
             startActivity(myIntent)
         }
+        FirebaseAuth.getInstance().createUserWithEmailAndPassword("onepiece@amcdkc.aed","112314a")
 
     }
 
