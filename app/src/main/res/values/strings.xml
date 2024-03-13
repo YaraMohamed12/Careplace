@@ -13,5 +13,15 @@ are treated for the disease, including all the medical data (time, number of tim
 number of doses of the prescribed treatment).</string>
     <string name="topic5">We provide you a full recover for the Medical treatment operation which me it Easier.</string>
     <string name="back">BACK</string>
-    <string name="you_are_here">You Are Here</string>
+    <string name="you_are_here">Are you here as :-</string>
+    <string name="doc">Doctor</string>
+    <string name="pat">Patient</string>
+    <string name="log_in">Log In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email_or_phone_number">Enter your Email or Phone number</string>
+    <string name="pass">Password</string>
+    <string name="forget_password">Forget Password</string>
+    <string name="anothr_way">or sign up with</string>
+    <string name="have_acc">Already have account ?</string>
+    <string name="new_acc">New Account</string>
 </resources>
