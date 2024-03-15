@@ -38,15 +38,16 @@
 
     <Button
         android:id="@+id/Doctor_btn"
-        android:layout_width="207dp"
-        android:layout_height="55dp"
+        android:layout_width="225dp"
+        android:layout_height="58dp"
         android:layout_marginTop="52dp"
         android:backgroundTint="@color/white"
         android:fontFamily="serif"
         android:text="@string/doc"
-        android:textStyle="bold"
-        android:textColor="@color/black"
+        android:drawableEnd="@drawable/doctor"
+        android:textColor="@color/darkblue"
         android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,18 +55,21 @@
 
     <Button
         android:id="@+id/Pateint_btn"
-        android:layout_width="207dp"
-        android:layout_height="57dp"
+        android:layout_width="225dp"
+        android:layout_height="58dp"
         android:layout_marginTop="128dp"
+        android:drawableEnd="@drawable/patient2"
         android:backgroundTint="@color/white"
         android:fontFamily="serif"
         android:text="@string/pat"
-        android:textColor="@color/black"
-        android:textStyle="bold"
+        android:textColor="@color/darkblue"
         android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
