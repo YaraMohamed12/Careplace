@@ -12,7 +12,6 @@ class DocOrPat : AppCompatActivity() {
     lateinit var pateint_btn : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_doc_or_pat)
         pateint_btn = findViewById(R.id.Pateint_btn)
         pateint_btn.setOnClickListener {

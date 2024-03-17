@@ -13,7 +13,7 @@ class MainActivity4 : AppCompatActivity() {
     lateinit var Back_4 : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+
         setContentView(R.layout.activity_main4)
         Next_4 = findViewById(R.id.Next_4)
         Back_4 = findViewById(R.id.back_4)

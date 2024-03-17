@@ -73,7 +73,7 @@
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="40dp"
-        android:background="@drawable/edititextbackground"
+
         android:ems="10"
         android:gravity="center"
         android:hint="Enter Your Email Email"
@@ -88,6 +88,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/email_txt"
             android:layout_width="match_parent"
+            android:background="@drawable/edititextbackground"
             android:layout_height="match_parent"
             android:drawableEnd="@drawable/user_svgrepo_com">
 
@@ -99,7 +100,6 @@
         android:id="@+id/editTextTextPassword"
         android:layout_width="375dp"
         android:layout_height="60dp"
-        android:background="@drawable/edititextbackground"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/pass"
@@ -115,6 +115,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passowrd_txt"
             android:layout_width="match_parent"
+            android:background="@drawable/edititextbackground"
             android:layout_height="match_parent"
             android:inputType="textPassword">
 

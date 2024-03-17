@@ -14,7 +14,7 @@ class LogandSign : AppCompatActivity() {
     lateinit var signup_bt : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+
         setContentView(R.layout.activity_logand_sign)
             login_bt = findViewById(R.id.login_btn)
             signup_bt = findViewById(R.id.signup_btn)

@@ -19,7 +19,6 @@ class ListingDoctor : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_listing_doctor)
         toolbar = findViewById(mytoolbar)
         toolbar.inflateMenu(R.menu.main_menu)

@@ -13,7 +13,7 @@ lateinit var Next_2 :Button
 lateinit var Back_2 :Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+
         setContentView(R.layout.activity_main2)
         Next_2 = findViewById(R.id.Next_2)
         Back_2 = findViewById(R.id.back_2)

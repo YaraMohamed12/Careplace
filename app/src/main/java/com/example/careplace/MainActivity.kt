@@ -14,7 +14,7 @@ lateinit var Next_1 : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+
         setContentView(R.layout.activity_main)
         Next_1 = findViewById(R.id.Next_1)
         Next_1.setOnClickListener {
