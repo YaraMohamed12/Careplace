@@ -1,74 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@drawable/background"
-    android:contentDescription="@string/app_name">
-
+    android:contentDescription="@string/app_name"
+    >
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content"
+        >
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/imageView3"
             android:layout_width="37dp"
             android:layout_height="40dp"
             android:layout_marginTop="20dp"
             android:src="@drawable/left_arrow"
-            app:layout_constraintEnd_toStartOf="@+id/Newacc"
+            app:layout_constraintEnd_toStartOf="@+id/Newacc2"
             app:layout_constraintHorizontal_bias="0.379"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/Newacc"
+            android:id="@+id/Newacc2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/new_acc"
-            android:textColor="@color/darkblue"
+            android:textColor="@color/black"
             android:textColorLink="#2D4BA5"
             android:textSize="34sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/name"
-            android:id="@+id/fullname"
+            android:id="@+id/fullname2"
             android:textStyle="bold"
-            android:textColor="@color/darkblue"
-            app:layout_constraintTop_toBottomOf="@id/Newacc"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/Newacc2"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp">
+            android:layout_marginTop="24dp"
+            />
 
-        </TextView>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fullname"
+            app:layout_constraintTop_toBottomOf="@id/fullname2"
             android:hint="@string/enter_name"
-            android:id="@+id/edit_name"
+            android:id="@+id/edit_name2"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/edititextbackground"
-                app:layout_constraintTop_toBottomOf="@id/fullname"
+                android:background="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/fullname2"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                android:id="@+id/editxtname"
+                android:id="@+id/editxtname2"
                 >
 
             </com.google.android.material.textfield.TextInputEditText>
@@ -78,10 +80,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/email"
-            android:id="@+id/email"
+            android:id="@+id/email2"
             android:textStyle="bold"
-            android:textColor="@color/darkblue"
-            app:layout_constraintTop_toBottomOf="@id/edit_name"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/edit_name2"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp"
@@ -92,32 +94,33 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/email"
+            app:layout_constraintTop_toBottomOf="@id/email2"
             android:hint="@string/enter_email"
-            android:id="@+id/edit_email"
+            android:id="@+id/edit_email2"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="textEmailAddress"
-                android:background="@drawable/edititextbackground"
+                android:background="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                android:id="@+id/editxtemail"
+                android:id="@+id/editxtemail2"
                 >
 
             </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/pass"
-            android:id="@+id/phone"
+            android:text="@string/password"
+            android:id="@+id/phone2"
             android:textStyle="bold"
-            android:textColor="@color/darkblue"
-            app:layout_constraintTop_toBottomOf="@id/edit_email"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/edit_email2"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp"
@@ -128,21 +131,21 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/phone"
+            app:layout_constraintTop_toBottomOf="@id/phone2"
             android:hint="@string/enter_pass"
             app:passwordToggleEnabled="true"
-            android:id="@+id/edit_phone"
+            android:id="@+id/edit_phone2"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="textPassword"
-                android:background="@drawable/edititextbackground"
+                android:background="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                android:id="@+id/editxtphone"
+                android:id="@+id/editxtphone2"
                 >
 
             </com.google.android.material.textfield.TextInputEditText>
@@ -151,10 +154,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/d_of_b"
-            android:id="@+id/BRITH"
+            android:id="@+id/BRITH2"
             android:textStyle="bold"
-            android:textColor="@color/darkblue"
-            app:layout_constraintTop_toBottomOf="@id/edit_phone"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/edit_phone2"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp"
@@ -165,20 +168,20 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/BRITH"
-            android:id="@+id/edit_BDT"
+            app:layout_constraintTop_toBottomOf="@id/BRITH2"
+            android:id="@+id/edit_BDT2"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="textEmailAddress"
-                android:background="@drawable/edititextbackground"
+                android:background="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 android:hint="@string/date"
                 android:layout_marginTop="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                android:id="@+id/editxtBDT"
+                android:id="@+id/editxtBDT2"
                 >
 
             </com.google.android.material.textfield.TextInputEditText>
@@ -187,10 +190,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/id"
-            android:id="@+id/nationId"
+            android:id="@+id/nationId2"
             android:textStyle="bold"
-            android:textColor="@color/darkblue"
-            app:layout_constraintTop_toBottomOf="@id/edit_BDT"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/edit_BDT2"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp"
@@ -201,20 +204,20 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/nationId"
+            app:layout_constraintTop_toBottomOf="@id/nationId2"
             android:hint="@string/enter_id"
-            android:id="@+id/edit_id"
+            android:id="@+id/edit_id2"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="textEmailAddress"
                 app:layout_constraintStart_toStartOf="parent"
-                android:background="@drawable/edititextbackground"
+                android:background="@color/white"
                 android:layout_marginTop="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                android:id="@+id/editxtID"
+                android:id="@+id/editxtID2"
                 >
 
             </com.google.android.material.textfield.TextInputEditText>
@@ -223,10 +226,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/phone"
-            android:id="@+id/Address"
+            android:id="@+id/Address2"
             android:textStyle="bold"
-            android:textColor="@color/darkblue"
-            app:layout_constraintTop_toBottomOf="@id/edit_id"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/edit_id2"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp"
@@ -237,20 +240,20 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/Address"
+            app:layout_constraintTop_toBottomOf="@id/Address2"
             android:hint="@string/phone_number"
-            android:id="@+id/edit_Address"
+            android:id="@+id/edit_Address2"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="textEmailAddress"
                 app:layout_constraintStart_toStartOf="parent"
-                android:background="@drawable/edititextbackground"
+                android:background="@color/white"
                 android:layout_marginTop="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                android:id="@+id/editxtAdderss"
+                android:id="@+id/editxtAdderss2"
                 >
 
             </com.google.android.material.textfield.TextInputEditText>
@@ -259,10 +262,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/age"
-            android:id="@+id/Age"
+            android:id="@+id/Age2"
             android:textStyle="bold"
-            android:textColor="@color/darkblue"
-            app:layout_constraintTop_toBottomOf="@id/edit_Address"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/edit_Address2"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp"
@@ -273,9 +276,9 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/Age"
+            app:layout_constraintTop_toBottomOf="@id/Age2"
             android:hint="@string/enter_age"
-            android:id="@+id/edit_Age"
+            android:id="@+id/edit_Age2"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -283,22 +286,60 @@
                 android:inputType="textEmailAddress"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="16dp"
-                android:background="@drawable/edititextbackground"
+                android:background="@color/white"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                android:id="@+id/editxtAge"
+                android:id="@+id/editxtAge2"
                 >
 
             </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/specialization"
+            android:id="@+id/Specialization"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/edit_Gender2"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp">
+        </TextView>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/Specialization"
+            android:hint="@string/enter_spec"
+            android:id="@+id/edit_Specialization"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textEmailAddress"
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:id="@+id/editxtSpecialization"
+                >
+
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/gender"
-            android:id="@+id/Gender"
+            android:id="@+id/Gender2"
             android:textStyle="bold"
-            android:textColor="@color/darkblue"
-            app:layout_constraintTop_toBottomOf="@id/edit_Age"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/edit_Age2"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp"
@@ -309,114 +350,29 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/Gender"
+            app:layout_constraintTop_toBottomOf="@id/Gender2"
             android:hint="@string/enter_gender"
-            android:id="@+id/edit_Gender"
+            android:id="@+id/edit_Gender2"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="textEmailAddress"
-                android:background="@drawable/edititextbackground"
+                android:background="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                android:id="@+id/editxtGender"
-                >
-
-            </com.google.android.material.textfield.TextInputEditText>
-        </com.google.android.material.textfield.TextInputLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/weight"
-            android:id="@+id/weight"
-            android:textStyle="bold"
-            android:textColor="@color/darkblue"
-            app:layout_constraintTop_toBottomOf="@id/edit_Gender"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp">
-        </TextView>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/weight"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp"
-            android:hint="@string/weight"
-            android:id="@+id/edit_weight"
-
-            >
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="textEmailAddress"
-                android:background="@drawable/edititextbackground"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginEnd="16dp"
-                android:id="@+id/editxtWeight"
+                android:id="@+id/editxtGender2"
                 >
 
             </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/height"
-            android:id="@+id/Height"
-            android:textStyle="bold"
-            android:textColor="@color/darkblue"
-            app:layout_constraintTop_toBottomOf="@id/edit_Gender"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="220dp"
-            android:layout_marginTop="24dp">
-        </TextView>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/weight"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="220dp"
-            android:hint="@string/height"
-            android:id="@+id/edit_Height"
 
-            >
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="textEmailAddress"
-                android:background="@drawable/edititextbackground"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginEnd="16dp"
-                android:id="@+id/editxtHeight"
-                >
 
-            </com.google.android.material.textfield.TextInputEditText>
-        </com.google.android.material.textfield.TextInputLayout>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/submit"
-            android:textColor="@color/darkblue"
-            android:backgroundTint="@color/pink"
-            android:textSize="24sp"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="25dp"
-            app:layout_constraintTop_toBottomOf="@id/edit_weight"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:id="@+id/sumbitBtn"
-            >
-
-        </Button>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </ScrollView>

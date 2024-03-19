@@ -11,6 +11,7 @@ import com.google.firebase.auth.FirebaseAuth
 class MainActivity : AppCompatActivity() {
 
 lateinit var Next_1 : Button
+lateinit var Skip_2 : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +22,13 @@ lateinit var Next_1 : Button
             val myIntent = Intent(this,MainActivity2:: class.java)
             startActivity(myIntent)
         }
+
+        Skip_2 = findViewById(R.id.Skip_2)
+        Skip_2.setOnClickListener {
+            val myIntent1 = Intent(this,DocOrPat::class.java)
+            startActivity(myIntent1)
+        }
+
 
 
     }
