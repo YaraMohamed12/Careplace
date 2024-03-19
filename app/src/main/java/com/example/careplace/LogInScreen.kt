@@ -7,14 +7,8 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.Task
 import com.google.android.material.textfield.TextInputEditText
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 
 class LogInScreen : AppCompatActivity() {
@@ -100,7 +94,7 @@ class LogInScreen : AppCompatActivity() {
     fun newAccount()
     {
         new_app.setOnClickListener {
-            val myintent4 = Intent(this , NewAccScreen::class.java)
+            val myintent4 = Intent(this , NewAccForPat::class.java)
             startActivity(myintent4)
         }
     }
