@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
@@ -14,10 +15,19 @@ class NewAccForPat : AppCompatActivity() {
     lateinit var passwordtxt : TextInputEditText
     lateinit var myAuthn1 : FirebaseAuth
     lateinit var sumbit : Button
+    lateinit var back_btn : ImageView
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_new_acc_screen)
+        setContentView(R.layout.activity_new_acc_for_pat)
+
+        back_btn = findViewById(R.id.imageView2)
+        back_btn.setOnClickListener {
+          val myIntent3 = Intent(this ,DocOrPat::class.java)
+            startActivity(myIntent3)
+        }
+
+
         Initialzation()
        Resgister()
 
@@ -55,7 +65,6 @@ class NewAccForPat : AppCompatActivity() {
         passwordtxt = findViewById(R.id.editxtpassword)
         myAuthn1 = FirebaseAuth.getInstance()
         sumbit = findViewById(R.id.sumbitBtn)
-
 
     }
 @SuppressLint("SuspiciousIndentation")

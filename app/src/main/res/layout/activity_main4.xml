@@ -53,8 +53,8 @@
 
 
     <com.airbnb.lottie.LottieAnimationView
-        android:layout_width="516dp"
-        android:layout_height="443dp"
+        android:layout_width="419dp"
+        android:layout_height="584dp"
         app:layout_constraintBottom_toBottomOf="@+id/frame1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
