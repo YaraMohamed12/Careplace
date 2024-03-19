@@ -41,25 +41,6 @@ class LogInScreen : AppCompatActivity() {
       }
     fun LogIn_opt()
     {
-//        login_btn.setOnClickListener {
-//            val myemail = email_txt.text.toString()
-//            val mypassword = passowrd_txt.text.toString()
-//            if(myemail.isNotEmpty() && mypassword.isNotEmpty()) {
-//                myAuthn.createUserWithEmailAndPassword(myemail, mypassword).addOnCompleteListener {
-//                    if (it.isSuccessful) {
-//                        Toast.makeText(this, "Create Successful", Toast.LENGTH_SHORT).show()
-//                    } else {
-//                        Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
-//                    }
-//                }
-//            }
-//            else
-//            {
-//                Toast.makeText(this, "You should enter your mail and password", Toast.LENGTH_SHORT).show()
-//            }
-//
-//        }
-
         login_btn.setOnClickListener {
             val myemail = email_txt.text.toString()
             val mypasswoed = passowrd_txt.text.toString()
@@ -67,8 +48,7 @@ class LogInScreen : AppCompatActivity() {
             if(myemail.isNotEmpty() && mypasswoed.isNotEmpty()) {
                 myAuthn.signInWithEmailAndPassword(myemail, mypasswoed).addOnCompleteListener {
                     if (it.isSuccessful) {
-                        val myintent = Intent(this, ListingDoctor::class.java)
-                        startActivity(myintent)
+                      EmailVerify()
                     } else {
                         Toast.makeText(this, "Invalid Email or Password", Toast.LENGTH_SHORT).show()
                     }
@@ -97,6 +77,19 @@ class LogInScreen : AppCompatActivity() {
             val myintent4 = Intent(this , NewAccForPat::class.java)
             startActivity(myintent4)
         }
+    }
+    fun EmailVerify() {
+        val user = myAuthn.currentUser
+        if (user!!.isEmailVerified)
+        {
+            val myintent = Intent(this, ListingDoctor::class.java)
+            startActivity(myintent)
+        }
+        else
+        {
+            Toast.makeText(this, "PLEASE VERIFY YOUR EMAIL ACCOUNT", Toast.LENGTH_SHORT).show()
+        }
+
     }
 
 
