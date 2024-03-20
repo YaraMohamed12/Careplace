@@ -46,4 +46,10 @@ number of doses of the prescribed treatment).</string>
     <string name="skip">Skip</string>
     <string name="enter_name">Enter Your Full Name</string>
     <string name="pass">Password</string>
+    <string name="trouble_in_logging_in">Trouble in logging in ?</string>
+    <string name="email_or_phone">Enter your email, phone, or username and we\'ll send you a link to get back into your account</string>
+    <string name="enter_your_email_or_phone_number">Enter your Email or Phone number</string>
+    <string name="or">---------------------------------Or---------------------------------</string>
+    <string name="create_new_account">Create New account</string>
+    <string name="back_to_login">Back to login</string>
 </resources>

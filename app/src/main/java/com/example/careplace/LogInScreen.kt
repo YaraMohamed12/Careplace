@@ -17,10 +17,17 @@ class LogInScreen : AppCompatActivity() {
     lateinit var email_txt : TextInputEditText
     lateinit var passowrd_txt : TextInputEditText
     lateinit var login_btn : Button
+    lateinit var forget_pass : TextView
     lateinit var myAuthn : FirebaseAuth
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        forget_pass = findViewById(R.id.textView5)
+        forget_pass.setOnClickListener {
+            val myIntent5 = Intent(this,ForgetPasswordScreen::class.java)
+            startActivity(myIntent5)
+        }
 
         setContentView(R.layout.activity_log_in_screen)
        inilazaiton()
