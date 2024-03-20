@@ -22,14 +22,12 @@ class LogInScreen : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        forget_pass = findViewById(R.id.textView5)
+        setContentView(R.layout.activity_log_in_screen)
+        forget_pass = findViewById(R.id.restpassword)
         forget_pass.setOnClickListener {
             val myIntent5 = Intent(this,ForgetPasswordScreen::class.java)
             startActivity(myIntent5)
         }
-
-        setContentView(R.layout.activity_log_in_screen)
        inilazaiton()
         back()
         LogIn_opt()
