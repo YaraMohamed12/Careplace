@@ -22,7 +22,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="30dp"
             android:text="@string/topic5"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -33,9 +33,9 @@
             android:layout_marginStart="290dp"
             android:layout_marginTop="170dp"
             android:backgroundTint="@color/white"
-            android:text="Next"
-            android:textColor="@color/pink"
-            android:textSize="20dp" />
+            android:text="@string/next"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/back_5"
@@ -44,9 +44,9 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="170dp"
             android:backgroundTint="@color/white"
-            android:text="Back"
-            android:textColor="@color/pink"
-            android:textSize="20dp" />
+            android:text="@string/back"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
 
     </FrameLayout>

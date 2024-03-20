@@ -52,4 +52,9 @@ number of doses of the prescribed treatment).</string>
     <string name="or">---------------------------------Or---------------------------------</string>
     <string name="create_new_account">Create New account</string>
     <string name="back_to_login">Back to login</string>
+    <string name="medicine">Medicine</string>
+    <string name="info_form">Information Form</string>
+    <string name="hello">Hello,</string>
+    <string name="welcome_text">Welcome to Care Place How is your health today ?</string>
+    <string name="mma">Medical Manager App</string>
 </resources>
