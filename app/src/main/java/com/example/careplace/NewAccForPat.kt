@@ -16,7 +16,7 @@ class NewAccForPat : AppCompatActivity() {
     lateinit var myAuthn1 : FirebaseAuth
     lateinit var sumbit : Button
     lateinit var back_btn : ImageView
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint("MissingInflatedId", "SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_acc_for_pat)
