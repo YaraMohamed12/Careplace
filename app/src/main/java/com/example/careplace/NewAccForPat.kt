@@ -23,7 +23,7 @@ class NewAccForPat : AppCompatActivity() {
 
         back_btn = findViewById(R.id.imageView2)
         back_btn.setOnClickListener {
-          val myIntent3 = Intent(this ,DocOrPat::class.java)
+          val myIntent3 = Intent(this , LogandSign::class.java)
             startActivity(myIntent3)
         }
 
