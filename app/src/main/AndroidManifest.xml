@@ -13,13 +13,16 @@
         android:theme="@style/Theme.CarePlace"
         tools:targetApi="31">
         <activity
+            android:name=".Reset_Password"
+            android:exported="false" />
+        <activity
             android:name=".ForgetPasswordScreen"
             android:exported="false" />
         <activity
             android:name=".NewAccForDoc"
             android:exported="false" />
         <activity
-            android:name=".ListingDoctor"
+            android:name=".Patient_Home_Screen"
             android:exported="false" />
         <activity
             android:name=".NewAccForPat"
