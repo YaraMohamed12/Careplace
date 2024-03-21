@@ -3,7 +3,6 @@ package com.example.careplace
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 
@@ -35,7 +34,7 @@ lateinit var mAuth: FirebaseAuth
         super.onStart()
     if(mAuth.currentUser != null)
     {
-        val myintent = Intent(this ,ListingDoctor::class.java)
+        val myintent = Intent(this ,Patient_Home_Screen::class.java)
         startActivity(myintent)
     }
     }

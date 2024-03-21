@@ -87,7 +87,7 @@ class LogInScreen : AppCompatActivity() {
         val user = myAuthn.currentUser
         if (user!!.isEmailVerified)
         {
-            val myintent = Intent(this, ListingDoctor::class.java)
+            val myintent = Intent(this, Patient_Home_Screen::class.java)
             startActivity(myintent)
         }
         else
