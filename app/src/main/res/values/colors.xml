@@ -4,7 +4,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="mint">#0097A7</color>
     <color name="pink">#FAE1F6</color>
-    <color name="darkblue">#1A224E</color>
+    <color name="purple">#CDB6FA</color>
+    <color name="darkblue">#000000</color>
     <color name="blue">#3F59E8</color>
 </resources>
 

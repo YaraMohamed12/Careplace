@@ -26,6 +26,8 @@ class ForgetPasswordScreen : AppCompatActivity() {
         GotoLOgIN()
         GotoCreatAcc()
         rest_btn.setOnClickListener {
+            val myintent2 = Intent(this , reset_password::class.java)
+            startActivity(myintent2)
             Resetpass()
         }
 
