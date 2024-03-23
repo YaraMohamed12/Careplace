@@ -8,6 +8,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 
 class Patient_Home_Screen : AppCompatActivity() {
  lateinit var toolbar: Toolbar
@@ -16,8 +18,8 @@ class Patient_Home_Screen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.patient_home_screen)
+
          toolbar = findViewById(R.id.mytoolbar)
-        user_image = findViewById(R.id.select_image)
         toolbar.inflateMenu(R.menu.main_menu)
         toolbar.setOnMenuItemClickListener { menuItem ->
             if(menuItem.itemId == R.id.Log_out)
@@ -29,6 +31,7 @@ class Patient_Home_Screen : AppCompatActivity() {
             true
         }
 
+        user_image = findViewById(R.id.select_image)
         user_image.setOnClickListener {
             val myintent3 = Intent(Intent.ACTION_PICK)
             myintent3.type = "image/*"
@@ -39,6 +42,7 @@ class Patient_Home_Screen : AppCompatActivity() {
                 e.printStackTrace()
             }
         }
+
     }
 
     @Deprecated("Deprecated in Java")
@@ -49,4 +53,6 @@ class Patient_Home_Screen : AppCompatActivity() {
         }
     }
 }
+
+
 
