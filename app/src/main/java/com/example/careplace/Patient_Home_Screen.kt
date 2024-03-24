@@ -4,55 +4,75 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
-import androidx.activity.result.contract.ActivityResultContracts
+import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+
 
 class Patient_Home_Screen : AppCompatActivity() {
- lateinit var toolbar: Toolbar
- lateinit var user_image : ImageView
+    private lateinit var toolbar: Toolbar
+    private lateinit var user_image: ImageView
+    private lateinit var patname: TextView
+    private lateinit var database: FirebaseDatabase
+    private lateinit var mref: DatabaseReference
+    private lateinit var myathun: FirebaseAuth
+    private var Appuser: FirebaseUser? = null
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.patient_home_screen)
-
-         toolbar = findViewById(R.id.mytoolbar)
-        toolbar.inflateMenu(R.menu.main_menu)
-        toolbar.setOnMenuItemClickListener { menuItem ->
-            if(menuItem.itemId == R.id.Log_out)
-            {
-                FirebaseAuth.getInstance().signOut()
-                val myIntent = Intent(this,LogInScreen::class.java)
-                startActivity(myIntent)
-            }
-            true
-        }
-
+        ImportUserData()
+        toolbar = findViewById(R.id.mytoolbar)
         user_image = findViewById(R.id.select_image)
-        user_image.setOnClickListener {
-            val myintent3 = Intent(Intent.ACTION_PICK)
-            myintent3.type = "image/*"
-            try {
-                startActivityForResult(myintent3, 5)
-            } catch (e: Exception) {
-                // Handle exception, if any
-                e.printStackTrace()
-            }
-        }
+        patname = findViewById(R.id.textView13)
+        toolbar.inflateMenu(R.menu.main_menu)
+        menuInflate()
+        val myreadata = ReadData()
+        mref.addValueEventListener(myreadata)
 
     }
 
-    @Deprecated("Deprecated in Java")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == 5 && resultCode == RESULT_OK) {
-            // Handle selected image here
+    private fun menuInflate() {
+        toolbar.setOnMenuItemClickListener { menuItem ->
+            if (menuItem.itemId == R.id.Log_out) {
+                FirebaseAuth.getInstance().signOut()
+                val myIntent = Intent(this@Patient_Home_Screen, LogInScreen::class.java)
+                startActivity(myIntent)
+                true
+            } else {
+                false
+            }
+        }
+    }
+
+    private fun ImportUserData() {
+        database = FirebaseDatabase.getInstance()
+        myathun = FirebaseAuth.getInstance()
+        Appuser = myathun.currentUser
+        if (Appuser != null)  {
+            mref = database.getReference("Users/${myathun.currentUser!!.uid}/fullname")
+
+
+        }
+    }
+
+    inner class ReadData : ValueEventListener {
+        // export userdata from database
+        override fun onDataChange(snapshot: DataSnapshot) {
+            val username = snapshot.getValue(String::class.java)
+            patname.text = username
+        }
+
+        override fun onCancelled(error: DatabaseError) {
+            // Handle onCancelled
         }
     }
 }
-
-
-

@@ -6,7 +6,7 @@ the patient and the doctor, You will be able to choose the Suitable Doctor for Y
     <string name="topic2">You will be able to choose the appropriate Doctor
         based on Standrads and Feedbacks
 that will indicate the quality of medical care
-</string>
+            </string>
     <string name="topic3">You can make appoiment for the examintion for Doctor </string>
     <string name="topic4">The patient will record a list of the drugs that
 are treated for the disease, including all the medical data (time, number of times a day,
@@ -54,7 +54,7 @@ number of doses of the prescribed treatment).</string>
     <string name="back_to_login">Back to login</string>
     <string name="medicine">Medicine</string>
     <string name="info_form">Information Form</string>
-    <string name="hello">Hello,</string>
+    <string name="hello">Hello , </string>
     <string name="welcome_text">Welcome to Care Place How is your health today ?</string>
     <string name="mma">Medical Manager App</string>
     <string name="reset_pass">Reset Password</string>

@@ -7,6 +7,9 @@ plugins {
 android {
     namespace = "com.example.careplace"
     compileSdk = 34
+    buildFeatures {
+        viewBinding = true
+    }
 
     defaultConfig {
         applicationId = "com.example.careplace"
@@ -52,6 +55,7 @@ dependencies {
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-storage-common:17.0.0")
     implementation("com.google.firebase:firebase-core:21.1.1")
+    implementation("com.google.firebase:firebase-database")
 
 
 }
