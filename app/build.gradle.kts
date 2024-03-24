@@ -61,7 +61,7 @@ dependencies {
 }
 
 dependencies {
-    // Import the BoM for the Firebase platform
+    implementation(libs.firebase.database.ktx)// Import the BoM for the Firebase platform
     implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
 
     // Add the dependency for the Cloud Storage library

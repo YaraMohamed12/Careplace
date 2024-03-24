@@ -61,4 +61,5 @@ number of doses of the prescribed treatment).</string>
     <string name="new_pass">New Password</string>
     <string name="confirm_new_password">Confirm New Password</string>
     <string name="create_new_password">Create New Password</string>
+    <string name="current_pass">Current Password</string>
 </resources>
