@@ -57,6 +57,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fullname"
             android:hint="@string/enter_name"
+            android:textColorHint="@color/blue"
             android:id="@+id/edit_name"
             >
             <com.google.android.material.textfield.TextInputEditText
@@ -131,6 +132,7 @@
             app:layout_constraintTop_toBottomOf="@id/phone"
             android:hint="@string/enter_pass"
             app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/black"
             android:id="@+id/edit_phone"
             >
             <com.google.android.material.textfield.TextInputEditText
@@ -249,7 +251,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                android:id="@+id/editxtAdderss"
+                android:id="@+id/editxtphone"
                 >
 
             </com.google.android.material.textfield.TextInputEditText>
