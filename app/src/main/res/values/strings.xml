@@ -62,4 +62,15 @@ number of doses of the prescribed treatment).</string>
     <string name="confirm_new_password">Confirm New Password</string>
     <string name="create_new_password">Create New Password</string>
     <string name="current_pass">Current Password</string>
+    <string name="spec1">Cardiologist</string>
+    <string name="spec2">Pulmonologist</string>
+    <string name="spec3">orthopaedic</string>
+    <string name="top_doc">Top Doctors</string>
+    <string name="spec4">Ophthalmologist</string>
+    <string name="spec5">Dentist</string>
+    <string name="spec6">Audiologist</string>
+    <string name="spec7">ENT Specialists</string>
+    <string name="spec8">Gynecologist</string>
+    <string name="spec9">Radiologist</string>
+    <string name="spec10">Pediatrician</string>
 </resources>
