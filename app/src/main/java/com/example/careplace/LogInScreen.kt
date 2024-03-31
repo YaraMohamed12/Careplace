@@ -53,7 +53,9 @@ class LogInScreen : AppCompatActivity() {
             if(myemail.isNotEmpty() && mypasswoed.isNotEmpty()) {
                 myAuthn.signInWithEmailAndPassword(myemail, mypasswoed).addOnCompleteListener {
                     if (it.isSuccessful) {
-                      EmailVerify()
+                        val myintent = Intent(this, Patient_Home_Screen::class.java)
+                        startActivity(myintent)
+                        finish()
                     } else {
                         Toast.makeText(this, "Invalid Email or Password", Toast.LENGTH_SHORT).show()
                     }
@@ -83,19 +85,20 @@ class LogInScreen : AppCompatActivity() {
             startActivity(myintent4)
         }
     }
-    fun EmailVerify() {
-        val user = myAuthn.currentUser
-        if (user!!.isEmailVerified)
-        {
-            val myintent = Intent(this, Patient_Home_Screen::class.java)
-            startActivity(myintent)
-        }
-        else
-        {
-            Toast.makeText(this, "PLEASE VERIFY YOUR EMAIL ACCOUNT", Toast.LENGTH_SHORT).show()
-        }
-
-    }
+//    fun EmailVerify() {
+//        val user = myAuthn.currentUser
+//        if (user!!.isEmailVerified)
+//        {
+//        val myintent = Intent(this, Patient_Home_Screen::class.java)
+//                        startActivity(myintent)
+//                        finish()
+//        }
+//        else
+//        {
+//            Toast.makeText(this, "PLEASE VERIFY YOUR EMAIL ACCOUNT", Toast.LENGTH_SHORT).show()
+//        }
+//
+//    }
 
 
     }

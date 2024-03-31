@@ -10,6 +10,7 @@ import com.example.careplace.databinding.ActivityNewAccForPatBinding
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
 class NewAccForPat : AppCompatActivity() {
@@ -21,6 +22,7 @@ class NewAccForPat : AppCompatActivity() {
     private lateinit var binding: ActivityNewAccForPatBinding
     private lateinit var database: FirebaseDatabase
     private lateinit var myAuthn1: FirebaseAuth
+    private lateinit var mRef : DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,31 +41,17 @@ class NewAccForPat : AppCompatActivity() {
                 myAuthn1.createUserWithEmailAndPassword(mail, password)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
-                       
-                            val user: FirebaseUser? = myAuthn1.currentUser
-                            user?.let {
-                                val uid = it.uid
-                                val myRef = database.getReference("Users").child(uid) 
-                               
+                                val userEmail = mail
                                 val fullname = binding.editxtname.text.toString()
                                 val phone = binding.editxtphone.text.toString()
-                                val userEmail = mail
-                                val userPassword = password
                                 val BDT = binding.editxtBDT.text.toString()
                                 val ID = binding.editxtID.text.toString()
                                 val gender = binding.editxtGender.text.toString()
                                 val age = binding.editxtAge.text.toString()
                                 val height = binding.editxtHeight.text.toString()
                                 val weight = binding.editxtWeight.text.toString()
-                                val userData = User(fullname, userEmail, phone, ID, height, weight, BDT, age, gender, userPassword)
+                               AddusertoDatabase(fullname,userEmail,myAuthn1.currentUser?.uid!!,phone,ID,height,weight,BDT,age,gender )
 
-                                myRef.setValue(userData).addOnSuccessListener {
-                                    Toast.makeText(this, "Registration Successful", Toast.LENGTH_SHORT).show()
-                                    SendMailVerification()
-                                }.addOnFailureListener {
-                                    Toast.makeText(this, "Registration Failed: ${it.message}", Toast.LENGTH_SHORT).show()
-                                }
-                            }
                         } else {
                             Toast.makeText(this, "Registration Failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                         }
@@ -101,4 +89,24 @@ class NewAccForPat : AppCompatActivity() {
             }
         }
     }
+
+    fun AddusertoDatabase(name: String, email: String, uid: String ,
+                          Phone :String, nationid : String , lenght : String ,
+                          wieght : String, Bdate : String, Age : String, Gender : String )
+    {
+
+        mRef = FirebaseDatabase.getInstance().getReference()
+        mRef.child("user").child(uid)
+            .setValue(Users(name, email, uid, Phone, nationid, lenght, wieght, Bdate, Age, Gender)).addOnSuccessListener {
+                Toast.makeText(this, "Registration Successful", Toast.LENGTH_SHORT).show()
+                SendMailVerification()
+                finish()
+            }.addOnFailureListener {
+                Toast.makeText(this, "Registration Failed: ${it.message}", Toast.LENGTH_SHORT).show()
+            }
+
+
+    }
+
+
 }

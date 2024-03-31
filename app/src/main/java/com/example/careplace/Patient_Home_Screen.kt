@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -24,19 +25,25 @@ class Patient_Home_Screen : AppCompatActivity() {
     private lateinit var mref: DatabaseReference
     private lateinit var myathun: FirebaseAuth
     private var Appuser: FirebaseUser? = null
+    lateinit var Goto_chat : ImageView
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.patient_home_screen)
         ImportUserData()
-        toolbar = findViewById(R.id.mytoolbar)
         user_image = findViewById(R.id.select_image)
         patname = findViewById(R.id.textView13)
+        Goto_chat = findViewById(R.id.goto_chat)
+        toolbar = findViewById(R.id.mytoolbar)
         toolbar.inflateMenu(R.menu.main_menu)
         menuInflate()
         val myreadata = ReadData()
         mref.addValueEventListener(myreadata)
+        Goto_chat.setOnClickListener {
+            val intent = Intent(this,ContactActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 
@@ -58,7 +65,7 @@ class Patient_Home_Screen : AppCompatActivity() {
         myathun = FirebaseAuth.getInstance()
         Appuser = myathun.currentUser
         if (Appuser != null)  {
-            mref = database.getReference("Users/${myathun.currentUser!!.uid}/fullname")
+            mref = database.getReference("user/${myathun.currentUser!!.uid}/name")
 
 
         }

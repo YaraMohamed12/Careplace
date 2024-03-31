@@ -67,7 +67,7 @@
                 app:srcCompat="@drawable/home" />
 
             <ImageView
-                android:id="@+id/imageView11"
+                android:id="@+id/goto_chat"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -83,7 +83,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imageView11"
+                app:layout_constraintEnd_toStartOf="@+id/goto_chat"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/imageView10"
                 app:layout_constraintTop_toTopOf="parent"
@@ -232,7 +232,7 @@
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:layout_marginBottom="144dp"
-        android:text=" "
+        android:text="@string/hello"
         android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold"
