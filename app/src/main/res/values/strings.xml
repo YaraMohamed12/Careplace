@@ -73,4 +73,7 @@ number of doses of the prescribed treatment).</string>
     <string name="spec8">Gynecologist</string>
     <string name="spec9">Radiologist</string>
     <string name="spec10">Pediatrician</string>
+    <string name="type_mess">type the message ...</string>
+    <string name="view_profile">View profile</string>
+    <string name="received_messa">This is Received message</string>
 </resources>
