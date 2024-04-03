@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    >
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/crd_pic1"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
+                android:layout_margin="15dp"
+                android:layout_marginStart="16dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/doctor"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.007"
+                app:shapeAppearanceOverlay="@style/RoundedCorner" />
+
+            <TextView
+                android:id="@+id/crd_name1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="28dp"
+                android:text="@string/name"
+                app:layout_constraintStart_toEndOf="@+id/crd_pic1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/crd_spec1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/specialization"
+                app:layout_constraintStart_toEndOf="@+id/crd_pic1"
+                app:layout_constraintTop_toBottomOf="@+id/crd_name1" />
+
+            <Button
+                android:id="@+id/view_prof_btn1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="656dp"
+                android:backgroundTint="@color/purple"
+                android:text="@string/view_profile"
+                android:textColor="@color/black"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <RatingBar
+                android:id="@+id/ratingBar_incard1"
+                android:layout_width="240dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginBottom="736dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/crd_pic1" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_prof_btn1"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,7 @@ package com.example.careplace
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -26,6 +27,7 @@ class Patient_Home_Screen : AppCompatActivity() {
     private lateinit var myathun: FirebaseAuth
     private var Appuser: FirebaseUser? = null
     lateinit var Goto_chat : ImageView
+    lateinit var select_doc : FrameLayout
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +37,7 @@ class Patient_Home_Screen : AppCompatActivity() {
         user_image = findViewById(R.id.select_image)
         patname = findViewById(R.id.textView13)
         Goto_chat = findViewById(R.id.goto_chat)
+        select_doc = findViewById(R.id.choose_doctor)
         toolbar = findViewById(R.id.mytoolbar)
         toolbar.inflateMenu(R.menu.main_menu)
         menuInflate()
@@ -43,6 +46,11 @@ class Patient_Home_Screen : AppCompatActivity() {
         Goto_chat.setOnClickListener {
             val intent = Intent(this,ContactActivity::class.java)
             startActivity(intent)
+        }
+
+        select_doc.setOnClickListener {
+            val my_intent = Intent(this,Choose_your_doc::class.java)
+            startActivity(my_intent)
         }
 
     }
