@@ -146,7 +146,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                android:id="@+id/editxtphone2"
+                android:id="@+id/editxtpassword2"
                 >
 
             </com.google.android.material.textfield.TextInputEditText>
@@ -254,7 +254,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                android:id="@+id/editxtAdderss2"
+                android:id="@+id/editxtphone2"
                 >
 
             </com.google.android.material.textfield.TextInputEditText>
