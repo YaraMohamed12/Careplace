@@ -24,7 +24,7 @@ class DocOrPat : AppCompatActivity() {
         }
         doctor_btn.setOnClickListener {
 
-            val myintent2 = Intent(this,LogandSign::class.java)
+            val myintent2 = Intent(this,NewAccForDoc::class.java)
             startActivity(myintent2)
 
         }

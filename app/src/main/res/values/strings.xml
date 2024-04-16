@@ -42,7 +42,7 @@ number of doses of the prescribed treatment).</string>
     <string name="name">Full Name</string>
     <string name="enter_id">Enter Your National ID</string>
     <string name="specialization">Specialization</string>
-    <string name="enter_spec">Enter Your Specialization</string>
+    <string name="enter_spec">Select Your Specialization</string>
     <string name="skip">Skip</string>
     <string name="enter_name">Enter Your Full Name</string>
     <string name="pass">Password</string>
@@ -74,6 +74,6 @@ number of doses of the prescribed treatment).</string>
     <string name="spec9">Radiologist</string>
     <string name="spec10">Pediatrician</string>
     <string name="type_mess">type the message ...</string>
-    <string name="view_profile">View profile</string>
+    <string name="view_profile">Profile</string>
     <string name="received_messa">This is Received message</string>
 </resources>

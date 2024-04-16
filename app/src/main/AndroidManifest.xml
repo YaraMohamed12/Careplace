@@ -27,9 +27,7 @@
         <activity
             android:name=".Reset_Password"
             android:exported="false" />
-        <activity
-            android:name=".testActivity"
-            android:exported="false" />
+
         <activity
             android:name=".ForgetPasswordScreen"
             android:exported="false" />

@@ -14,7 +14,7 @@
         >
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/backbtndoc"
             android:layout_width="37dp"
             android:layout_height="40dp"
             android:layout_marginTop="20dp"
@@ -31,7 +31,7 @@
             android:layout_marginTop="16dp"
             android:text="@string/new_acc"
             android:textColor="@color/black"
-            android:textColorLink="#2D4BA5"
+            android:textColorLink="@color/black"
             android:textSize="34sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -317,8 +317,9 @@
             app:layout_constraintTop_toBottomOf="@id/Specialization"
             android:hint="@string/enter_spec"
             android:id="@+id/edit_Specialization"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             >
-            <com.google.android.material.textfield.TextInputEditText
+            <AutoCompleteTextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="text"
@@ -330,7 +331,7 @@
                 android:id="@+id/editxtSpecialization"
                 >
 
-            </com.google.android.material.textfield.TextInputEditText>
+            </AutoCompleteTextView>
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView

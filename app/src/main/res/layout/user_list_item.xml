@@ -3,16 +3,29 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
+
     >
+
+    <ImageView
+        android:layout_width="52dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/doctor"
+        android:scaleType="centerInside"
+        >
+
+    </ImageView>
+
     <TextView
         android:id="@+id/name_txt1"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="adham"
+        android:text="Contact Name"
+        android:textColor="@color/black"
         android:layout_marginTop="10dp"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="60dp"
         />
 
 
