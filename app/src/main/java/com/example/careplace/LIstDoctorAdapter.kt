@@ -9,17 +9,19 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class LIstDoctorAdapter(private val originalDoctorsList: ArrayList<Users>) :
+class LIstDoctorAdapter(private val originalDoctorsList: ArrayList<DUsers>) :
     RecyclerView.Adapter<LIstDoctorAdapter.DoctorsViewHolder>(), Filterable {
 
-    private var filteredDoctorsList: ArrayList<Users> = originalDoctorsList
+    private var filteredDoctorsList: ArrayList<DUsers> = originalDoctorsList
 
     inner class DoctorsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val docNameTextView: TextView = itemView.findViewById(R.id.crd_name1)
+        private val docspecTextView: TextView = itemView.findViewById(R.id.crd_spec1)
 
 
-        fun bind(user: Users) {
-            docNameTextView.text = user.Name
+        fun bind(user: DUsers) {
+            docNameTextView.text = user.DName
+            docspecTextView.text = user.Specialization
 
         }
     }
@@ -42,7 +44,7 @@ class LIstDoctorAdapter(private val originalDoctorsList: ArrayList<Users>) :
     override fun getFilter(): Filter {
         return object : Filter() {
             override fun performFiltering(constraint: CharSequence?): FilterResults {
-                val filteredResults = ArrayList<Users>()
+                val filteredResults = ArrayList<DUsers>()
 
                 constraint?.let { query ->
                     if (query.isEmpty()) {
@@ -50,7 +52,7 @@ class LIstDoctorAdapter(private val originalDoctorsList: ArrayList<Users>) :
                     } else {
                         val searchQuery = query.toString().toLowerCase().trim()
                         for (user in originalDoctorsList) {
-                            if (user.Name!!.toLowerCase().contains(searchQuery)) {
+                            if (user.DName!!.toLowerCase().contains(searchQuery)) {
                                 filteredResults.add(user)
                             }
                         }
@@ -63,7 +65,7 @@ class LIstDoctorAdapter(private val originalDoctorsList: ArrayList<Users>) :
             }
 
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-                filteredDoctorsList = results?.values as ArrayList<Users>
+                filteredDoctorsList = results?.values as ArrayList<DUsers>
                 notifyDataSetChanged()
             }
         }

@@ -19,7 +19,7 @@ import com.google.android.material.search.SearchBar
 class Doctors_List : AppCompatActivity() {
 
     private lateinit var DoctorRecyclerView: RecyclerView
-    private lateinit var Doctorlist: ArrayList<Users>
+    private lateinit var Doctorlist: ArrayList<DUsers>
     private lateinit var adapter: LIstDoctorAdapter
     private lateinit var mAuth: FirebaseAuth
     private lateinit var mRef: DatabaseReference
@@ -28,7 +28,8 @@ class Doctors_List : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_doctors_list)
         mAuth = FirebaseAuth.getInstance()
-        mRef = FirebaseDatabase.getInstance().getReference("user")
+        val specf = intent.getStringExtra("Spec")
+        mRef = FirebaseDatabase.getInstance().getReference("/${specf.toString()}/Duser")
         Doctorlist = ArrayList()
         adapter = LIstDoctorAdapter(Doctorlist)
         DoctorRecyclerView = findViewById(R.id.doc_list_recycle_view)
@@ -62,8 +63,8 @@ class Doctors_List : AppCompatActivity() {
                 Doctorlist.clear()
                 for (postSnapshot in dataSnapshot.children) {
 
-                    val currentUser = postSnapshot.getValue(Users::class.java)
-                   if(mAuth.currentUser?.uid != currentUser?.UID)
+                    val currentUser = postSnapshot.getValue(DUsers::class.java)
+
                         currentUser?.let { Doctorlist.add(it) }
                 }
                 adapter.notifyDataSetChanged()

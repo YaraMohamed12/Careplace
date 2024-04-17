@@ -72,7 +72,7 @@ class NewAccForDoc : AppCompatActivity() {
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             val userEmail = mail
-                            val fullname = binding.fullname2.text.toString()
+                            val fullname = binding.editxtname2.text.toString()
                             val phone = binding.editxtphone2.text.toString()
                             val BDT = binding.editxtBDT2.text.toString()
                             val ID = binding.editxtID2.text.toString()
@@ -119,7 +119,7 @@ class NewAccForDoc : AppCompatActivity() {
     {
 
         DmRef = FirebaseDatabase.getInstance().getReference()
-        DmRef.child("DUser").child(Spec).child(uid)
+        DmRef.child(Spec).child("Duser").child(uid)
             .setValue(DUsers(name, email, uid, Phone, nationid, Bdate, Age, Gender,Spec)).addOnSuccessListener {
                 Toast.makeText(this, "Registration Successful", Toast.LENGTH_SHORT).show()
                 SendMailVerification()
