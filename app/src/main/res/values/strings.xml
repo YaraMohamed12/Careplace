@@ -49,7 +49,7 @@ number of doses of the prescribed treatment).</string>
     <string name="trouble_in_logging_in">Trouble in logging in ?</string>
     <string name="email_or_phone">Enter your email, phone, or username and we\'ll send you a link to get back into your account</string>
     <string name="enter_your_email_or_phone_number">Enter your Email or Phone number</string>
-    <string name="or">---------------------------------Or---------------------------------</string>
+    <string name="or">------------------------------Or------------------------------</string>
     <string name="create_new_account">Create New account</string>
     <string name="back_to_login">Back to login</string>
     <string name="medicine">Medicine</string>
@@ -76,4 +76,8 @@ number of doses of the prescribed treatment).</string>
     <string name="type_mess">type the message ...</string>
     <string name="view_profile">Profile</string>
     <string name="received_messa">This is Received message</string>
+    <string name="schedule">schedule</string>
+    <string name="info">Info</string>
+    <string name="reviews">Reviews</string>
+    <string name="up_coming_schedules">Up Coming Schedules</string>
 </resources>

@@ -5,13 +5,13 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 
-class LogandSign : AppCompatActivity() {
+class LogandSignForPatient : AppCompatActivity() {
     lateinit var login_bt : Button
     lateinit var signup_bt : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_logand_sign)
+        setContentView(R.layout.activity_logand_sign_for_patient)
             login_bt = findViewById(R.id.login_btn)
             signup_bt = findViewById(R.id.signup_btn)
 

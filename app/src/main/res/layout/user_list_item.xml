@@ -9,7 +9,8 @@
     <ImageView
         android:layout_width="52dp"
         android:layout_height="58dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
         android:src="@drawable/doctor"
         android:scaleType="centerInside"
         >
@@ -22,11 +23,26 @@
         android:layout_height="wrap_content"
         android:text="Contact Name"
         android:textColor="@color/black"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="100dp"
         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Specialization"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginBottom="20dp"
+        >
+
+    </TextView>
+
 
 
 </androidx.cardview.widget.CardView>

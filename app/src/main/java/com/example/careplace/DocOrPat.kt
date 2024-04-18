@@ -3,10 +3,7 @@ package com.example.careplace
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class DocOrPat : AppCompatActivity() {
     lateinit var pateint_btn : Button
@@ -18,13 +15,13 @@ class DocOrPat : AppCompatActivity() {
         doctor_btn = findViewById(R.id.Doctor_btn)
         pateint_btn.setOnClickListener {
 
-            val myintent = Intent(this , LogandSign ::class.java)
+            val myintent = Intent(this , LogandSignForPatient ::class.java)
             startActivity(myintent)
 
         }
         doctor_btn.setOnClickListener {
 
-            val myintent2 = Intent(this,NewAccForDoc::class.java)
+            val myintent2 = Intent(this,LogandSignForDoctor::class.java)
             startActivity(myintent2)
 
         }
