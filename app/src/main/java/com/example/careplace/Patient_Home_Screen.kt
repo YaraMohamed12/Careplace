@@ -28,6 +28,7 @@ class Patient_Home_Screen : AppCompatActivity() {
     private var Appuser: FirebaseUser? = null
     lateinit var Goto_chat : ImageView
     lateinit var select_doc : FrameLayout
+    lateinit var select_Mdeicine : FrameLayout
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,6 +39,7 @@ class Patient_Home_Screen : AppCompatActivity() {
         patname = findViewById(R.id.textView13)
         Goto_chat = findViewById(R.id.goto_chat)
         select_doc = findViewById(R.id.choose_doctor)
+        select_Mdeicine = findViewById(R.id.choose_medicine)
         toolbar = findViewById(R.id.mytoolbar)
         toolbar.inflateMenu(R.menu.main_menu)
         menuInflate()
@@ -50,6 +52,10 @@ class Patient_Home_Screen : AppCompatActivity() {
 
         select_doc.setOnClickListener {
             val my_intent = Intent(this,Choose_your_doc::class.java)
+            startActivity(my_intent)
+        }
+        select_Mdeicine.setOnClickListener {
+            val my_intent = Intent(this,Medicine_List::class.java)
             startActivity(my_intent)
         }
 

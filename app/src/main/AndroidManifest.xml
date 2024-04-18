@@ -13,6 +13,9 @@
         android:theme="@style/Theme.CarePlace"
         tools:targetApi="31">
         <activity
+            android:name=".Medicine_List"
+            android:exported="false" />
+        <activity
             android:name=".Doctors_List"
             android:exported="false" />
         <activity
@@ -27,7 +30,6 @@
         <activity
             android:name=".Reset_Password"
             android:exported="false" />
-
         <activity
             android:name=".ForgetPasswordScreen"
             android:exported="false" />
