@@ -74,7 +74,7 @@ class LogInScreen : AppCompatActivity() {
     fun back()
     {
         back_icon.setOnClickListener {
-            val myintent3 = Intent(this , LogandSign::class.java)
+            val myintent3 = Intent(this , LogandSignForPatient::class.java)
             startActivity(myintent3)
         }
     }

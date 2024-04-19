@@ -15,16 +15,21 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/linearlayout"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="136dp"
+        android:layout_marginBottom="19dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         />
+
     <LinearLayout
         android:id="@+id/linearlayout"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:weightSum="100"
-        android:layout_marginBottom="5dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
-
+        android:background="@color/pink"
         >
         <EditText
             android:id="@+id/messagebox"
@@ -35,7 +40,9 @@
             android:backgroundTint="@color/white"
             android:background="@drawable/message_bg"
             android:hint="@string/type_mess"
-            android:layout_marginStart="16dp" />
+            android:layout_marginStart="16dp"
+            android:layout_gravity="center"
+            android:inputType="textLongMessage" />
         <ImageView
             android:id="@+id/sending_png"
             android:layout_width="30dp"
@@ -43,10 +50,49 @@
             android:layout_gravity="center"
             android:src="@drawable/sending"
             android:layout_weight="10"
-            android:scaleType="centerInside">
+            android:scaleType="centerInside"
+            >
 
         </ImageView>
 
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/homescreen_btn"
+        android:layout_marginTop="10dp"
+        >
+
+        <ImageButton
+            android:id="@+id/back_btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="15dp"
+            android:background="@drawable/left_arrow"
+            android:contentDescription="@string/back"
+            tools:ignore="TouchTargetSizeCheck">
+
+        </ImageButton>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chat"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:layout_marginStart="100dp"
+            >
+
+
+        </TextView>
 
     </LinearLayout>
 </RelativeLayout>

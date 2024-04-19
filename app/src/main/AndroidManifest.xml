@@ -13,6 +13,18 @@
         android:theme="@style/Theme.CarePlace"
         tools:targetApi="31">
         <activity
+            android:name=".DoctorProfileRiviews"
+            android:exported="false" />
+        <activity
+            android:name=".DoctorProfileInfo"
+            android:exported="false" />
+        <activity
+            android:name=".DoctorProfileSchedule"
+            android:exported="false" />
+        <activity
+            android:name=".LogandSignForDoctor"
+            android:exported="false" />
+        <activity
             android:name=".Medicine_List"
             android:exported="false" />
         <activity
@@ -46,7 +58,7 @@
             android:name=".LogInScreen"
             android:exported="false" />
         <activity
-            android:name=".LogandSign"
+            android:name=".LogandSignForPatient"
             android:exported="false" />
         <activity
             android:name=".DocOrPat"

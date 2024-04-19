@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.careplace.databinding.ActivityNewAccForPatBinding
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
@@ -73,7 +72,7 @@ class NewAccForPat : AppCompatActivity() {
 
     private fun backbutton() {
         back_btn.setOnClickListener {
-            val myIntent3 = Intent(this, LogandSign::class.java)
+            val myIntent3 = Intent(this, LogandSignForPatient::class.java)
             startActivity(myIntent3)
         }
     }

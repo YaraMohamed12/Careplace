@@ -65,7 +65,7 @@ class Patient_Home_Screen : AppCompatActivity() {
         toolbar.setOnMenuItemClickListener { menuItem ->
             if (menuItem.itemId == R.id.Log_out) {
                 FirebaseAuth.getInstance().signOut()
-                val myIntent = Intent(this@Patient_Home_Screen, LogInScreen::class.java)
+                val myIntent = Intent(this@Patient_Home_Screen, DocOrPat::class.java)
                 startActivity(myIntent)
                 true
             } else {
