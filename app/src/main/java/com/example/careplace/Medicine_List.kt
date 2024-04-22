@@ -17,6 +17,8 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
+
+
 class Medicine_List : AppCompatActivity() {
     private lateinit var mRef: DatabaseReference
     private lateinit var mAuth: FirebaseAuth
