@@ -5,6 +5,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
+    android:backgroundTint="@color/white"
 
     >
 
@@ -32,7 +33,7 @@
          />
 
             <TextView
-                android:id="@+id/crd_spec1"
+                android:id="@+id/DocSpeclia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/specialization"

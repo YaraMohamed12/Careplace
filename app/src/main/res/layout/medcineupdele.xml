@@ -123,16 +123,30 @@
 
     <Button
 
-        android:id="@+id/btnadd"
-        android:layout_width="162dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="24dp"
-        android:text="Add"
+        android:id="@+id/btnupdate"
+        android:layout_width="112dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="#4CAF50"
+        android:text="update"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintHorizontal_bias="0.104"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ulpoadimg2" />
+
+    <Button
+        android:id="@+id/btndelete"
+        android:layout_width="112dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="28dp"
+        android:text="Delete"
+        android:textSize="18dp"
+        android:backgroundTint="#F44336"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.809"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ulpoadimg2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

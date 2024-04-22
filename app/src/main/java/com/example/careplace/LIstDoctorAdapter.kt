@@ -1,13 +1,16 @@
 package com.example.careplace
 
 
-import android.widget.Filter
-import android.widget.Filterable
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+
 
 class LIstDoctorAdapter(private val originalDoctorsList: ArrayList<DUsers>) :
     RecyclerView.Adapter<LIstDoctorAdapter.DoctorsViewHolder>(), Filterable {
@@ -16,13 +19,25 @@ class LIstDoctorAdapter(private val originalDoctorsList: ArrayList<DUsers>) :
 
     inner class DoctorsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val docNameTextView: TextView = itemView.findViewById(R.id.crd_name1)
-        private val docspecTextView: TextView = itemView.findViewById(R.id.crd_spec1)
+        private val docspecTextView: TextView = itemView.findViewById(R.id.DocSpeclia)
+        private val docprofilebtn: TextView = itemView.findViewById(R.id.view_prof_btn1)
 
+        init {
+            // Set click listener in the ViewHolder constructor
+            docprofilebtn.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    val context: Context = itemView.context
+                    // Navigate to DoctorProfileSchedule activity
+                    val intent = Intent(context, DoctorProfileSchedule::class.java)
+                    context.startActivity(intent)
+                }
+            }
+        }
 
         fun bind(user: DUsers) {
             docNameTextView.text = user.DName
             docspecTextView.text = user.Specialization
-
         }
     }
 
@@ -52,7 +67,7 @@ class LIstDoctorAdapter(private val originalDoctorsList: ArrayList<DUsers>) :
                     } else {
                         val searchQuery = query.toString().toLowerCase().trim()
                         for (user in originalDoctorsList) {
-                            if (user.DName!!.toLowerCase().contains(searchQuery)) {
+                            if (user.DName?.toLowerCase()?.contains(searchQuery) == true) {
                                 filteredResults.add(user)
                             }
                         }
@@ -71,4 +86,5 @@ class LIstDoctorAdapter(private val originalDoctorsList: ArrayList<DUsers>) :
         }
     }
 }
+
 

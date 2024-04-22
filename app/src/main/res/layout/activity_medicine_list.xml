@@ -63,14 +63,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@android:drawable/ic_input_add" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="410dp"
-        android:layout_height="499dp"
+    <ListView
+        android:id="@+id/medcinelistview"
+        android:layout_width="409dp"
+        android:layout_height="666dp"
         tools:listitem="@layout/medicine_card"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/choose_medicine" />
+        app:layout_constraintTop_toBottomOf="@+id/choose_medicine"
+         />
 
     <FrameLayout
         android:id="@+id/frameLayout"
