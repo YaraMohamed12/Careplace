@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="@color/white"
-    android:layout_height="wrap_content">
+    android:layout_height="620dp">
 
     <EditText
         android:id="@+id/doz_name_dialog2"
@@ -18,6 +18,7 @@
         android:backgroundTint="@color/purple"
         android:hint="Enter..."
         android:gravity="center"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -77,6 +78,7 @@
         android:backgroundTint="@color/purple"
         android:hint="Enter the Number of doz"
         android:gravity="center"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/nodoz"/>
 
@@ -106,6 +108,7 @@
         android:background="@drawable/message_bg"
         android:backgroundTint="@color/purple"
         android:hint="00:00"
+        android:textColor="@color/black"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/timedoz" />
@@ -129,7 +132,7 @@
         android:layout_marginTop="28dp"
         android:backgroundTint="#4CAF50"
         android:text="update"
-        android:textSize="18dp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.104"
         app:layout_constraintStart_toStartOf="parent"
@@ -141,7 +144,7 @@
         android:layout_height="57dp"
         android:layout_marginTop="28dp"
         android:text="Delete"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:backgroundTint="#F44336"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.809"

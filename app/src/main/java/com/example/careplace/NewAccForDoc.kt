@@ -10,7 +10,6 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.careplace.databinding.ActivityNewAccForDocBinding
-import com.example.careplace.databinding.ActivityNewAccForPatBinding
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -105,7 +104,7 @@ class NewAccForDoc : AppCompatActivity() {
         val user = DmyAuthn1.currentUser
         user?.sendEmailVerification()?.addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                val myintent = Intent(this, LogInScreen::class.java)
+                val myintent = Intent(this, LogInScreenForPatient::class.java)
                 startActivity(myintent)
             } else {
                 Toast.makeText(this, "Verification Mail Is Not Sent: ${task.exception?.message}", Toast.LENGTH_SHORT).show()

@@ -80,4 +80,10 @@ number of doses of the prescribed treatment).</string>
     <string name="info">Info</string>
     <string name="reviews">Reviews</string>
     <string name="up_coming_schedules">Up Coming Schedules</string>
+    <string name="medication">Medication</string>
+    <string name="hello_dr">Hello, DR/</string>
+    <string name="welcome_to_care_place">Welcome to Care Place</string>
+    <string name="profile_information">Profile Information</string>
+    <string name="my_patient">My Patient</string>
+
 </resources>
