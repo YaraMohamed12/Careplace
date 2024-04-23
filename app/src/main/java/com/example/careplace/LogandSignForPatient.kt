@@ -17,7 +17,7 @@ class LogandSignForPatient : AppCompatActivity() {
 
 
         login_bt.setOnClickListener {
-            val myintent1 = Intent(this, LogInScreen::class.java)
+            val myintent1 = Intent(this, LogInScreenForPatient::class.java)
             startActivity(myintent1)
 
         }

@@ -19,7 +19,7 @@
         <FrameLayout
             android:id="@+id/choose_doctor"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="110dp"
             android:layout_margin="8dp"
             android:layout_gravity="center"
             android:background="@drawable/sqarue"
@@ -47,9 +47,9 @@
                 <ImageView
                     android:id="@+id/imageView14"
                     android:layout_width="130dp"
-                    android:layout_height="130dp"
+                    android:layout_height="95dp"
                     android:layout_gravity="center"
-                    android:layout_marginStart="80dp"
+                    android:layout_marginStart="50dp"
                     app:srcCompat="@drawable/doc_pic" />
             </LinearLayout>
         </FrameLayout>

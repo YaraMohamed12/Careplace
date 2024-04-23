@@ -13,12 +13,14 @@ class DocOrPat : AppCompatActivity() {
         setContentView(R.layout.activity_doc_or_pat)
         pateint_btn = findViewById(R.id.Pateint_btn)
         doctor_btn = findViewById(R.id.Doctor_btn)
+
         pateint_btn.setOnClickListener {
 
             val myintent = Intent(this , LogandSignForPatient ::class.java)
             startActivity(myintent)
 
         }
+
         doctor_btn.setOnClickListener {
 
             val myintent2 = Intent(this,LogandSignForDoctor::class.java)

@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 
-class LogInScreen : AppCompatActivity() {
+class LogInScreenForPatient : AppCompatActivity() {
     lateinit var back_icon : ImageView
     lateinit var new_app: TextView
     lateinit var email_txt : TextInputEditText
@@ -22,7 +22,7 @@ class LogInScreen : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_log_in_screen)
+        setContentView(R.layout.activity_log_in_screen_for_patient)
         forget_pass = findViewById(R.id.restpassword)
         forget_pass.setOnClickListener {
             val myIntent5 = Intent(this,ForgetPasswordScreen::class.java)
@@ -81,7 +81,7 @@ class LogInScreen : AppCompatActivity() {
     fun newAccount()
     {
         new_app.setOnClickListener {
-            val myintent4 = Intent(this , NewAccForPat::class.java)
+            val myintent4 = Intent(this ,NewAccForPat::class.java)
             startActivity(myintent4)
         }
     }

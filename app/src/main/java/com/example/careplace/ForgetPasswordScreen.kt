@@ -5,10 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 
@@ -41,7 +38,7 @@ class ForgetPasswordScreen : AppCompatActivity() {
 
     fun GotoLOgIN() {
         Blogin_btn.setOnClickListener {
-            val myintent = Intent(this, LogInScreen::class.java)
+            val myintent = Intent(this, DocOrPat::class.java)
             startActivity(myintent)
         }
 
@@ -49,7 +46,7 @@ class ForgetPasswordScreen : AppCompatActivity() {
 
     fun GotoCreatAcc() {
         creatacc_txt.setOnClickListener {
-            val myintent = Intent(this, NewAccForPat::class.java)
+            val myintent = Intent(this, DocOrPat::class.java)
             startActivity(myintent)
         }
     }

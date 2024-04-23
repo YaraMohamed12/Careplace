@@ -3,8 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/white"
-    android:layout_height="wrap_content">
+    android:background="@drawable/btn_style"
+    android:layout_height="620dp"
+    android:gravity="center"
+    >
 
     <EditText
         android:id="@+id/doz_name_dialog2"

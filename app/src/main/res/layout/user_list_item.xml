@@ -4,15 +4,14 @@
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
     android:backgroundTint="@color/white"
-
     >
 
     <ImageView
-        android:layout_width="52dp"
-        android:layout_height="58dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginTop="20dp"
         android:layout_marginStart="10dp"
-        android:src="@drawable/doctor"
+        android:src="@drawable/person"
         android:scaleType="centerInside"
         >
 
