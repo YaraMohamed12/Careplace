@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="@drawable/btn_style"
-    android:layout_height="620dp"
+    android:layout_height="wrap_content"
     android:gravity="center"
     >
 
     <EditText
-        android:id="@+id/doz_name_dialog2"
+        android:id="@+id/doz_name_dialog1"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="26dp"
@@ -38,10 +38,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/image_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="368dp"
+        android:layout_marginTop="412dp"
         android:text="Medicine Image"
         android:textColor="@color/black"
         android:textSize="25sp"
@@ -63,12 +63,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/doz_name_dialog2">
+        app:layout_constraintTop_toBottomOf="@id/doz_name_dialog1">
 
     </TextView>
 
     <EditText
-        android:id="@+id/doz_no_dialog2"
+        android:id="@+id/doz_no_dialog1"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="14dp"
@@ -95,46 +95,44 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.44"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/doz_no_dialog2" />
+        app:layout_constraintTop_toBottomOf="@id/doz_no_dialog1" />
 
-    <EditText
-        android:id="@+id/doz_time_dialog2"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginStart="26dp"
-        android:layout_weight="80"
-        android:background="@drawable/message_bg"
-        android:backgroundTint="@color/purple"
-        android:hint="00:00"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/timedoz" />
 
     <ImageView
-        android:id="@+id/ulpoadimg2"
+        android:id="@+id/ulpoadimg1"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="24dp"
         android:src="@drawable/imginsert2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/doz_time_dialog2" />
+        app:layout_constraintTop_toBottomOf="@+id/image_text" />
 
     <Button
 
         android:id="@+id/btnadd"
         android:layout_width="162dp"
         android:layout_height="53dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:text="Add"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ulpoadimg2" />
+        app:layout_constraintTop_toBottomOf="@id/ulpoadimg1" />
+
+    <TimePicker
+        android:id="@+id/timePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="8dp"
+        android:timePickerMode="spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/timedoz" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

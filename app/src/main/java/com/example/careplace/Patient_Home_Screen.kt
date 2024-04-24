@@ -1,7 +1,12 @@
 package com.example.careplace
 
 import android.annotation.SuppressLint
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
 import android.content.Intent
+import android.graphics.BitmapFactory
+import android.os.Build
 import android.os.Bundle
 import android.widget.FrameLayout
 import android.widget.ImageView
@@ -9,6 +14,7 @@ import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot
@@ -16,6 +22,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+
 
 
 class Patient_Home_Screen : AppCompatActivity() {
@@ -29,6 +36,7 @@ class Patient_Home_Screen : AppCompatActivity() {
     lateinit var Goto_chat : ImageView
     lateinit var select_doc : FrameLayout
     lateinit var select_Mdeicine : FrameLayout
+    lateinit var testbtn : ImageView
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +50,7 @@ class Patient_Home_Screen : AppCompatActivity() {
         select_Mdeicine = findViewById(R.id.choose_medicine)
         toolbar = findViewById(R.id.mytoolbar)
         toolbar.inflateMenu(R.menu.main_menu)
+        testbtn = findViewById(R.id.imageView7)
         menuInflate()
         val myreadata = ReadData()
         mref.addValueEventListener(myreadata)
@@ -57,6 +66,24 @@ class Patient_Home_Screen : AppCompatActivity() {
         select_Mdeicine.setOnClickListener {
             val my_intent = Intent(this,Medicine_List::class.java)
             startActivity(my_intent)
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // Create the NotificationChannel
+            val channelId = "my_channel_id"
+            val channelName = "My Channel"
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel(channelId, channelName, importance).apply {
+                description = "This is my notification channel"
+            }
+
+            // Register the channel with the system
+            val notificationManager = getSystemService(NotificationManager::class.java)
+            notificationManager.createNotificationChannel(channel)
+        }
+        testbtn.setOnClickListener {
+            val title = "Care place"
+            val message = "time for take your medicine"
+            showNotification(this, title, message)
         }
 
     }
@@ -95,5 +122,17 @@ class Patient_Home_Screen : AppCompatActivity() {
         override fun onCancelled(error: DatabaseError) {
             // Handle onCancelled
         }
+    }
+    fun showNotification(context: Context, title: String, message: String) {
+        val channelId = "my_channel_id"
+        // Create a notification builder with custom sound
+        val builder = NotificationCompat.Builder(context, channelId)
+            .setSmallIcon(R.drawable.ic_notification)
+            .setContentTitle(title)
+            .setContentText(message)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+        // Show the notification
+        val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.notify(/* notificationId */ 1, builder.build())
     }
 }

@@ -51,23 +51,13 @@
 
         />
 
-    <Button
-        android:id="@+id/Remove_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="270dp"
-        android:layout_marginTop="25dp"
-        android:textStyle="bold"
-        android:backgroundTint="@color/purple"
-        android:text="Remove"
-        android:textColor="@color/black"
-        android:textSize="15sp" />
+
     <Button
         android:id="@+id/Edit_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="270dp"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="25dp"
         android:textStyle="bold"
         android:backgroundTint="@color/purple"
         android:text="Edit doz"

@@ -1,11 +1,18 @@
 package com.example.careplace
 
 import android.annotation.SuppressLint
+import android.app.AlarmManager
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
+import android.os.Build
 import android.os.Bundle
-import android.widget.AdapterView
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ListView
+import android.widget.TimePicker
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -16,7 +23,9 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 
 
 class Medicine_List : AppCompatActivity() {
@@ -24,6 +33,9 @@ class Medicine_List : AppCompatActivity() {
     private lateinit var mAuth: FirebaseAuth
     private lateinit var medicineList: ArrayList<MedicineData>
     private lateinit var listViewMedicine: ListView
+    private lateinit var alarmManager: AlarmManager
+    private lateinit var pendingIntent: PendingIntent
+
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,11 +48,16 @@ class Medicine_List : AppCompatActivity() {
         floatBtnDialog()
         val medicineAdapter = MedicineAdpater(this@Medicine_List, medicineList)
         listViewMedicine.adapter = medicineAdapter
+        createNotificationChannel()
+
 
 
 
     }
 
+
+
+    @SuppressLint("MissingInflatedId", "SuspiciousIndentation")
     private fun floatBtnDialog() {
         val myFlotbtn = findViewById<FloatingActionButton>(R.id.myFloatButton)
         myFlotbtn.setOnClickListener {
@@ -49,15 +66,20 @@ class Medicine_List : AppCompatActivity() {
             myDialogBuilder.setView(view)
             val alertDialog = myDialogBuilder.create()
             alertDialog.show()
-
-            val medicineName = view.findViewById<EditText>(R.id.doz_name_dialog2)
-            val medicineDate = view.findViewById<EditText>(R.id.doz_time_dialog2)
-            val medicineNo = view.findViewById<EditText>(R.id.doz_no_dialog2)
+            val medicinepicker = view.findViewById<TimePicker>(R.id.timePicker)
+            val medicineName = view.findViewById<EditText>(R.id.doz_name_dialog1)
+            val medicineNo = view.findViewById<EditText>(R.id.doz_no_dialog1)
             val medicineBtn = view.findViewById<Button>(R.id.btnadd)
+
+              calculateTimeDifferenceInSeconds(medicinepicker)
+            val intent = Intent(this, MyBroadcastReciver::class.java)
+            pendingIntent = PendingIntent.getBroadcast(this, 224, intent,
+                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+            )
 
             medicineBtn.setOnClickListener {
                 val name = medicineName.text.toString()
-                val time = medicineDate.text.toString()
+                val time = formatTimeToString(medicinepicker)
                 val doz = medicineNo.text.toString()
 
                 if (time.isNotEmpty() && name.isNotEmpty() && doz.isNotEmpty()) {
@@ -74,7 +96,17 @@ class Medicine_List : AppCompatActivity() {
                 } else {
                     Toast.makeText(this, "Enter Name, Time, and Dose of Medicine", Toast.LENGTH_SHORT).show()
                 }
+                alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+                alarmManager.set(
+                    AlarmManager.RTC_WAKEUP,
+                    System.currentTimeMillis() + calculateTimeDifferenceInSeconds(medicinepicker) * 1000,
+                    pendingIntent)
+                Toast.makeText(this, "Alarming is set ${calculateTimeDifferenceInSeconds(medicinepicker)} Seconds", Toast.LENGTH_SHORT).show()
+
             }
+
+
+
         }
     }
 
@@ -96,4 +128,66 @@ class Medicine_List : AppCompatActivity() {
             }
         })
     }
+    fun formatTimeToString(timePicker: TimePicker): String {
+        val hour = timePicker.hour
+        val minute = timePicker.minute
+
+        // Create a Calendar instance to hold the selected time
+        val calendar = Calendar.getInstance()
+        calendar.set(Calendar.HOUR_OF_DAY, hour)
+        calendar.set(Calendar.MINUTE, minute)
+
+        // Create a date format (e.g., "hh:mm a" for 12-hour format with AM/PM)
+        val dateFormat = SimpleDateFormat("hh:mm a", Locale.getDefault())
+
+        // Format the time using the SimpleDateFormat
+        return dateFormat.format(calendar.time)
+    }
+    private fun createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channelId = "your_channel_id"
+            val channelName = "Your Channel Name"
+            val channelDescription = "Your Channel Description"
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+
+            val channel = NotificationChannel(channelId, channelName, importance).apply {
+                description = channelDescription
+            }
+
+            val notificationManager: NotificationManager =
+                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+            notificationManager.createNotificationChannel(channel)
+        }
+    }
+
+
+    private fun calculateTimeDifferenceInSeconds(timePicker: TimePicker) : Long {
+        // Get the selected hour and minute from the TimePicker
+        val hour = timePicker.hour
+        val minute = timePicker.minute
+
+        // Create a Calendar instance and set it to the selected time
+        val selectedCalendar = Calendar.getInstance()
+        selectedCalendar.set(Calendar.HOUR_OF_DAY, hour)
+        selectedCalendar.set(Calendar.MINUTE, minute)
+        selectedCalendar.set(Calendar.SECOND, 0) // Set seconds to 0 for precision
+
+        // Get current time
+        val currentCalendar = Calendar.getInstance()
+
+        // Calculate the difference in milliseconds between selected time and current time
+        val differenceInMillis = selectedCalendar.timeInMillis - currentCalendar.timeInMillis
+
+        // Update the TextView with the calculated time difference in milliseconds
+
+        return differenceInMillis / 1000
+    }
+
+
+
 }
+
+
+
+
