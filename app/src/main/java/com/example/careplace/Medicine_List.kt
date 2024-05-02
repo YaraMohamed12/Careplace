@@ -11,6 +11,7 @@ import android.os.Build
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TimePicker
 import android.widget.Toast
@@ -35,6 +36,11 @@ class Medicine_List : AppCompatActivity() {
     private lateinit var listViewMedicine: ListView
     private lateinit var alarmManager: AlarmManager
     private lateinit var pendingIntent: PendingIntent
+    lateinit var home_btn : ImageView
+    lateinit var setting_btn : ImageView
+    lateinit var your_profile_btn : ImageView
+    lateinit var calender_btn : ImageView
+    lateinit var chat_btn : ImageView
 
 
     @SuppressLint("MissingInflatedId")
@@ -44,6 +50,13 @@ class Medicine_List : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
         mRef = FirebaseDatabase.getInstance().getReference("/user/${mAuth.currentUser?.uid}/Medicine")
         listViewMedicine = findViewById(R.id.medcinelistview)
+
+        home_btn = findViewById(R.id.home_icon)
+        setting_btn = findViewById(R.id.setting_icon)
+        your_profile_btn = findViewById(R.id.profile_icon_bar)
+        calender_btn = findViewById(R.id.calender_icon_bar)
+        chat_btn  = findViewById(R.id.goto_chat)
+
         medicineList = ArrayList()
         floatBtnDialog()
         val medicineAdapter = MedicineAdpater(this@Medicine_List, medicineList)
@@ -52,6 +65,40 @@ class Medicine_List : AppCompatActivity() {
 
 
 
+        home_btn.setOnClickListener {
+
+            val myintent1 = Intent(this , Patient_Home_Screen::class.java)
+            startActivity(myintent1)
+
+        }
+
+        setting_btn.setOnClickListener {
+
+            val myintent2 = Intent(this ,SettingScreen ::class.java)
+            startActivity(myintent2)
+
+        }
+//
+//        your_profile_btn.setOnClickListener {
+//
+//            val myintent3 = Intent(this , ::class.java)
+//            startActivity(myintent3)
+//
+//        }
+//
+        calender_btn.setOnClickListener {
+
+            val myintent4 = Intent(this ,Patient_Calender_Screen ::class.java)
+            startActivity(myintent4)
+
+        }
+
+        chat_btn.setOnClickListener {
+
+            val myintent5 = Intent(this ,ContactActivity ::class.java)
+            startActivity(myintent5)
+
+        }
 
     }
 

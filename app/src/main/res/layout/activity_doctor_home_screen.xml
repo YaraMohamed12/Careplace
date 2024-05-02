@@ -93,6 +93,35 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <Button
+                android:id="@+id/my_patiebt_btn"
+                android:layout_width="360dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/white"
+                android:text="@string/my_patient"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/schedule_list" />
+
+            <Button
+                android:id="@+id/profile_info_btn"
+                android:layout_width="360dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="15dp"
+                android:backgroundTint="@color/white"
+                android:text="@string/profile_information"
+                android:drawableLeft="@drawable/plus"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
             <ScrollView
                 android:id="@+id/schedule_list"
                 android:layout_width="365dp"
@@ -136,35 +165,6 @@
                 </LinearLayout>
             </ScrollView>
 
-            <Button
-                android:id="@+id/my_patiebt_btn"
-                android:layout_width="360dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
-                android:backgroundTint="@color/white"
-                android:text="@string/my_patient"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/schedule_list" />
-
-            <Button
-                android:id="@+id/profile_info_btn"
-                android:layout_width="360dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="15dp"
-                android:backgroundTint="@color/white"
-                android:text="@string/profile_information"
-                android:drawableLeft="@drawable/plus"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
         </LinearLayout>
     </ScrollView>
 
@@ -184,7 +184,7 @@
 
 
             <ImageView
-                android:id="@+id/imageView10"
+                android:id="@+id/home_icon"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -201,25 +201,25 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.779"
-                app:layout_constraintStart_toEndOf="@+id/imageView10"
+                app:layout_constraintStart_toEndOf="@+id/home_icon"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.6"
                 app:srcCompat="@drawable/chat" />
 
             <ImageView
-                android:id="@+id/imageView12"
+                android:id="@+id/setting_icon"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/goto_chat"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/imageView10"
+                app:layout_constraintStart_toEndOf="@+id/home_icon"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/setting"
                 />
 
             <ImageView
-                android:id="@+id/imageView7"
+                android:id="@+id/profile_icon_bar"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="24dp"
@@ -229,12 +229,12 @@
                 app:srcCompat="@drawable/person_circle" />
 
             <ImageView
-                android:id="@+id/imageView13"
+                android:id="@+id/calender_icon_bar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imageView10"
-                app:layout_constraintStart_toEndOf="@+id/imageView7"
+                app:layout_constraintEnd_toStartOf="@+id/home_icon"
+                app:layout_constraintStart_toEndOf="@+id/profile_icon_bar"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/calendar"
                 />

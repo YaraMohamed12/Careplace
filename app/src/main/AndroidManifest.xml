@@ -26,6 +26,15 @@
         android:theme="@style/Theme.CarePlace"
         tools:targetApi="31">
         <activity
+            android:name=".Doctor_Calender_Screen"
+            android:exported="false" />
+        <activity
+            android:name=".Patient_Calender_Screen"
+            android:exported="false" />
+        <activity
+            android:name=".SettingScreen"
+            android:exported="false" />
+        <activity
             android:name=".AlarmingScreen"
             android:exported="false" />
         <activity
@@ -107,10 +116,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <receiver android:name=".MyBroadcastReciver"
-            android:exported="true">
 
-        </receiver>
+        <receiver
+            android:name=".MyBroadcastReciver"
+            android:exported="true" />
     </application>
 
 </manifest>
