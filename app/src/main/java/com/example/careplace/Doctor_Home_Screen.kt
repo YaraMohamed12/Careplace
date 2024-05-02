@@ -14,7 +14,6 @@ class Doctor_Home_Screen : AppCompatActivity() {
     lateinit var chat_btn : ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_doctor_home_screen)
 
         home_btn = findViewById(R.id.home_icon)

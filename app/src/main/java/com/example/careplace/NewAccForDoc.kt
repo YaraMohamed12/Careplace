@@ -104,7 +104,7 @@ class NewAccForDoc : AppCompatActivity() {
         val user = DmyAuthn1.currentUser
         user?.sendEmailVerification()?.addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                val myintent = Intent(this, LogInScreenForPatient::class.java)
+                val myintent = Intent(this, LogInScreenForDoctor::class.java)
                 startActivity(myintent)
             } else {
                 Toast.makeText(this, "Verification Mail Is Not Sent: ${task.exception?.message}", Toast.LENGTH_SHORT).show()

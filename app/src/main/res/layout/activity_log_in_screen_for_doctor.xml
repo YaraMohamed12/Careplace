@@ -24,7 +24,7 @@
         app:layout_constraintVertical_bias="0.03" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageView_doc"
         android:layout_width="37dp"
         android:layout_height="40dp"
         android:src="@drawable/left_arrow"
@@ -50,7 +50,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.158"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_doc"
         app:layout_constraintVertical_bias="0.489" />
 
     <TextView
@@ -86,7 +86,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/email_txt"
+            android:id="@+id/email_txt_doc"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/edititextbackground"
@@ -115,7 +115,7 @@
         >
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/passowrd_txt"
+            android:id="@+id/passowrd_txt_doc"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/edititextbackground"
@@ -127,7 +127,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/LogIn_btn"
+        android:id="@+id/LogIn_btn_doc"
         android:layout_width="245.77dp"
         android:layout_height="64.08dp"
         android:layout_marginBottom="208dp"
@@ -142,7 +142,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/restpassword"
+        android:id="@+id/restpassword_doc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -167,7 +167,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/New_doc_Acc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"

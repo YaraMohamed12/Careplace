@@ -148,7 +148,7 @@ class Medicine_List : AppCompatActivity() {
                     AlarmManager.RTC_WAKEUP,
                     System.currentTimeMillis() + calculateTimeDifferenceInSeconds(medicinepicker) * 1000,
                     pendingIntent)
-                Toast.makeText(this, "Alarming is set ${calculateTimeDifferenceInSeconds(medicinepicker)} Seconds", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Alarm is Activated", Toast.LENGTH_SHORT).show()
 
             }
 
