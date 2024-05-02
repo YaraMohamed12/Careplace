@@ -56,7 +56,7 @@
 
 
             <ImageView
-                android:id="@+id/imageView10"
+                android:id="@+id/home_icon"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -73,25 +73,25 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.779"
-                app:layout_constraintStart_toEndOf="@+id/imageView10"
+                app:layout_constraintStart_toEndOf="@+id/home_icon"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.6"
                 app:srcCompat="@drawable/chat" />
 
             <ImageView
-                android:id="@+id/imageView12"
+                android:id="@+id/setting_icon"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/goto_chat"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/imageView10"
+                app:layout_constraintStart_toEndOf="@+id/home_icon"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/setting"
                 />
 
             <ImageView
-                android:id="@+id/imageView7"
+                android:id="@+id/profile_icon_bar"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="24dp"
@@ -101,12 +101,12 @@
                 app:srcCompat="@drawable/person_circle" />
 
             <ImageView
-                android:id="@+id/imageView13"
+                android:id="@+id/calender_icon_bar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imageView10"
-                app:layout_constraintStart_toEndOf="@+id/imageView7"
+                app:layout_constraintEnd_toStartOf="@+id/home_icon"
+                app:layout_constraintStart_toEndOf="@+id/profile_icon_bar"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/calendar"
                  />
@@ -172,7 +172,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="20dp"
-                android:text="@string/medicine"
+                android:text="@string/medication"
                 android:textColor="@color/black"
                 android:textSize="25sp"
                 android:textStyle="bold" />

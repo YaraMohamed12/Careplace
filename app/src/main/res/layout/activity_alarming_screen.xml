@@ -16,7 +16,7 @@
         android:scaleType="centerCrop"
         android:src="@drawable/alarm_clock"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.568"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -24,14 +24,17 @@
 
     <Button
         android:id="@+id/stopsound"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="164dp"
         android:text="Stop"
+        android:backgroundTint="@color/white"
+        android:textStyle="bold"
+        android:textColor="@color/black"
         android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.559"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -40,9 +43,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="452dp"
         android:text="Time for Your Medicine...."
+        android:textColor="@color/black"
         android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-       android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
