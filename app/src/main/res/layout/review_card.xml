@@ -28,7 +28,7 @@
         android:id="@+id/ratingBar3_reviewe"
         android:layout_width="240dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/submit_review"
         app:layout_constraintHorizontal_bias="0.705"

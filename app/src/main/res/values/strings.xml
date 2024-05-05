@@ -86,5 +86,8 @@ number of doses of the prescribed treatment).</string>
     <string name="my_patient">My Patient</string>
     <string name="setting">Setting</string>
     <string name="calender">Calender</string>
+    <string name="details">Details</string>
+    <string name="medical_history">Medical History</string>
+    <string name="add">Add</string>
 
 </resources>

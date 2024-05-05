@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 
-class Patient_Calender_Screen : AppCompatActivity() {
+class Patient_Setting_Screen : AppCompatActivity() {
     lateinit var home_btn : ImageView
     lateinit var setting_btn : ImageView
     lateinit var your_profile_btn : ImageView
@@ -15,7 +15,8 @@ class Patient_Calender_Screen : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_patient_calender_screen)
+
+        setContentView(R.layout.activity_patient_setting_screen)
         home_btn = findViewById(R.id.home_icon)
         setting_btn = findViewById(R.id.setting_icon)
         your_profile_btn = findViewById(R.id.profile_icon_bar)
@@ -46,7 +47,7 @@ class Patient_Calender_Screen : AppCompatActivity() {
 //
         calender_btn.setOnClickListener {
 
-            val myintent4 = Intent(this ,Patient_Calender_Screen ::class.java)
+            val myintent4 = Intent(this , Patient_Calender_Screen::class.java)
             startActivity(myintent4)
 
         }
@@ -57,8 +58,6 @@ class Patient_Calender_Screen : AppCompatActivity() {
             startActivity(myintent5)
 
         }
-
-
 
     }
 }

@@ -26,13 +26,22 @@
         android:theme="@style/Theme.CarePlace"
         tools:targetApi="31">
         <activity
+            android:name=".Patient_Details"
+            android:exported="false" />
+        <activity
+            android:name=".Doctor_Setting_Screen"
+            android:exported="false" />
+        <activity
+            android:name=".Patient_List"
+            android:exported="false" />
+        <activity
             android:name=".Doctor_Calender_Screen"
             android:exported="false" />
         <activity
             android:name=".Patient_Calender_Screen"
             android:exported="false" />
         <activity
-            android:name=".SettingScreen"
+            android:name=".Patient_Setting_Screen"
             android:exported="false" />
         <activity
             android:name=".AlarmingScreen"

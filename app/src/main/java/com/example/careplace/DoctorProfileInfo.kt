@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -66,7 +65,7 @@ class DoctorProfileInfo : AppCompatActivity() {
 
         setting_btn.setOnClickListener {
 
-            val myintent2 = Intent(this , SettingScreen::class.java)
+            val myintent2 = Intent(this , Patient_Setting_Screen::class.java)
             startActivity(myintent2)
 
         }

@@ -5,26 +5,23 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Doctor_Calender_Screen"
     android:background="@drawable/background"
-    >
+    tools:context=".Patient_Details">
 
     <FrameLayout
-        android:id="@+id/frameLayout_bar"
+        android:id="@+id/frameLayout3"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:gravity="bottom"
         android:background="@drawable/bardown_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.469"
-        app:layout_constraintStart_toStartOf="parent"
-        >
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/bardown_menu">
+            android:layout_height="match_parent">
+
 
             <ImageView
                 android:id="@+id/home_icon"
@@ -62,8 +59,8 @@
 
             <ImageView
                 android:id="@+id/profile_icon_bar"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_marginStart="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -87,12 +84,11 @@
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:layout_margin="10dp"
+        android:background="@drawable/btn_style"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/btn_style"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
             android:id="@+id/back_btn1"
@@ -109,10 +105,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="70dp"
-            android:text="@string/calender"
+            android:layout_marginStart="60dp"
+            android:text="patient name "
             android:textColor="@color/black"
-            android:textSize="40sp"
+            android:textSize="30sp"
             android:textStyle="bold">
 
 
@@ -120,54 +116,54 @@
 
     </LinearLayout>
 
-    <CalendarView
-        android:id="@+id/calendarView2"
-        android:layout_width="380dp"
-        android:layout_height="330dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="48dp"
-        android:background="@drawable/btn_style"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/address_bar"
-        />
-
-    <TextView
-        android:id="@+id/textView26"
-        android:layout_width="300dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:textSize="25sp"
-        android:gravity="center_horizontal"
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="360dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="15dp"
+        android:backgroundTint="@color/white"
+        android:text="@string/medical_history"
         android:textColor="@color/black"
+        android:textSize="25sp"
         android:textStyle="bold"
-        android:background="@drawable/btn_style"
-        android:text="@string/up_coming_schedules"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calendarView2" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="361dp"
-        android:layout_height="236dp"
-        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView26" />
+        app:layout_constraintTop_toBottomOf="@+id/address_bar" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="24dp"
-        android:clickable="true"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout_bar"
-        app:layout_constraintEnd_toEndOf="@+id/recyclerView"
-        app:srcCompat="@drawable/plus" />
+    <FrameLayout
+        android:layout_width="360dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button4"
+        android:background="@drawable/btn_style"
+        >
 
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Previous Appointment"
+            android:layout_marginStart="20dp"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_gravity="center_vertical"
+            />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="end"
+             android:layout_marginEnd="20dp"
+            app:srcCompat="@drawable/arrow_next" />
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
