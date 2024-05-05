@@ -4,10 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class Doctor_Calender_Screen : AppCompatActivity() {
     lateinit var home_btn : ImageView
@@ -29,14 +26,14 @@ class Doctor_Calender_Screen : AppCompatActivity() {
 
         home_btn.setOnClickListener {
 
-            val myintent1 = Intent(this , Patient_Home_Screen::class.java)
+            val myintent1 = Intent(this , Doctor_Home_Screen::class.java)
             startActivity(myintent1)
 
         }
 
         setting_btn.setOnClickListener {
 
-            val myintent2 = Intent(this ,SettingScreen ::class.java)
+            val myintent2 = Intent(this ,Patient_Setting_Screen ::class.java)
             startActivity(myintent2)
 
         }
@@ -50,7 +47,7 @@ class Doctor_Calender_Screen : AppCompatActivity() {
 //
         calender_btn.setOnClickListener {
 
-            val myintent4 = Intent(this ,Patient_Calender_Screen ::class.java)
+            val myintent4 = Intent(this ,Doctor_Calender_Screen ::class.java)
             startActivity(myintent4)
 
         }

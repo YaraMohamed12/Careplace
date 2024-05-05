@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
 class DoctorProfileRiviews : AppCompatActivity() {
@@ -19,7 +18,6 @@ class DoctorProfileRiviews : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_doctor_profile_riviews)
 
         schedule_btn = findViewById(R.id.schedule_btn1)
@@ -57,7 +55,7 @@ class DoctorProfileRiviews : AppCompatActivity() {
 
         setting_btn.setOnClickListener {
 
-            val myintent2 = Intent(this , SettingScreen::class.java)
+            val myintent2 = Intent(this , Patient_Setting_Screen::class.java)
             startActivity(myintent2)
 
         }

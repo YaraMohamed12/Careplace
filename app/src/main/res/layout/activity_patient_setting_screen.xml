@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".SettingScreen">
+    tools:context=".Patient_Setting_Screen">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -86,7 +86,7 @@
         android:layout_height="110dp"
         android:orientation="horizontal"
         android:background="@drawable/btn_style"
-        android:layout_marginTop="20dp"
+        android:layout_margin="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">

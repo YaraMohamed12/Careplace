@@ -87,7 +87,7 @@ class Patient_Home_Screen : AppCompatActivity() {
 
         setting_btn.setOnClickListener {
 
-            val myintent2 = Intent(this ,SettingScreen ::class.java)
+            val myintent2 = Intent(this ,Patient_Setting_Screen ::class.java)
             startActivity(myintent2)
 
         }

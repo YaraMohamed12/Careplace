@@ -17,7 +17,7 @@
         android:layout_marginStart="12dp"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-      android:src="@drawable/doctorot"
+        android:src="@drawable/doctorot"
         app:shapeAppearanceOverlay="@style/RoundedCorner" />
 
             <TextView
@@ -66,7 +66,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="150dp"
         android:background="@color/purple"
         />
 </androidx.cardview.widget.CardView>

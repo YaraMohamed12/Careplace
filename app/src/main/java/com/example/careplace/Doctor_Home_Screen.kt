@@ -3,7 +3,6 @@ package com.example.careplace
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
 class Doctor_Home_Screen : AppCompatActivity() {
@@ -31,7 +30,7 @@ class Doctor_Home_Screen : AppCompatActivity() {
 
         setting_btn.setOnClickListener {
 
-            val myintent2 = Intent(this , SettingScreen::class.java)
+            val myintent2 = Intent(this , Doctor_Setting_Screen::class.java)
             startActivity(myintent2)
 
         }
@@ -45,7 +44,7 @@ class Doctor_Home_Screen : AppCompatActivity() {
 //
         calender_btn.setOnClickListener {
 
-            val myintent4 = Intent(this , Patient_Calender_Screen::class.java)
+            val myintent4 = Intent(this , Doctor_Calender_Screen::class.java)
             startActivity(myintent4)
 
         }

@@ -6,10 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class Reset_Password : AppCompatActivity() {
+class Doctor_Setting_Screen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_reset_password)
+        setContentView(R.layout.activity_doctor_setting_screen)
 
     }
 }
