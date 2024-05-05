@@ -5,49 +5,50 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/btn_style"
+    android:layout_marginTop="15dp"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp"
+    android:layout_marginBottom="10dp"
     >
 
-    <Button
-        android:id="@+id/submit_review"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="10dp"
-        android:backgroundTint="@color/pink"
-        android:text="@string/submit"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <RatingBar
-        android:id="@+id/ratingBar3_reviewe"
-        android:layout_width="240dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/submit_review"
-        app:layout_constraintHorizontal_bias="0.705"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/review_mess"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:gravity="start|top"
-        android:hint="Add Your Review"
-        android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/ratingBar3_reviewe"
+        android:background="@drawable/btn_style"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.235" />
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/review_mess"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="30dp"
+                android:gravity="start|top"
+                android:text=" patient rewiew "
+                android:textSize="18dp"
+                app:layout_constraintVertical_bias="0.235" />
+
+
+            <RatingBar
+                android:id="@+id/ratingBar3_review"
+                android:layout_width="240dp"
+                android:layout_height="45dp"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="15dp"
+                android:layout_marginBottom="25dp" />
+
+        </LinearLayout>
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

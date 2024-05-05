@@ -89,5 +89,21 @@ number of doses of the prescribed treatment).</string>
     <string name="details">Details</string>
     <string name="medical_history">Medical History</string>
     <string name="add">Add</string>
+    <string name="add_your_review">Add Your Review</string>
+    <string name="notification_setting">Notification Setting</string>
+    <string name="surgeries">Surgeries</string>
+    <string name="past_medical_history">Past Medical History</string>
+    <string name="alzheimer_s_disease_and_dementia">Alzheimer\'s disease and dementia</string>
+    <string name="depression">Depression</string>
+    <string name="heart_failure">Heart failure</string>
+    <string name="chronic_kidney_disease">Chronic kidney disease</string>
+    <string name="diabetes">Diabetes</string>
+    <string name="ischemic_heart_disease">Ischemic heart disease</string>
+    <string name="arthritis">Arthritis</string>
+    <string name="obesity">Obesity</string>
+    <string name="high_cholesterol">High cholesterol</string>
+    <string name="hypertension">Hypertension</string>
+    <string name="x_rays_and_medical_tests">X_Rays and Medical Tests</string>
+    <string name="allergies">Allergies</string>
 
 </resources>

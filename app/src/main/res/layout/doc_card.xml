@@ -48,7 +48,7 @@
         android:id="@+id/view_prof_btn1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="270dp"
+        android:layout_marginStart="285dp"
         android:layout_marginTop="38dp"
         android:textStyle="bold"
         android:backgroundTint="@color/purple"
@@ -60,13 +60,14 @@
         android:id="@+id/ratingBar_incard1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-       android:layout_marginTop="80dp" />
+        android:layout_marginStart="140dp"
+       android:layout_marginTop="100dp"
+        />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="170dp"
         android:background="@color/purple"
         />
 </androidx.cardview.widget.CardView>
