@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:layout_gravity="center"
+    tools:context=".Doctor_open_Schedule">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/homescreen_btn"
+        android:layout_margin="14dp"
+        android:gravity="center"
+        >
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Open Schedule"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+
+            >
+
+
+        </TextView>
+
+    </LinearLayout>
+
+    <CalendarView
+        android:id="@+id/schudel_calendar"
+        android:layout_width="350dp"
+        android:layout_height="370dp"
+        android:layout_marginTop="172dp"
+        android:background="@drawable/sqarue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </CalendarView>
+
+    <TimePicker
+        android:id="@+id/schudel_time"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:numbersTextColor="@color/black"
+        android:numbersInnerTextColor="@color/black"
+        android:layout_marginTop="36dp"
+        android:background="@color/white"
+        android:timePickerMode="spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/schudel_calendar" />
+
+    <Button
+        android:id="@+id/create_schedule_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="Sumbit"
+        android:backgroundTint="@color/pink"
+        android:textSize="28dp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/schudel_time">
+
+    </Button>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

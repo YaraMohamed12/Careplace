@@ -50,33 +50,37 @@ class Medicine_List : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
         mRef = FirebaseDatabase.getInstance().getReference("/user/${mAuth.currentUser?.uid}/Medicine")
         listViewMedicine = findViewById(R.id.medcinelistview)
+        medicineList = ArrayList()
+        val medicineAdapter = MedicineAdpater(this@Medicine_List, medicineList)
+        listViewMedicine.adapter = medicineAdapter
+        floatBtnDialog()
+        createNotificationChannel()
+         iniliaztlisinter()
+          cliciking()
 
+
+
+
+    }
+
+    private fun iniliaztlisinter()
+    {
         home_btn = findViewById(R.id.home_icon)
         setting_btn = findViewById(R.id.setting_icon)
         your_profile_btn = findViewById(R.id.profile_icon_bar)
         calender_btn = findViewById(R.id.calender_icon_bar)
         chat_btn  = findViewById(R.id.goto_chat)
-
-        medicineList = ArrayList()
-        floatBtnDialog()
-        val medicineAdapter = MedicineAdpater(this@Medicine_List, medicineList)
-        listViewMedicine.adapter = medicineAdapter
-        createNotificationChannel()
-
-
-
+    }
+    private fun cliciking()
+    {
         home_btn.setOnClickListener {
-
             val myintent1 = Intent(this , Patient_Home_Screen::class.java)
             startActivity(myintent1)
-
         }
 
         setting_btn.setOnClickListener {
-
             val myintent2 = Intent(this ,Patient_Setting_Screen ::class.java)
             startActivity(myintent2)
-
         }
 //
 //        your_profile_btn.setOnClickListener {
@@ -84,23 +88,19 @@ class Medicine_List : AppCompatActivity() {
 //            val myintent3 = Intent(this , ::class.java)
 //            startActivity(myintent3)
 //
-//        }
+//      }
 //
         calender_btn.setOnClickListener {
-
             val myintent4 = Intent(this ,Patient_Calender_Screen ::class.java)
             startActivity(myintent4)
-
         }
 
         chat_btn.setOnClickListener {
-
             val myintent5 = Intent(this ,ContactActivity ::class.java)
-            startActivity(myintent5)
-
-        }
+            startActivity(myintent5) }
 
     }
+
 
 
 

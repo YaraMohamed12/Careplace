@@ -7,7 +7,20 @@
     android:layout_height="match_parent"
     tools:context=".Doctor_Calender_Screen"
     android:background="@drawable/background"
+    android:layout_gravity="center"
     >
+
+    <ListView
+
+        android:id="@+id/schedule_list"
+        android:layout_width="413dp"
+        android:layout_height="259dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView26"
+        tools:listitem="@layout/appointment_card" />
 
     <FrameLayout
         android:id="@+id/frameLayout_bar"
@@ -138,36 +151,20 @@
         android:id="@+id/textView26"
         android:layout_width="300dp"
         android:layout_height="35dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="52dp"
         android:layout_marginTop="32dp"
-        android:textSize="25sp"
-        android:gravity="center_horizontal"
-        android:textColor="@color/black"
-        android:textStyle="bold"
         android:background="@drawable/btn_style"
+        android:gravity="center_horizontal"
         android:text="@string/up_coming_schedules"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calendarView2" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="361dp"
-        android:layout_height="236dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="24dp"
-        android:clickable="true"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout_bar"
-        app:layout_constraintEnd_toEndOf="@+id/recyclerView"
-        app:srcCompat="@drawable/plus" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

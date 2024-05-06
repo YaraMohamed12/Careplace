@@ -44,6 +44,9 @@
             android:name=".Medical_History"
             android:exported="false" />
         <activity
+            android:name=".Doctor_open_Schedule"
+            android:exported="false" />
+        <activity
             android:name=".Patient_Details"
             android:exported="false" />
         <activity
