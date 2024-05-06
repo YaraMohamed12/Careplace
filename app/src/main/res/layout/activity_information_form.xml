@@ -6,9 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".Patient_Setting_Screen">
+    tools:context=".Information_Form">
+
 
     <FrameLayout
+        android:id="@+id/frameLayout_bar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/bardown_menu"
@@ -80,14 +82,17 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
 
+
     <LinearLayout
-        android:id="@+id/address_bar"
+        android:id="@+id/choose_doctor"
         android:layout_width="match_parent"
         android:layout_height="110dp"
-        android:orientation="horizontal"
-        android:background="@drawable/btn_style"
+        android:layout_gravity="center"
         android:layout_margin="10dp"
+        android:background="@drawable/btn_style"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -103,68 +108,109 @@
         </ImageButton>
 
         <TextView
+            android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="70dp"
-            android:text="@string/setting"
+            android:layout_marginStart="7dp"
+            android:text="@string/info_form"
             android:textColor="@color/black"
-            android:textSize="40sp"
-            android:textStyle="bold">
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
-
-        </TextView>
-
+        <ImageView
+            android:id="@+id/imageView14"
+            android:layout_width="88dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="5dp"
+            app:srcCompat="@drawable/report" />
     </LinearLayout>
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="390dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:backgroundTint="@color/white"
-        android:text="Notification Setting"
-        android:textColor="@color/black"
-        android:drawableLeft="@drawable/sound"
-        android:drawableRight="@drawable/arrow_next"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/address_bar"
-        android:textSize="18sp"
-        />
+
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="390dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="124dp"
-        android:text="Password Mannager"
-        android:drawableRight="@drawable/arrow_next"
+        android:id="@+id/P.M.H"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="#ffffff"
+        android:text="@string/past_medical_history"
         android:textColor="@color/black"
-        android:drawableLeft="@drawable/key"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/address_bar"
-        android:backgroundTint="@color/white"
-        android:textSize="18sp"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/choose_doctor"
+        tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="390dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="192dp"
-        android:text="Delect Account"
+        android:id="@+id/S"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="#ffffff"
+        android:text="@string/surgeries"
         android:textColor="@color/black"
-        android:textSize="18sp"
-        android:drawableLeft="@drawable/log_out"
-        android:drawableRight="@drawable/arrow_next"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/address_bar"
+        app:layout_constraintTop_toBottomOf="@+id/P.M.H"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/M"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
         android:backgroundTint="@color/white"
-        />
+        android:text="@string/medication"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/S"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/Xray"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="#ffffff"
+        android:text="@string/x_rays_and_medical_tests"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/M"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/allergy"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:textSize="25sp"
+        android:text="@string/allergies"
+        android:textColor="@color/black"
+        android:backgroundTint="#ffffff"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Xray" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

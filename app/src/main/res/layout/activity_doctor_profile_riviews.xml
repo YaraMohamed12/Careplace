@@ -8,8 +8,19 @@
     tools:context=".DoctorProfileRiviews"
     android:background="@drawable/background"
     >
-
-
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/adding_review_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:layout_marginEnd="15dp"
+        app:srcCompat="@drawable/plus"
+        android:layout_gravity="end"
+        android:layout_marginBottom="10dp"
+        android:focusable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/frameLayout_bar"
+        />
 
     <LinearLayout
         android:id="@+id/LinearOfFrame"
@@ -49,11 +60,13 @@
 
 
                 <ScrollView
-                    android:layout_width="411dp"
-                    android:layout_height="390dp"
+                    android:id="@+id/scrollView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="347dp"
                     android:layout_marginTop="10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintBottom_toTopOf="@id/frameLayout_bar"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
                     tools:ignore="NotSibling,SpeakableTextPresentCheck">
@@ -63,60 +76,6 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <FrameLayout
-                            android:layout_marginTop="15dp"
-                            android:layout_marginStart="5dp"
-                            android:layout_marginEnd="5dp"
-                            android:layout_marginBottom="10dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/btn_style"
-                            >
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-                        <EditText
-                            android:id="@+id/review_mess"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginEnd="20dp"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginBottom="30dp"
-                            android:gravity="start|top"
-                            android:hint="Add Your Review"
-                            android:inputType="textMultiLine"
-                            app:layout_constraintVertical_bias="0.235" />
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:layout_gravity="bottom"
-                                    android:layout_marginBottom="20dp"
-                                    >
-                                    <RatingBar
-                                        android:id="@+id/ratingBar3_reviewe"
-                                        android:layout_width="240dp"
-                                        android:layout_height="45dp"
-                                        android:layout_marginStart="15dp" />
-                                    <Button
-                                        android:id="@+id/submit_review"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="end"
-                                        android:layout_marginEnd="20dp"
-                                        android:layout_marginStart="25dp"
-                                        android:backgroundTint="@color/pink"
-                                        android:text="@string/submit"
-                                        android:textColor="@color/black"
-                                        android:textSize="15sp"
-                                        android:textStyle="bold"
-                                        />
-                                </LinearLayout>
-                            </LinearLayout>
-                        </FrameLayout>
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/reviews_list"

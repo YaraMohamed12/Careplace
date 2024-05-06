@@ -8,6 +8,7 @@
     tools:context=".Choose_your_doc"
     android:background="@drawable/background"
     >
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -16,22 +17,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <FrameLayout
-            android:id="@+id/choose_doctor"
-            android:layout_width="match_parent"
-            android:layout_height="110dp"
-            android:layout_margin="10dp"
-            android:layout_gravity="center"
-            android:background="@drawable/sqarue"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView9">
-
             <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/choose_doctor"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_height="110dp"
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                android:background="@drawable/btn_style"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView9"
+                >
+
+                <ImageButton
+                    android:id="@+id/back_btn1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="15dp"
+                    android:background="@drawable/left_arrow"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck">
+
+                </ImageButton>
 
                 <TextView
                     android:id="@+id/textView9"
@@ -41,18 +50,17 @@
                     android:layout_margin="30dp"
                     android:text="@string/doc"
                     android:textColor="@color/black"
-                    android:textSize="40sp"
+                    android:textSize="30sp"
                     android:textStyle="bold" />
 
                 <ImageView
                     android:id="@+id/imageView14"
                     android:layout_width="130dp"
                     android:layout_height="95dp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="50dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="40dp"
                     app:srcCompat="@drawable/doc_pic" />
             </LinearLayout>
-        </FrameLayout>
 
         <TextView
             android:id="@+id/choose_spec_text"
@@ -558,6 +566,7 @@
     </LinearLayout>
 
     <FrameLayout
+        android:id="@+id/frameLayout_bar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/bardown_menu"

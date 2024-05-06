@@ -34,6 +34,7 @@ class Patient_Home_Screen : AppCompatActivity() {
     lateinit var Goto_chat : ImageView
     lateinit var select_doc : FrameLayout
     lateinit var select_Mdeicine : FrameLayout
+    lateinit var select_form : FrameLayout
     lateinit var testbtn : ImageView
     lateinit var home_btn : ImageView
     lateinit var setting_btn : ImageView
@@ -54,7 +55,7 @@ class Patient_Home_Screen : AppCompatActivity() {
         toolbar = findViewById(R.id.mytoolbar)
         toolbar.inflateMenu(R.menu.main_menu)
         testbtn = findViewById(R.id.profile_icon_bar)
-
+        select_form = findViewById(R.id.choose_form)
         home_btn = findViewById(R.id.home_icon)
         setting_btn = findViewById(R.id.setting_icon)
 //        your_profile_btn = findViewById(R.id.profile_icon_bar)
@@ -75,6 +76,10 @@ class Patient_Home_Screen : AppCompatActivity() {
         select_Mdeicine.setOnClickListener {
             val my_intent = Intent(this,Medicine_List::class.java)
             startActivity(my_intent)
+        }
+        select_form.setOnClickListener{
+            val intent2 = Intent(this, Information_Form::class.java)
+            startActivity(intent2)
         }
 
 

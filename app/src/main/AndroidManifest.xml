@@ -26,6 +26,24 @@
         android:theme="@style/Theme.CarePlace"
         tools:targetApi="31">
         <activity
+            android:name=".X_Rays_and_Medical_tests"
+            android:exported="false" />
+        <activity
+            android:name=".Allergies"
+            android:exported="false" />
+        <activity
+            android:name=".Medications"
+            android:exported="false" />
+        <activity
+            android:name=".Surgeries"
+            android:exported="false" />
+        <activity
+            android:name=".Information_Form"
+            android:exported="false" />
+        <activity
+            android:name=".Medical_History"
+            android:exported="false" />
+        <activity
             android:name=".Patient_Details"
             android:exported="false" />
         <activity
