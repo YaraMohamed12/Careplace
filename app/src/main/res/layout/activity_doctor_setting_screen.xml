@@ -117,13 +117,14 @@
 
         </LinearLayout>
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/notification"
             android:layout_width="390dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="40dp"
             android:backgroundTint="@color/white"
             android:text="@string/notification_setting"
             android:textColor="@color/black"
+            android:textStyle="bold"
             android:drawableLeft="@drawable/sound"
             android:drawableRight="@drawable/arrow_next"
             app:layout_constraintEnd_toEndOf="parent"
@@ -133,38 +134,55 @@
             android:textSize="18sp"
             />
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="390dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="124dp"
-            android:text="Password Mannager"
-            android:drawableRight="@drawable/arrow_next"
-            android:textColor="@color/black"
-            android:drawableLeft="@drawable/key"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/address_bar"
-            android:backgroundTint="@color/white"
-            android:textSize="18sp"
-            />
+    <Button
+        android:id="@+id/reset_pass_btn"
+        android:layout_width="390dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:drawableLeft="@drawable/key"
+        android:drawableRight="@drawable/arrow_next"
+        android:text="@string/reset_pass"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:layout_marginTop="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/notification" />
 
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="390dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="192dp"
-            android:text="Delect Account"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:drawableLeft="@drawable/log_out"
-            android:drawableRight="@drawable/arrow_next"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/address_bar"
-            android:backgroundTint="@color/white"
-            />
+    <Button
+        android:id="@+id/delet_acc"
+        android:layout_width="390dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:drawableLeft="@drawable/person_circle"
+        android:drawableRight="@drawable/arrow_next"
+        android:text="@string/delect_account"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reset_pass_btn" />
+
+   <Button
+    android:id="@+id/Log_out"
+    android:layout_width="390dp"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/white"
+    android:drawableLeft="@drawable/log_out"
+    android:layout_marginTop="15dp"
+    android:drawableRight="@drawable/arrow_next"
+    android:text="@string/log_out"
+       android:textStyle="bold"
+    android:textColor="@color/black"
+    android:textSize="18sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.523"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/delet_acc" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -52,7 +52,6 @@ number of doses of the prescribed treatment).</string>
     <string name="or">------------------------------Or------------------------------</string>
     <string name="create_new_account">Create New account</string>
     <string name="back_to_login">Back to login</string>
-    <string name="info_form">Information Form</string>
     <string name="hello">Hello , </string>
     <string name="welcome_text">Welcome to Care Place How is your health today ?</string>
     <string name="mma">Medical Manager App</string>
@@ -83,7 +82,7 @@ number of doses of the prescribed treatment).</string>
     <string name="hello_dr">Hello, DR/</string>
     <string name="welcome_to_care_place">Welcome to Care Place</string>
     <string name="profile_information">Profile Information</string>
-    <string name="my_patient">My Patient</string>
+    <string name="my_patient">My Patients</string>
     <string name="setting">Setting</string>
     <string name="calender">Calender</string>
     <string name="details">Details</string>
@@ -92,7 +91,6 @@ number of doses of the prescribed treatment).</string>
     <string name="add_your_review">Add Your Review</string>
     <string name="notification_setting">Notification Setting</string>
     <string name="surgeries">Surgeries</string>
-    <string name="past_medical_history">Past Medical History</string>
     <string name="alzheimer_s_disease_and_dementia">Alzheimer\'s disease and dementia</string>
     <string name="depression">Depression</string>
     <string name="heart_failure">Heart failure</string>
@@ -105,5 +103,12 @@ number of doses of the prescribed treatment).</string>
     <string name="hypertension">Hypertension</string>
     <string name="x_rays_and_medical_tests">X_Rays and Medical Tests</string>
     <string name="allergies">Allergies</string>
+    <string name="contacts">Contacts</string>
+    <string name="profile">Profile</string>
+    <string name="what_is_your_allergies">what is your allergies</string>
+    <string name="remove">Remove</string>
+    <string name="delect_account">Delect Account</string>
+    <string name="log_out">Log Out</string>
+    <string name="chronic_diseases">Chronic Diseases</string>
 
 </resources>

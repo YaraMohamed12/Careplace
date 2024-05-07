@@ -37,7 +37,6 @@ class Patient_Home_Screen : AppCompatActivity() {
     lateinit var Goto_chat : ImageView
     lateinit var select_doc : FrameLayout
     lateinit var select_Mdeicine : FrameLayout
-    lateinit var testbtn : ImageView
     lateinit var home_btn : ImageView
     lateinit var setting_btn : ImageView
     lateinit var your_profile_btn : ImageView
@@ -46,6 +45,7 @@ class Patient_Home_Screen : AppCompatActivity() {
     private val GALLERY_REQUEST_CODE = 123
     lateinit var updimg_img : ImageView
     lateinit var view : View
+    lateinit var select_form : FrameLayout
 
 
     @SuppressLint("MissingInflatedId")
@@ -57,6 +57,7 @@ class Patient_Home_Screen : AppCompatActivity() {
         select_Mdeicine = findViewById(R.id.choose_medicine)
         toolbar = findViewById(R.id.mytoolbar)
         toolbar.inflateMenu(R.menu.main_menu)
+        select_form = findViewById(R.id.choose_form)
 
         ImportUserData()
         menuInflate()
@@ -72,10 +73,9 @@ class Patient_Home_Screen : AppCompatActivity() {
     private fun inilaztionlistenr()
     {
         Goto_chat = findViewById(R.id.goto_chat)
-        testbtn = findViewById(R.id.profile_icon_bar)
         home_btn = findViewById(R.id.home_icon)
         setting_btn = findViewById(R.id.setting_icon)
-//      your_profile_btn = findViewById(R.id.profile_icon_bar)
+      your_profile_btn = findViewById(R.id.profile_icon_bar)
         calender_btn = findViewById(R.id.calender_icon_bar)
         user_image = findViewById(R.id.select_image)
     }
@@ -92,8 +92,8 @@ class Patient_Home_Screen : AppCompatActivity() {
             startActivity(my_intent)
         }
         select_Mdeicine.setOnClickListener {
-            val my_intent = Intent(this,Medicine_List::class.java)
-            startActivity(my_intent)
+            val my_intent10 = Intent(this,Medicine_List::class.java)
+            startActivity(my_intent10)
         }
         home_btn.setOnClickListener {
             val myintent1 = Intent(this , Patient_Home_Screen::class.java)
@@ -105,16 +105,20 @@ class Patient_Home_Screen : AppCompatActivity() {
             startActivity(myintent2)
         }
 
-//        your_profile_btn.setOnClickListener {
-//            val myintent3 = Intent(this , ::class.java)
-//            startActivity(myintent3)
-//        }
+        your_profile_btn.setOnClickListener {
+            val myintent3 = Intent(this ,My_Profile_Details_for_patient::class.java)
+            startActivity(myintent3)
+        }
 
         calender_btn.setOnClickListener {
 
             val myintent4 = Intent(this, Patient_Calender_Screen::class.java)
             startActivity(myintent4)
 
+        }
+        select_form.setOnClickListener{
+            val intent5 = Intent(this, Medical_History_For_Patient_View::class.java)
+            startActivity(intent5)
         }
 
     }
