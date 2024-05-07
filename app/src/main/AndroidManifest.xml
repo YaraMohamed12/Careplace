@@ -26,6 +26,24 @@
         android:theme="@style/Theme.CarePlace"
         tools:targetApi="31">
         <activity
+            android:name=".Test"
+            android:exported="false" />
+        <activity
+            android:name=".Medical_History_For_Doctor_View"
+            android:exported="false" />
+        <activity
+            android:name=".My_Profile_Details_for_patient"
+            android:exported="false" />
+        <activity
+            android:name=".Medical_History_For_Patient_View"
+            android:exported="false" />
+        <activity
+            android:name=".Information_Form_patient_View"
+            android:exported="false" />
+        <activity
+            android:name=".My_Profile_Details_for_doc"
+            android:exported="false" />
+        <activity
             android:name=".X_Rays_and_Medical_tests"
             android:exported="false" />
         <activity
@@ -47,7 +65,7 @@
             android:name=".Doctor_open_Schedule"
             android:exported="false" />
         <activity
-            android:name=".Patient_Details"
+            android:name=".Patient_Information"
             android:exported="false" />
         <activity
             android:name=".Doctor_Setting_Screen"

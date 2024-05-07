@@ -5,11 +5,11 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".My_Profile_Details_for_doc"
     android:background="@drawable/background"
-    tools:context=".Patient_Details">
-
+    >
     <FrameLayout
-        android:id="@+id/frameLayout3"
+        android:id="@+id/menu_bar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/bardown_menu"
@@ -21,8 +21,6 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-
             <ImageView
                 android:id="@+id/home_icon"
                 android:layout_width="70dp"
@@ -59,8 +57,8 @@
 
             <ImageView
                 android:id="@+id/profile_icon_bar"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginStart="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -97,73 +95,20 @@
             android:layout_gravity="center"
             android:layout_marginStart="15dp"
             android:background="@drawable/left_arrow"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck">
-
-        </ImageButton>
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="60dp"
-            android:text="patient name "
+            android:layout_marginStart="85dp"
+            android:text="@string/profile"
             android:textColor="@color/black"
-            android:textSize="30sp"
-            android:textStyle="bold">
-
-
-        </TextView>
+            android:textSize="40sp"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="360dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="15dp"
-        android:backgroundTint="@color/white"
-        android:text="@string/medical_history"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/address_bar" />
 
-    <FrameLayout
-        android:layout_width="360dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4"
-        android:background="@drawable/btn_style"
-        >
-
-        <TextView
-            android:id="@+id/textView23"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Previous Appointment"
-            android:layout_marginStart="20dp"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:layout_gravity="center_vertical"
-            />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="end"
-             android:layout_marginEnd="20dp"
-            app:srcCompat="@drawable/arrow_next" />
-    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

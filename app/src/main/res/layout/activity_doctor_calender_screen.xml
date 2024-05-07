@@ -5,17 +5,16 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Doctor_Calender_Screen"
-    android:background="@drawable/background"
     android:layout_gravity="center"
-    >
+    android:background="@drawable/background"
+    tools:context=".Doctor_Calender_Screen">
 
     <ListView
 
         android:id="@+id/schedule_list"
         android:layout_width="413dp"
         android:layout_height="259dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,13 +25,12 @@
         android:id="@+id/frameLayout_bar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:gravity="bottom"
         android:background="@drawable/bardown_menu"
+        android:gravity="bottom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.469"
-        app:layout_constraintStart_toStartOf="parent"
-        >
+        app:layout_constraintStart_toStartOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -100,12 +98,11 @@
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:layout_margin="10dp"
+        android:background="@drawable/btn_style"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/btn_style"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
             android:id="@+id/back_btn1"
@@ -138,33 +135,30 @@
         android:layout_width="380dp"
         android:layout_height="330dp"
         android:layout_gravity="center"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/btn_style"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/address_bar"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/address_bar" />
 
     <TextView
         android:id="@+id/textView26"
         android:layout_width="300dp"
         android:layout_height="35dp"
         android:layout_marginStart="52dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:background="@drawable/btn_style"
         android:gravity="center_horizontal"
         android:text="@string/up_coming_schedules"
         android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calendarView2" />
-
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
