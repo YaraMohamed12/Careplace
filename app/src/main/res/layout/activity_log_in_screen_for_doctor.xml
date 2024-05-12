@@ -88,6 +88,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/email_txt_doc"
             android:layout_width="match_parent"
+            android:textColor="@color/black"
             android:layout_height="match_parent"
             android:background="@drawable/edititextbackground"
             android:drawableEnd="@drawable/user_svgrepo_com">
@@ -118,6 +119,7 @@
             android:id="@+id/passowrd_txt_doc"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:textColor="@color/black"
             android:background="@drawable/edititextbackground"
             android:inputType="textPassword">
 

@@ -21,6 +21,9 @@ class LIstDoctorAdapter(private val originalDoctorsList: ArrayList<DUsers>) :
         private val docNameTextView: TextView = itemView.findViewById(R.id.crd_name1)
         private val docspecTextView: TextView = itemView.findViewById(R.id.DocSpeclia)
         private val docprofilebtn: TextView = itemView.findViewById(R.id.view_prof_btn1)
+        lateinit var DoctorId : String
+        lateinit var DoctorName :String
+        lateinit var Doctor_spec :String
 
         init {
             // Set click listener in the ViewHolder constructor
@@ -30,6 +33,9 @@ class LIstDoctorAdapter(private val originalDoctorsList: ArrayList<DUsers>) :
                     val context: Context = itemView.context
                     // Navigate to DoctorProfileSchedule activity
                     val intent = Intent(context, DoctorProfileSchedule::class.java)
+                    intent.putExtra("DoctorId",DoctorId)
+                    intent.putExtra("DoctorName",DoctorName)
+                    intent.putExtra("Doctor_spec",Doctor_spec)
                     context.startActivity(intent)
                 }
             }
@@ -38,6 +44,9 @@ class LIstDoctorAdapter(private val originalDoctorsList: ArrayList<DUsers>) :
         fun bind(user: DUsers) {
             docNameTextView.text = user.DName
             docspecTextView.text = user.Specialization
+            DoctorId = user.DUID!!
+            DoctorName = user.DName!!
+            Doctor_spec = user.Specialization!!
         }
     }
 

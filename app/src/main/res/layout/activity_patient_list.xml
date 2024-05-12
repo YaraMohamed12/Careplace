@@ -9,20 +9,17 @@
     android:background="@drawable/background"
     >
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/userRecyclerView1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <ListView
+        android:id="@+id/Docotor_pateint_list"
+        android:layout_width="403dp"
+        android:layout_height="703dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/address_bar"
-        app:layout_constraintVertical_bias="0.0" />
+        tools:listitem="@layout/patient_card_for_doc" />
 
     <LinearLayout
         android:id="@+id/address_bar"
@@ -63,6 +60,7 @@
     </LinearLayout>
 
     <FrameLayout
+        android:id="@+id/frameLayout4"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/bardown_menu"
@@ -72,6 +70,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/menu_icon_bar"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -108,8 +107,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/home_icon"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/setting"
-                />
+                app:srcCompat="@drawable/setting" />
 
             <ImageView
                 android:id="@+id/profile_icon_bar"
@@ -129,8 +127,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/home_icon"
                 app:layout_constraintStart_toEndOf="@+id/profile_icon_bar"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/calendar"
-                />
+                app:srcCompat="@drawable/calendar" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
 

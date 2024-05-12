@@ -189,8 +189,7 @@ class Patient_Home_Screen : AppCompatActivity() {
                 .addOnSuccessListener {
 
                     photoRef.downloadUrl.addOnSuccessListener { downloadUri ->
-
-                        Glide.with(this).load(downloadUri).into(updimg_img)
+                               Glide.with(this).load(downloadUri).into(updimg_img)
 
                         currentUser?.let { user ->
                             val userRef = FirebaseDatabase.getInstance().getReference("user/${user.uid}")

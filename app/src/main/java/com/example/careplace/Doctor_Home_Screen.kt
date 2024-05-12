@@ -4,8 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class Doctor_Home_Screen : AppCompatActivity() {
     lateinit var home_btn: ImageView
@@ -14,15 +20,14 @@ class Doctor_Home_Screen : AppCompatActivity() {
     lateinit var calender_btn: ImageView
     lateinit var chat_btn: ImageView
     lateinit var OpenResavtion : Button
+    lateinit var doctorName : TextView
+    lateinit var Pateint_btn : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_doctor_home_screen)
-    inilaztionval()
+        inilaztionval()
         buttonlistener()
-
-
-
-
+        fetchDoctorName()
     }
     fun inilaztionval()
     {
@@ -32,6 +37,8 @@ class Doctor_Home_Screen : AppCompatActivity() {
         calender_btn = findViewById(R.id.calender_icon_bar)
         chat_btn = findViewById(R.id.goto_chat)
         OpenResavtion = findViewById(R.id.Open_schedule)
+        doctorName =findViewById(R.id.Doctor_name)
+        Pateint_btn = findViewById(R.id.my_patient_btn)
     }
 
     fun buttonlistener()
@@ -66,7 +73,31 @@ class Doctor_Home_Screen : AppCompatActivity() {
             val myintent = Intent(this , Doctor_Calender_Screen::class.java)
             startActivity(myintent)
         }
+        Pateint_btn.setOnClickListener {
+            val myintent = Intent(this , Patient_List::class.java)
+            startActivity(myintent)
+        }
 
 
     }
+    private fun fetchDoctorName() {
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        val userId = currentUser?.uid ?: return
+
+
+        val doctorRef = FirebaseDatabase.getInstance().getReference(userId)
+
+        doctorRef.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val doctorNameValue = snapshot.child("dname").value as? String
+                if (!doctorNameValue.isNullOrBlank()) {
+                    doctorName.text = doctorNameValue
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@Doctor_Home_Screen, "Failed to fetch doctor's name", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
 }

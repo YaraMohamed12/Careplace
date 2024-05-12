@@ -3,6 +3,7 @@ package com.example.careplace
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.widget.CalendarView
 import android.widget.ImageView
 import android.widget.ListView
 import android.widget.Toast
@@ -21,6 +22,7 @@ class Doctor_Calender_Screen : AppCompatActivity() {
     private lateinit var chat_btn: ImageView
     private lateinit var scheduleListView: ListView
     private lateinit var scheduleList: MutableList<Schedule>
+    private lateinit var Doctorcaleder : CalendarView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

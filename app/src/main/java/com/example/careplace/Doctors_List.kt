@@ -24,6 +24,7 @@ class Doctors_List : AppCompatActivity() {
     private lateinit var mAuth: FirebaseAuth
     private lateinit var mRef: DatabaseReference
     private lateinit var searchbar : SearchView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_doctors_list)
@@ -62,10 +63,8 @@ class Doctors_List : AppCompatActivity() {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 Doctorlist.clear()
                 for (postSnapshot in dataSnapshot.children) {
-
                     val currentUser = postSnapshot.getValue(DUsers::class.java)
-
-                        currentUser?.let { Doctorlist.add(it) }
+                    currentUser?.let { Doctorlist.add(it) }
                 }
                 adapter.notifyDataSetChanged()
             }

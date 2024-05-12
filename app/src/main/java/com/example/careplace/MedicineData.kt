@@ -8,4 +8,4 @@ data class MedicineData(
     val dateForTaking: String ?= "",
     val medicineid : String ?= null
 
-)
+) // name - doz - time from time picke - medicineid

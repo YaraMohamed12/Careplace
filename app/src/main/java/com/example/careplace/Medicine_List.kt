@@ -118,6 +118,8 @@ class Medicine_List : AppCompatActivity() {
             val medicineNo = view.findViewById<EditText>(R.id.doz_no_dialog1)
             val medicineBtn = view.findViewById<Button>(R.id.btnadd)
 
+            // Mname from editText -> medicinename ->  name = medcinename.tostring   store realtime
+
               calculateTimeDifferenceInSeconds(medicinepicker)
             val intent = Intent(this, MyBroadcastReciver::class.java)
             pendingIntent = PendingIntent.getBroadcast(this, 224, intent,
@@ -129,8 +131,9 @@ class Medicine_List : AppCompatActivity() {
                 val time = formatTimeToString(medicinepicker)
                 val doz = medicineNo.text.toString()
 
+
                 if (time.isNotEmpty() && name.isNotEmpty() && doz.isNotEmpty()) {
-                    val id = mRef.push().key ?: ""
+                    val id = mRef.push().key ?: "" // aut gen uid for each medicine
                     val myMedicine = MedicineData(name, "Number Doz : ${doz}", time,id)
                     mRef.child(id).setValue(myMedicine)
                         .addOnSuccessListener {
@@ -160,6 +163,7 @@ class Medicine_List : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         mRef.addValueEventListener(object : ValueEventListener {
+            // medcine.childern =
             override fun onDataChange(snapshot: DataSnapshot) {
                 medicineList.clear()
                 for (n in snapshot.children) {
@@ -191,6 +195,7 @@ class Medicine_List : AppCompatActivity() {
         return dateFormat.format(calendar.time)
     }
     private fun createNotificationChannel() {
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channelId = "your_channel_id"
             val channelName = "Your Channel Name"
@@ -234,7 +239,6 @@ class Medicine_List : AppCompatActivity() {
 
 
 }
-
 
 
 

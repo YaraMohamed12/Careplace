@@ -32,6 +32,7 @@ class NewAccForDoc : AppCompatActivity() {
     private lateinit var Ddatabase: FirebaseDatabase
     private lateinit var DmyAuthn1: FirebaseAuth
     private lateinit var DmRef : DatabaseReference
+    private lateinit var Newref : DatabaseReference
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,7 +67,8 @@ class NewAccForDoc : AppCompatActivity() {
         sumbit.setOnClickListener {
             val mail = Dmailtxt.text.toString()
             val password = Dpasswordtxt.text.toString()
-            if (mail.isNotEmpty() && password.isNotEmpty()) {
+            val speacilazation = binding.editxtSpecialization.text.toString()
+            if (mail.isNotEmpty() && password.isNotEmpty() && speacilazation.isNotEmpty()) {
                 DmyAuthn1.createUserWithEmailAndPassword(mail, password)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
@@ -77,7 +79,6 @@ class NewAccForDoc : AppCompatActivity() {
                             val ID = binding.editxtID2.text.toString()
                             val gender = binding.editxtGender2.text.toString()
                             val age = binding.editxtAge2.text.toString()
-                            val speacilazation = binding.editxtSpecialization.text.toString()
                             AddusertoDatabase(fullname,userEmail,DmyAuthn1.currentUser?.uid!!,phone,ID,BDT,age,gender,speacilazation)
 
                         } else {
@@ -96,6 +97,7 @@ class NewAccForDoc : AppCompatActivity() {
         sumbit = binding.sumbitBtn
         Ddatabase = FirebaseDatabase.getInstance()
         DmyAuthn1 = FirebaseAuth.getInstance()
+        Newref = FirebaseDatabase.getInstance().getReference("DUser")
     }
 
 
@@ -126,7 +128,7 @@ class NewAccForDoc : AppCompatActivity() {
             }.addOnFailureListener {
                 Toast.makeText(this, "Registration Failed: ${it.message}", Toast.LENGTH_SHORT).show()
             }
-
+       Newref.child(uid).setValue(DUsers(name, email, uid, Phone, nationid, Bdate, Age, Gender,Spec))
 
     }
 }
