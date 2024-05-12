@@ -44,12 +44,12 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
         Medication_list = ArrayList()
         Surgery_list = ArrayList()
         val MedicationAdapter = Medication_Form_Adapter(this@Medical_History_For_Patient_View, Medication_list)
-        val SurgeryAdapter = Surgeries_Form_Adapter(this@Medical_History_For_Patient_View, Surgery_list)
         listViewMedication.adapter = MedicationAdapter
-        listViewSurgeries.adapter = SurgeryAdapter
+
         floatBtnDialog()
         iniliaztlisinter()
         cliciking()
+        retrieveSurgeries()
 
     }
 
@@ -108,26 +108,14 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
                     val myMedicine = Surgeries_Form_Data(name, date, id)
                     mRef1.child("Medication").child(id).setValue(myMedicine)
                         .addOnSuccessListener {
-                            Toast.makeText(
-                                this,
-                                "Medicine added successfully",
-                                Toast.LENGTH_SHORT
-                            ).show()
+                            Toast.makeText(this, "Medicine added successfully", Toast.LENGTH_SHORT).show()
                             alertDialog.dismiss()
                         }
                         .addOnFailureListener { e ->
                             Toast.makeText(
-                                this,
-                                "Failed to add medicine: ${e.message}",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
+                                this, "Failed to add medicine: ${e.message}", Toast.LENGTH_SHORT).show() }
                 } else {
-                    Toast.makeText(
-                        this,
-                        "Enter Name and Date",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Toast.makeText(this, "Enter Name and Date", Toast.LENGTH_SHORT).show()
                 }
 
 
@@ -152,26 +140,13 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
                     val mySurgery = Surgeries_Form_Data(name, date, id)
                     mRef2.child("Operation").child(id).setValue(mySurgery)
                         .addOnSuccessListener {
-                            Toast.makeText(
-                                this,
-                                "Surgery added successfully",
-                                Toast.LENGTH_SHORT
-                            ).show()
+                            Toast.makeText(this, "Surgery added successfully", Toast.LENGTH_SHORT).show()
                             alertDialog.dismiss()
                         }
                         .addOnFailureListener { e ->
-                            Toast.makeText(
-                                this,
-                                "Failed to add Surgery: ${e.message}",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
+                            Toast.makeText(this, "Failed to add Surgery: ${e.message}", Toast.LENGTH_SHORT).show() }
                 } else {
-                    Toast.makeText(
-                        this,
-                        "Enter Name and Date",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Toast.makeText(this, "Enter Name and Date", Toast.LENGTH_SHORT).show()
                 }
 
 
@@ -181,5 +156,39 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
 
 
     }
+    private fun retrieveSurgeries() {
+        val mAuth = FirebaseAuth.getInstance()
+        val currentuserid = mAuth.currentUser?.uid
+        val mref = FirebaseDatabase.getInstance().getReference("user").child(currentuserid!!).child("Operation")
+
+        mref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                Surgery_list.clear()
+
+                for (DataSnapshot in dataSnapshot.children) {
+                    val date = DataSnapshot.child("surgery_date").getValue(String::class.java)
+                    val Name = DataSnapshot.child("surgery_name").getValue(String::class.java)
+                    val Surgery_id = DataSnapshot.child("surgery_id").getValue(String::class.java)
+
+
+                        val surgery_data = Surgeries_Form_Data(Name,date,Surgery_id)
+                            Surgery_list.add(surgery_data)
+
+                }
+
+
+                val adapter = Surgeries_Form_Adapter(this@Medical_History_For_Patient_View, Surgery_list)
+               listViewSurgeries.adapter = adapter
+
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+
+
+                Toast.makeText(this@Medical_History_For_Patient_View, "Failed to retrieve schedules", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
 
  }

@@ -21,7 +21,7 @@ class Doctor_open_Schedule : AppCompatActivity() {
     private lateinit var mref: DatabaseReference
     private lateinit var mAuth: FirebaseAuth
     private lateinit var currentUser: FirebaseUser
-    private lateinit var selectedDate : String
+    private var selectedDate : String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_doctor_open_schedule)
@@ -37,10 +37,7 @@ class Doctor_open_Schedule : AppCompatActivity() {
 
     }
 
-    //  data from xml view picker / caledner
-    // valrable have same datatype pass value from view
-    // two val pass fns formatting current type to string
-    // store in two val store datbase
+
 
     private fun formattingTime(timePicker: TimePicker): String {
         val hour = timePicker.hour

@@ -20,6 +20,7 @@ class ScheduleAdapter_user(context: Context, private val scheduleList: List<Sche
         val mRef = FirebaseDatabase.getInstance().getReference("user")
         val Bref = FirebaseDatabase.getInstance().getReference("/Doctors_schedule/$Doctorid/schedules")
         val Aref = FirebaseDatabase.getInstance().getReference("Doctor_Booked")
+        val ChatRef = FirebaseDatabase.getInstance().getReference("Chatid")
         val mAuth = FirebaseAuth.getInstance()
         val currentuserid = mAuth.currentUser?.uid //patient , doctor id , schduel class data
 
@@ -49,7 +50,8 @@ class ScheduleAdapter_user(context: Context, private val scheduleList: List<Sche
          }
             val scheduleRef = Bref.child(schudelid)
             scheduleRef.removeValue()
-
+          ChatRef.child(currentuserid).child(Doctorid).setValue(Doctorid)
+            ChatRef.child(Doctorid).child(currentuserid).setValue(currentuserid)
 
 
         }

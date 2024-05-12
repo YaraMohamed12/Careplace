@@ -16,11 +16,12 @@ import com.google.firebase.database.FirebaseDatabase
 
 class Medication_Form_Adapter (context : Context, medicationFormList : ArrayList <Medicatin_Form_Data>)
     : ArrayAdapter <Medicatin_Form_Data>(context ,0 ,medicationFormList ) {
-        override fun getView( position: Int, convertView: View?, parent: ViewGroup): View {
+        @SuppressLint("MissingInflatedId")
+        override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
             val view = LayoutInflater.from(context).inflate(R.layout.medication_and_surgeries_card, parent,false)
             val data: Medicatin_Form_Data? = getItem (position)
-            val medicin_name: TextView = view.findViewById(R.id.name)
-            val medicin_details: TextView = view.findViewById(R.id.date)
+            val medicin_name: TextView = view.findViewById(R.id.name2)
+            val medicin_details: TextView = view.findViewById(R.id.date2)
             val Uptbtn : Button = view.findViewById(R.id.edit_btn)
             val mAuth : FirebaseAuth = FirebaseAuth.getInstance()
             val mRef = FirebaseDatabase.getInstance().getReference("/user/${mAuth.currentUser?.uid}/Medication")
