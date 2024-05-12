@@ -129,11 +129,11 @@
     <Button
 
         android:id="@+id/btnupdate"
-        android:layout_width="112dp"
+        android:layout_width="wrap_content"
         android:layout_height="57dp"
         android:layout_marginTop="28dp"
         android:backgroundTint="#4CAF50"
-        android:text="update"
+        android:text="@string/update"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.104"
@@ -142,10 +142,10 @@
 
     <Button
         android:id="@+id/btndelete"
-        android:layout_width="112dp"
+        android:layout_width="wrap_content"
         android:layout_height="57dp"
         android:layout_marginTop="28dp"
-        android:text="Delete"
+        android:text="@string/remove"
         android:textSize="18sp"
         android:backgroundTint="#F44336"
         app:layout_constraintEnd_toEndOf="parent"
