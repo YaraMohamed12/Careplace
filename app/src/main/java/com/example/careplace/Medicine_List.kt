@@ -59,8 +59,6 @@ class Medicine_List : AppCompatActivity() {
           cliciking()
 
 
-
-
     }
 
     private fun iniliaztlisinter()
@@ -72,33 +70,25 @@ class Medicine_List : AppCompatActivity() {
         chat_btn  = findViewById(R.id.goto_chat)
     }
     private fun cliciking()
-    {
-        home_btn.setOnClickListener {
+    {  home_btn.setOnClickListener {
             val myintent1 = Intent(this , Patient_Home_Screen::class.java)
             startActivity(myintent1)
         }
-
         setting_btn.setOnClickListener {
             val myintent2 = Intent(this ,Patient_Setting_Screen ::class.java)
             startActivity(myintent2)
         }
-//
-//        your_profile_btn.setOnClickListener {
-//
-//            val myintent3 = Intent(this , ::class.java)
-//            startActivity(myintent3)
-//
-//      }
-//
+        your_profile_btn.setOnClickListener {
+            val myintent3 = Intent(this , My_Profile_Details_for_patient::class.java)
+            startActivity(myintent3)
+      }
         calender_btn.setOnClickListener {
             val myintent4 = Intent(this ,Patient_Calender_Screen ::class.java)
             startActivity(myintent4)
         }
-
         chat_btn.setOnClickListener {
             val myintent5 = Intent(this ,ContactActivity ::class.java)
             startActivity(myintent5) }
-
     }
 
 

@@ -44,50 +44,33 @@ class DoctorProfileRiviews : AppCompatActivity() {
             var myintent = Intent(this, DoctorProfileSchedule::class.java)
             startActivity(myintent)
         }
-
         info_btn.setOnClickListener {
             var myintent = Intent(this, DoctorProfileInfo::class.java)
             startActivity(myintent)
         }
-
         review_btn.setOnClickListener {
             var myintent = Intent(this, DoctorProfileRiviews::class.java)
             startActivity(myintent)
         }
-
         home_btn.setOnClickListener {
-
             val myintent1 = Intent(this , Patient_Home_Screen::class.java)
             startActivity(myintent1)
-
         }
-
         setting_btn.setOnClickListener {
-
             val myintent2 = Intent(this , Patient_Setting_Screen::class.java)
             startActivity(myintent2)
-
         }
-//
-//        your_profile_btn.setOnClickListener {
-//
-//            val myintent3 = Intent(this , ::class.java)
-//            startActivity(myintent3)
-//
-//        }
-//
+        your_profile_btn.setOnClickListener {
+            val myintent3 = Intent(this , My_Profile_Details_for_patient::class.java)
+            startActivity(myintent3)
+        }
         calender_btn.setOnClickListener {
-
             val myintent4 = Intent(this ,Patient_Calender_Screen ::class.java)
             startActivity(myintent4)
-
         }
-
         chat_btn.setOnClickListener {
-
             val myintent5 = Intent(this ,ContactActivity ::class.java)
             startActivity(myintent5)
-
         }
 
 

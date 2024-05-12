@@ -110,5 +110,10 @@ number of doses of the prescribed treatment).</string>
     <string name="delect_account">Delect Account</string>
     <string name="log_out">Log Out</string>
     <string name="chronic_diseases">Chronic Diseases</string>
+    <string name="last_appointment">Last Appointment</string>
+    <string name="more_information">More Information</string>
+    <string name="update">Update</string>
+    <string name="edit">Edit</string>
+    <string name="address">Address</string>
 
 </resources>
