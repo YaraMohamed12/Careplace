@@ -131,7 +131,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                app:layout_constraintTop_toBottomOf="@+id/address_bar"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
@@ -144,8 +143,7 @@
                 android:textColor="@color/darkblue"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/prof_pic" />
+                 />
 
 
             <TextView
@@ -169,9 +167,7 @@
                 android:text="@string/email"
                 android:textColor="@color/darkblue"
                 android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/edit_name" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/My_email"
@@ -194,9 +190,7 @@
                 android:text="@string/d_of_b"
                 android:textColor="@color/darkblue"
                 android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/edit_email" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/birth_data"
@@ -221,8 +215,7 @@
                 android:textColor="@color/darkblue"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/edit_BDT" />
+                 />
 
             <TextView
                 android:id="@+id/id_data"
@@ -247,8 +240,7 @@
                 android:textColor="@color/darkblue"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/edit_id" />
+                />
 
             <TextView
                 android:id="@+id/Phone_num"
@@ -273,8 +265,7 @@
                 android:textColor="@color/darkblue"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/edit_Address" />
+                 />
 
             <TextView
                 android:id="@+id/age_data"
@@ -298,8 +289,7 @@
                 android:textColor="@color/darkblue"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/edit_Age" />
+                />
 
             <TextView
                 android:id="@+id/gender_data"
@@ -323,8 +313,7 @@
                 android:textColor="@color/darkblue"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/edit_Gender" />
+                 />
 
             <TextView
                 android:id="@+id/weight_data"
@@ -347,9 +336,7 @@
                 android:text="@string/height"
                 android:textColor="@color/darkblue"
                 android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/edit_Gender" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/height_data"
@@ -374,8 +361,7 @@
                 android:textColor="@color/darkblue"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/edit_Gender" />
+                />
 
             <TextView
                 android:id="@+id/addess_data"
@@ -398,14 +384,14 @@
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clickable="true"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/menu_bar"
+        android:clickable="true"
+        android:contentDescription="@string/update"
         android:src="@drawable/pencil"
-        app:layout_constraintTop_toBottomOf="@id/scroll_view"
-        />
+        app:layout_constraintBottom_toTopOf="@id/menu_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scroll_view" />
 
 
 

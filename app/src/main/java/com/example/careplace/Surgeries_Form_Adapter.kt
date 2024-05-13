@@ -15,7 +15,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
 class Surgeries_Form_Adapter (context : Context, surgeryFormList : ArrayList <Surgeries_Form_Data>)
-    : ArrayAdapter<Surgeries_Form_Data>(context ,0 ,surgeryFormList ) {
+    : ArrayAdapter<Surgeries_Form_Data >(context ,0 ,surgeryFormList ) {
         @SuppressLint("MissingInflatedId")
         override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val view = LayoutInflater.from(context).inflate(R.layout.medication_and_surgeries_card, parent,false)

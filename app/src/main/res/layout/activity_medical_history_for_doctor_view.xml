@@ -340,16 +340,6 @@
                     tools:listitem="@layout/medication_and_surgeries_card"
                     />
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/add_medicine"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginEnd="30dp"
-                    android:clickable="true"
-                    android:src="@drawable/plus"
-                    tools:ignore="SpeakableTextPresentCheck" />
-
             </LinearLayout>
 
             <LinearLayout
@@ -380,15 +370,6 @@
                     android:layout_margin="25dp"
                     tools:listitem="@layout/medication_and_surgeries_card"
                     />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/add_surger"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:clickable="true"
-                    android:layout_marginEnd="30dp"
-                    android:src="@drawable/plus" />
 
             </LinearLayout>
 
@@ -460,15 +441,6 @@
                     android:layout_margin="20dp"
                     tools:listitem="@layout/form_images"
                     />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/add_pic"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:clickable="true"
-                    android:layout_marginEnd="30dp"
-                    android:src="@drawable/plus" />
 
             </LinearLayout>
 

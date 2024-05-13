@@ -115,5 +115,6 @@ number of doses of the prescribed treatment).</string>
     <string name="update">Update</string>
     <string name="edit">Edit</string>
     <string name="address">Address</string>
+    <string name="enter_your_address">Enter Your Address</string>
 
 </resources>
