@@ -242,7 +242,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/Phone"
             android:hint="@string/phone_number"
-            android:id="@+id/edit_Address"
+            android:id="@+id/edit_phone_num"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -265,7 +265,7 @@
             android:id="@+id/Age"
             android:textStyle="bold"
             android:textColor="@color/darkblue"
-            app:layout_constraintTop_toBottomOf="@id/edit_Address"
+            app:layout_constraintTop_toBottomOf="@id/edit_phone_num"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp"
