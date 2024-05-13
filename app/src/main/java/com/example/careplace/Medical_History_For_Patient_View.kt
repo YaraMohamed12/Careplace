@@ -32,6 +32,7 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
     lateinit var calender_btn: ImageView
     lateinit var chat_btn: ImageView
 
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,15 +44,15 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
         listViewSurgeries = findViewById(R.id.surgeries_listView)
         Medication_list = ArrayList()
         Surgery_list = ArrayList()
-        val MedicationAdapter = Medication_Form_Adapter(this@Medical_History_For_Patient_View, Medication_list)
-        listViewMedication.adapter = MedicationAdapter
-
         floatBtnDialog()
         iniliaztlisinter()
         cliciking()
         retrieveSurgeries()
+        retrieveMediction()
 
     }
+
+
 
     private fun iniliaztlisinter() {
         home_btn = findViewById(R.id.home_icon)
@@ -59,6 +60,7 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
         your_profile_btn = findViewById(R.id.profile_icon_bar)
         calender_btn = findViewById(R.id.calender_icon_bar)
         chat_btn = findViewById(R.id.goto_chat)
+
     }
 
     private fun cliciking() {
@@ -89,6 +91,7 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
     private fun floatBtnDialog() {
         val myFlotbtn1 = findViewById<FloatingActionButton>(R.id.add_medicine)
         val myFlotbtn2 = findViewById<FloatingActionButton>(R.id.add_surgery)
+        val myFlotbtn3 = findViewById<FloatingActionButton>(R.id.add_pic)
         myFlotbtn1.setOnClickListener {
             val view = layoutInflater.inflate(R.layout.medication_and_surgeries_dialog, null)
             val myDialogBuilder = AlertDialog.Builder(this)
@@ -105,7 +108,7 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
 
                 if (date.isNotEmpty() && name.isNotEmpty()) {
                     val id = mRef1.push().key ?: ""
-                    val myMedicine = Surgeries_Form_Data(name, date, id)
+                    val myMedicine = Medicatin_Form_Data(name, date, id)
                     mRef1.child("Medication").child(id).setValue(myMedicine)
                         .addOnSuccessListener {
                             Toast.makeText(this, "Medicine added successfully", Toast.LENGTH_SHORT).show()
@@ -152,6 +155,37 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
 
             }
         }
+        myFlotbtn3.setOnClickListener {
+            val view = layoutInflater.inflate(R.layout.medication_and_surgeries_dialog, null)
+            val myDialogBuilder = AlertDialog.Builder(this)
+            myDialogBuilder.setView(view)
+            val alertDialog = myDialogBuilder.create()
+            alertDialog.show()
+            val surgery_Name = view.findViewById<EditText>(R.id.name)
+            val surgery_date = view.findViewById<EditText>(R.id.date)
+            val add_medicine_Btn = view.findViewById<Button>(R.id.add_btn)
+
+            add_medicine_Btn.setOnClickListener {
+                val name = surgery_Name.text.toString()
+                val date = surgery_date.text.toString()
+
+                if (date.isNotEmpty() && name.isNotEmpty()) {
+                    val id = mRef2.push().key ?: ""
+                    val mySurgery = Surgeries_Form_Data(name, date, id)
+                    mRef2.child("Operation").child(id).setValue(mySurgery)
+                        .addOnSuccessListener {
+                            Toast.makeText(this, "Surgery added successfully", Toast.LENGTH_SHORT).show()
+                            alertDialog.dismiss()
+                        }
+                        .addOnFailureListener { e ->
+                            Toast.makeText(this, "Failed to add Surgery: ${e.message}", Toast.LENGTH_SHORT).show() }
+                } else {
+                    Toast.makeText(this, "Enter Name and Date", Toast.LENGTH_SHORT).show()
+                }
+
+
+            }
+        }
 
 
 
@@ -162,6 +196,7 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
         val mref = FirebaseDatabase.getInstance().getReference("user").child(currentuserid!!).child("Operation")
 
         mref.addValueEventListener(object : ValueEventListener {
+            @SuppressLint("SuspiciousIndentation")
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 Surgery_list.clear()
 
@@ -189,6 +224,40 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
             }
         })
     }
+    private fun retrieveMediction() {
+        val mAuth = FirebaseAuth.getInstance()
+        val currentuserid = mAuth.currentUser?.uid
+        val mref = FirebaseDatabase.getInstance().getReference("user").child(currentuserid!!).child("Medication")
+
+        mref.addValueEventListener(object : ValueEventListener {
+            @SuppressLint("SuspiciousIndentation")
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+               Medication_list.clear()
+
+                for (DataSnapshot in dataSnapshot.children) {
+                    val date = DataSnapshot.child("medicate_date").getValue(String::class.java)
+                    val Name = DataSnapshot.child("medicate_name").getValue(String::class.java)
+                    val Surgery_id = DataSnapshot.child("medicate_id").getValue(String::class.java)
 
 
- }
+                    val Medication_data = Medicatin_Form_Data(Name,date,Surgery_id)
+                    Medication_list.add(Medication_data)
+
+                }
+
+
+                val adapter = Medication_Form_Adapter(this@Medical_History_For_Patient_View, Medication_list)
+                listViewMedication.adapter = adapter
+
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+
+
+                Toast.makeText(this@Medical_History_For_Patient_View, "Failed to retrieve schedules", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+    }
+
+

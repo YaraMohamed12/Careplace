@@ -37,15 +37,15 @@ class Medication_Form_Adapter (context : Context, medicationFormList : ArrayList
 
         @SuppressLint("MissingInflatedId")
         private fun showUpdateDialog(data: Medicatin_Form_Data?) {
-            val dialogView = LayoutInflater.from(context).inflate(R.layout.medication_and_surgeries_dialog, null)
+            val dialogView = LayoutInflater.from(context).inflate(R.layout.medication_and_surgeries_update, null)
             val dialogBuilder = AlertDialog.Builder(context)
             dialogBuilder.setView(dialogView)
             val alertDialog = dialogBuilder.create()
             alertDialog.show()
             val name: EditText = dialogView.findViewById(R.id.name1)
             val details_op: EditText = dialogView.findViewById(R.id.date1)
-            val updBtn: Button = dialogView.findViewById(R.id.upd_btn)
-            val delBtn: Button = dialogView.findViewById(R.id.remove_btn)
+            val updBtn: Button = dialogView.findViewById(R.id.upd_btn_medic)
+            val delBtn: Button = dialogView.findViewById(R.id.remove_btn_medic)
             name.setText(data!!.medicin_name)
             details_op.setText(data.medicin_date)
 
