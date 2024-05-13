@@ -349,7 +349,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="440dp"
                     android:layout_margin="25dp"
-                    tools:listitem="@layout/medication_and_surgeries_card"
+                  tools:listitem="@layout/medcition_only_card"
                     />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -467,6 +467,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ListView
+                    android:id="@+id/Docment_listView"
                     android:layout_width="match_parent"
                     android:layout_height="440dp"
                     android:layout_margin="20dp"

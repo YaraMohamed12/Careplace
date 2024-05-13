@@ -11,10 +11,10 @@
     >
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/del_form_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginTop="80dp"
             android:backgroundTint="@color/white"
             android:text="@string/remove"
             android:textStyle="bold"
@@ -23,12 +23,24 @@
             android:layout_gravity="end"
             />
 
-    <ImageView
-        android:id="@+id/imageView12"
+    <TextView
+        android:id="@+id/form_name_card"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:layout_gravity="center"
+        android:textSize="26dp"
+        android:text="Rays Name"
+        android:textColor="@color/black"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="35dp"
+        >
+
+    </TextView>
+
+    <ImageView
+        android:id="@+id/image_form_card"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="18dp"
         app:srcCompat="@drawable/camera_plus" />
 
 

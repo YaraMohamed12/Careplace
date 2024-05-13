@@ -1,15 +1,20 @@
 package com.example.careplace
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.ListView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -17,6 +22,8 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 
 class Medical_History_For_Patient_View : AppCompatActivity() {
     private lateinit var mRef1: DatabaseReference
@@ -24,13 +31,19 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
     private lateinit var mAuth: FirebaseAuth
     private lateinit var Medication_list: ArrayList<Medicatin_Form_Data>
     private lateinit var Surgery_list: ArrayList<Surgeries_Form_Data>
+    private lateinit var Docment_list : ArrayList<Doc_class_Data>
     private lateinit var listViewMedication: ListView
     private lateinit var listViewSurgeries: ListView
+    private lateinit var listViewDocment : ListView
     lateinit var home_btn: ImageView
+    private val GALLERY_REQUEST_CODE = 100
     lateinit var setting_btn: ImageView
     lateinit var your_profile_btn: ImageView
     lateinit var calender_btn: ImageView
     lateinit var chat_btn: ImageView
+    lateinit var doc_txt : EditText
+    lateinit var add_img : ImageView
+    lateinit var add_btn : Button
 
 
     @SuppressLint("MissingInflatedId")
@@ -42,15 +55,20 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
         mRef2 = FirebaseDatabase.getInstance().getReference("/user/${mAuth.currentUser?.uid}")
         listViewMedication = findViewById(R.id.medication_form_listView)
         listViewSurgeries = findViewById(R.id.surgeries_listView)
+        listViewDocment =findViewById(R.id.Docment_listView)
         Medication_list = ArrayList()
         Surgery_list = ArrayList()
+        Docment_list = ArrayList()
         floatBtnDialog()
         iniliaztlisinter()
         cliciking()
         retrieveSurgeries()
-        retrieveMediction()
+        retrieveMedication()
+        retrieveDoc()
+
 
     }
+
 
 
 
@@ -156,35 +174,21 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
             }
         }
         myFlotbtn3.setOnClickListener {
-            val view = layoutInflater.inflate(R.layout.medication_and_surgeries_dialog, null)
+            val view = layoutInflater.inflate(R.layout.form_imgae_dialog, null)
             val myDialogBuilder = AlertDialog.Builder(this)
             myDialogBuilder.setView(view)
             val alertDialog = myDialogBuilder.create()
             alertDialog.show()
-            val surgery_Name = view.findViewById<EditText>(R.id.name)
-            val surgery_date = view.findViewById<EditText>(R.id.date)
-            val add_medicine_Btn = view.findViewById<Button>(R.id.add_btn)
-
-            add_medicine_Btn.setOnClickListener {
-                val name = surgery_Name.text.toString()
-                val date = surgery_date.text.toString()
-
-                if (date.isNotEmpty() && name.isNotEmpty()) {
-                    val id = mRef2.push().key ?: ""
-                    val mySurgery = Surgeries_Form_Data(name, date, id)
-                    mRef2.child("Operation").child(id).setValue(mySurgery)
-                        .addOnSuccessListener {
-                            Toast.makeText(this, "Surgery added successfully", Toast.LENGTH_SHORT).show()
-                            alertDialog.dismiss()
-                        }
-                        .addOnFailureListener { e ->
-                            Toast.makeText(this, "Failed to add Surgery: ${e.message}", Toast.LENGTH_SHORT).show() }
-                } else {
-                    Toast.makeText(this, "Enter Name and Date", Toast.LENGTH_SHORT).show()
-                }
-
-
+             doc_txt = view.findViewById(R.id.doc_txt)
+            add_btn = view.findViewById<Button>(R.id.upimagpt)
+             add_img = view.findViewById(R.id.xrayimg)
+            add_img.setOnClickListener {
+                val galleryIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+                startActivityForResult(galleryIntent, GALLERY_REQUEST_CODE)
             }
+
+
+
         }
 
 
@@ -194,7 +198,6 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
         val mAuth = FirebaseAuth.getInstance()
         val currentuserid = mAuth.currentUser?.uid
         val mref = FirebaseDatabase.getInstance().getReference("user").child(currentuserid!!).child("Operation")
-
         mref.addValueEventListener(object : ValueEventListener {
             @SuppressLint("SuspiciousIndentation")
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -210,54 +213,112 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
                             Surgery_list.add(surgery_data)
 
                 }
-
-
                 val adapter = Surgeries_Form_Adapter(this@Medical_History_For_Patient_View, Surgery_list)
                listViewSurgeries.adapter = adapter
 
             }
-
             override fun onCancelled(databaseError: DatabaseError) {
-
-
                 Toast.makeText(this@Medical_History_For_Patient_View, "Failed to retrieve schedules", Toast.LENGTH_SHORT).show()
             }
         })
     }
-    private fun retrieveMediction() {
+    private fun retrieveMedication() {
         val mAuth = FirebaseAuth.getInstance()
         val currentuserid = mAuth.currentUser?.uid
         val mref = FirebaseDatabase.getInstance().getReference("user").child(currentuserid!!).child("Medication")
-
         mref.addValueEventListener(object : ValueEventListener {
             @SuppressLint("SuspiciousIndentation")
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-               Medication_list.clear()
+                Medication_list.clear()
 
                 for (DataSnapshot in dataSnapshot.children) {
-                    val date = DataSnapshot.child("medicate_date").getValue(String::class.java)
-                    val Name = DataSnapshot.child("medicate_name").getValue(String::class.java)
-                    val Surgery_id = DataSnapshot.child("medicate_id").getValue(String::class.java)
+                    val date = DataSnapshot.child("medicin_date").getValue(String::class.java)
+                    val Name = DataSnapshot.child("medicin_name").getValue(String::class.java)
+                    val Surgery_id = DataSnapshot.child("medicin_id").getValue(String::class.java)
 
 
-                    val Medication_data = Medicatin_Form_Data(Name,date,Surgery_id)
-                    Medication_list.add(Medication_data)
+                    val Medicate_data = Medicatin_Form_Data(Name,date,Surgery_id)
+                    Medication_list.add(Medicate_data)
 
                 }
-
-
                 val adapter = Medication_Form_Adapter(this@Medical_History_For_Patient_View, Medication_list)
                 listViewMedication.adapter = adapter
 
             }
-
             override fun onCancelled(databaseError: DatabaseError) {
-
-
                 Toast.makeText(this@Medical_History_For_Patient_View, "Failed to retrieve schedules", Toast.LENGTH_SHORT).show()
             }
         })
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == GALLERY_REQUEST_CODE && resultCode == Activity.RESULT_OK && data != null) {
+            val selectedImageUri: Uri? = data.data
+            val storageRef = FirebaseStorage.getInstance().reference
+            val currentUser = FirebaseAuth.getInstance().currentUser
+            val userRef = FirebaseDatabase.getInstance().getReference("user")
+            val imgid = userRef.push().key ?: ""
+
+            if (selectedImageUri != null) {
+                val photoRef: StorageReference = storageRef.child("users_rays").child(imgid)
+                Glide.with(this@Medical_History_For_Patient_View)
+                    .load(selectedImageUri)
+                    .into(add_img)
+                add_btn.setOnClickListener {
+                photoRef.putFile(selectedImageUri)
+                    .addOnSuccessListener { uploadTask ->
+                        photoRef.downloadUrl.addOnSuccessListener { downloadUri ->
+                            val docName = doc_txt.text.toString()
+                            val docData = Doc_class_Data(docName, downloadUri.toString(), imgid)
+
+                            currentUser?.uid?.let { uid ->
+                                userRef.child(uid).child("user_rays").child(imgid).setValue(docData)
+                            }
+                        }
+                    }
+                    .addOnFailureListener { e ->
+                        Toast.makeText(this, "Upload failed", Toast.LENGTH_SHORT).show()
+                    }
+                    Toast.makeText(this, "upload succesfully", Toast.LENGTH_SHORT).show()
+            }
+            }
+        }
     }
+
+    private fun retrieveDoc() {
+        val mAuth = FirebaseAuth.getInstance()
+        val currentuserid = mAuth.currentUser?.uid
+        val mref = FirebaseDatabase.getInstance().getReference("user").child(currentuserid!!).child("user_rays")
+        mref.addValueEventListener(object : ValueEventListener {
+            @SuppressLint("SuspiciousIndentation")
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                Docment_list.clear()
+
+                for (DataSnapshot in dataSnapshot.children) {
+                    val DocUri = DataSnapshot.child("doc_uri").getValue(String::class.java)
+                    val Name = DataSnapshot.child("doc_name").getValue(String::class.java)
+                    val Doc_id = DataSnapshot.child("doc_id").getValue(String::class.java)
+
+
+                    val Doc_data = Doc_class_Data(Name,DocUri,Doc_id)
+                    Docment_list.add(Doc_data)
+
+                }
+                val adapter = Doc_Adapter(this@Medical_History_For_Patient_View, Docment_list)
+                listViewDocment.adapter = adapter
+
+            }
+            override fun onCancelled(databaseError: DatabaseError) {
+                Toast.makeText(this@Medical_History_For_Patient_View, "Failed to retrieve schedules", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+
+
+
+}
 
 
