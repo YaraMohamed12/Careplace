@@ -126,12 +126,12 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/prof_pic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/prof_pic2"
+                android:layout_width="170dp"
+                android:layout_height="150dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                tools:srcCompat="@tools:sample/avatars" />
+                tools:srcCompat="@drawable/person" />
 
             <TextView
                 android:id="@+id/fullname"
@@ -350,38 +350,11 @@
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
-
-            <TextView
-                android:id="@+id/address"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
-                android:text="@string/address"
-                android:textColor="@color/darkblue"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                />
-
-            <TextView
-                android:id="@+id/addess_data"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="25dp"
-                android:background="@color/white"
-                android:gravity="center_vertical"
-                android:text="  TextView"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
-
-
         </LinearLayout>
     </ScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/flobtn_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="15dp"

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 
 class Patient_Setting_Screen : AppCompatActivity() {
     lateinit var home_btn : ImageView
@@ -63,8 +64,12 @@ class Patient_Setting_Screen : AppCompatActivity() {
             startActivity(intent6)
         }
         log_out_btn.setOnClickListener {
-            val intent7 = Intent(this, DocOrPat::class.java)
-            startActivity(intent7)
+            FirebaseAuth.getInstance().signOut() // Sign out the current user
+            val myIntent = Intent(this, DocOrPat::class.java)
+            // Add flags to clear the activity stack and prevent returning to the logout screen
+            myIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(myIntent)
+            finish()
         }
     }
 }

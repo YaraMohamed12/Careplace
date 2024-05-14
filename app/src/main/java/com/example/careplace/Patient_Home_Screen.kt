@@ -27,7 +27,6 @@ import com.google.firebase.storage.StorageReference
 
 
 class Patient_Home_Screen : AppCompatActivity() {
-    private lateinit var toolbar: Toolbar
     private lateinit var user_image: ImageView
     private lateinit var patname: TextView
     private lateinit var database: FirebaseDatabase
@@ -42,25 +41,21 @@ class Patient_Home_Screen : AppCompatActivity() {
     lateinit var your_profile_btn : ImageView
     lateinit var calender_btn : ImageView
     lateinit var chat_btn : ImageView
-    private val GALLERY_REQUEST_CODE = 123
     lateinit var updimg_img : ImageView
     lateinit var view : View
     lateinit var select_form : FrameLayout
+    lateinit var profileImageUrl : String
 
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.patient_home_screen)
-        patname = findViewById(R.id.textView13)
+        patname = findViewById(R.id.textView14)
         select_doc = findViewById(R.id.choose_doctor)
         select_Mdeicine = findViewById(R.id.choose_medicine)
-        toolbar = findViewById(R.id.mytoolbar)
-        toolbar.inflateMenu(R.menu.main_menu)
         select_form = findViewById(R.id.choose_form)
-
         ImportUserData()
-        menuInflate()
         inilaztionlistenr()
         clicking()
         imageupload()
@@ -123,19 +118,7 @@ class Patient_Home_Screen : AppCompatActivity() {
 
     }
 
-    private fun menuInflate() {
-        toolbar.setOnMenuItemClickListener { menuItem ->
-            if (menuItem.itemId == R.id.Log_out) {
-                FirebaseAuth.getInstance().signOut()
-                val myIntent = Intent(this@Patient_Home_Screen, DocOrPat::class.java)
-                startActivity(myIntent)
-                finish()
-                true
-            } else {
-                false
-            }
-        }
-    }
+
 
     private fun ImportUserData() {
         database = FirebaseDatabase.getInstance()
@@ -152,7 +135,7 @@ class Patient_Home_Screen : AppCompatActivity() {
         // export userdata from database
         override fun onDataChange(snapshot: DataSnapshot) {
             val username = snapshot.getValue(String::class.java)
-            patname.text = username
+            patname.text = "Hi $username"
         }
         override fun onCancelled(error: DatabaseError) {
             // Handle onCancelled
@@ -161,55 +144,24 @@ class Patient_Home_Screen : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     private fun imageupload() {
         user_image.setOnClickListener {
-             view = layoutInflater.inflate(R.layout.setimage, null)
+             view = layoutInflater.inflate(R.layout.image_preview_dailog, null)
             val myDialogBuilder = AlertDialog.Builder(this)
             myDialogBuilder.setView(view)
             val alertDialog = myDialogBuilder.create()
             alertDialog.show()
-            val updimg_btn = view.findViewById<Button>(R.id.upd_img_pho)
-             updimg_img = view.findViewById<ImageView>(R.id.user_upd_img)
-            updimg_btn.setOnClickListener {
-                // Open gallery to select an image
-                val galleryIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-                startActivityForResult(galleryIntent, GALLERY_REQUEST_CODE)
-
-
-
-            }
+            updimg_img = view.findViewById<ImageView>(R.id.Image_preview)
+            Glide.with(this@Patient_Home_Screen).load(profileImageUrl).into(updimg_img)
         }
     }
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        val storageRef = FirebaseStorage.getInstance().reference
-        val currentUser = FirebaseAuth.getInstance().currentUser
-        if (requestCode == GALLERY_REQUEST_CODE && resultCode == RESULT_OK && data != null) {
-            val selectedImageUri: Uri? = data.data
-            val photoRef: StorageReference = storageRef.child("users_photos").child(selectedImageUri?.lastPathSegment!!)
-            photoRef.putFile(selectedImageUri)
-                .addOnSuccessListener {
 
-                    photoRef.downloadUrl.addOnSuccessListener { downloadUri ->
-                               Glide.with(this).load(downloadUri).into(updimg_img)
-
-                        currentUser?.let { user ->
-                            val userRef = FirebaseDatabase.getInstance().getReference("user/${user.uid}")
-                            userRef.child("profileImageUrl").setValue(downloadUri.toString())
-                        }
-                    }
-                }
-                .addOnFailureListener { e ->
-                    Toast.makeText(this, "Upload", Toast.LENGTH_SHORT).show()
-                }
-        }
-    }
     fun RloaduserImage()
     {
         val currentUser = FirebaseAuth.getInstance().currentUser
         currentUser?.let { user ->
             val userRef = FirebaseDatabase.getInstance().getReference("user/${user.uid}")
-            userRef.child("profileImageUrl").addListenerForSingleValueEvent(object : ValueEventListener {
+            userRef.child("profileImageUrl").addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    val profileImageUrl = snapshot.getValue(String::class.java)
+                     profileImageUrl = snapshot.getValue(String::class.java)!!
                     if (!profileImageUrl.isNullOrEmpty()) {
                         Glide.with(this@Patient_Home_Screen).load(profileImageUrl).into(user_image)
 

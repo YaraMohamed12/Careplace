@@ -36,8 +36,8 @@ number of doses of the prescribed treatment).</string>
     <string name="enter_age">Enter Your Age</string>
     <string name="gender">Gender</string>
     <string name="enter_gender">Enter Your Gender</string>
-    <string name="weight">Weight</string>
-    <string name="height">Height</string>
+    <string name="weight">Weight By Kg</string>
+    <string name="height">Height By Cm</string>
     <string name="submit">Submit</string>
     <string name="name">Full Name</string>
     <string name="enter_id">Enter Your National ID</string>
@@ -52,7 +52,7 @@ number of doses of the prescribed treatment).</string>
     <string name="or">------------------------------Or------------------------------</string>
     <string name="create_new_account">Create New account</string>
     <string name="back_to_login">Back to login</string>
-    <string name="hello">Hello , </string>
+    <string name="hello">Hello </string>
     <string name="welcome_text">Welcome to Care Place How is your health today ?</string>
     <string name="mma">Medical Manager App</string>
     <string name="reset_pass">Reset Password</string>

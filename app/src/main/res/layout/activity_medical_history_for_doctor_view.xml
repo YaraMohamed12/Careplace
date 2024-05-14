@@ -334,6 +334,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ListView
+                    android:id="@+id/medication_listView2"
                     android:layout_width="match_parent"
                     android:layout_height="440dp"
                     android:layout_margin="25dp"
@@ -365,6 +366,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ListView
+                    android:id="@+id/surgeries_listView2"
                     android:layout_width="match_parent"
                     android:layout_height="440dp"
                     android:layout_margin="25dp"
@@ -436,6 +438,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ListView
+                    android:id="@+id/Docment_listView2"
                     android:layout_width="match_parent"
                     android:layout_height="440dp"
                     android:layout_margin="20dp"
