@@ -68,6 +68,7 @@
                 app:layout_constraintTop_toBottomOf="@id/fullname"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="16dp"
+                android:textColor="@color/black"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:id="@+id/editxtname"
@@ -97,12 +98,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/email"
             android:hint="@string/enter_email"
+            app:hintTextColor="@color/black"
             android:id="@+id/edit_email"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="textEmailAddress"
+                android:textColor="@color/black"
                 android:background="@drawable/edititextbackground"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="16dp"
@@ -133,6 +136,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/phone"
             android:hint="@string/enter_pass"
+            app:hintTextColor="@color/black"
             app:passwordToggleEnabled="true"
             app:passwordToggleTint="@color/black"
             android:id="@+id/edit_phone"
@@ -141,6 +145,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="textPassword"
+                android:textColor="@color/black"
                 android:background="@drawable/edititextbackground"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="16dp"
@@ -170,6 +175,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/BRITH"
             android:id="@+id/edit_BDT"
+            android:textColor="@color/black"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -178,6 +184,7 @@
                 android:background="@drawable/edititextbackground"
                 app:layout_constraintStart_toStartOf="parent"
                 android:hint="@string/date"
+                app:hintTextColor="@color/black"
                 android:layout_marginTop="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
@@ -206,6 +213,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/nationId"
             android:hint="@string/enter_id"
+            app:hintTextColor="@color/black"
             android:id="@+id/edit_id"
             >
             <com.google.android.material.textfield.TextInputEditText
@@ -215,6 +223,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:background="@drawable/edititextbackground"
                 android:layout_marginTop="16dp"
+                android:textColor="@color/black"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:id="@+id/editxtID"
@@ -242,12 +251,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/Phone"
             android:hint="@string/phone_number"
+            app:hintTextColor="@color/black"
             android:id="@+id/edit_phone_num"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="number"
+                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 android:background="@drawable/edititextbackground"
                 android:layout_marginTop="16dp"
@@ -277,12 +288,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/Age"
             android:hint="@string/enter_age"
+            app:hintTextColor="@color/black"
             android:id="@+id/edit_Age"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="number"
+                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/edititextbackground"
@@ -313,12 +326,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/Gender"
             android:hint="@string/enter_gender"
+            app:hintTextColor="@color/black"
             android:id="@+id/edit_Gender"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="text"
+                android:textColor="@color/black"
                 android:background="@drawable/edititextbackground"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="16dp"
@@ -350,6 +365,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"
             android:hint="@string/weight"
+            app:hintTextColor="@color/black"
             android:id="@+id/edit_weight"
 
             >
@@ -357,6 +373,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="number"
+                android:textColor="@color/black"
                 android:background="@drawable/edititextbackground"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginEnd="16dp"
@@ -387,6 +404,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginStart="220dp"
             android:hint="@string/height"
+            app:hintTextColor="@color/black"
             android:id="@+id/edit_Height"
 
             >
@@ -394,6 +412,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="number"
+                android:textColor="@color/black"
                 android:background="@drawable/edititextbackground"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginEnd="16dp"
@@ -402,20 +421,21 @@
 
             </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
+
         <Button
+            android:id="@+id/sumbitBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:backgroundTint="@color/pink"
             android:text="@string/submit"
             android:textColor="@color/darkblue"
-            android:backgroundTint="@color/pink"
             android:textSize="24sp"
-            android:layout_marginTop="50dp"
             android:layout_marginBottom="30dp"
-            app:layout_constraintTop_toBottomOf="@id/edit_weight"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:id="@+id/sumbitBtn"
-            >
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edit_weight">
 
         </Button>
 

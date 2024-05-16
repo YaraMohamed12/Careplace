@@ -1,8 +1,11 @@
 package com.example.careplace
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
+import android.text.style.ClickableSpan
 import android.util.Log
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,17 +20,23 @@ import com.google.android.material.search.SearchBar
 
 
 class Doctors_List : AppCompatActivity() {
-
     private lateinit var DoctorRecyclerView: RecyclerView
     private lateinit var Doctorlist: ArrayList<DUsers>
     private lateinit var adapter: LIstDoctorAdapter
     private lateinit var mAuth: FirebaseAuth
     private lateinit var mRef: DatabaseReference
     private lateinit var searchbar : SearchView
+    lateinit var setting_btn : ImageView
+    lateinit var your_profile_btn : ImageView
+    lateinit var calender_btn : ImageView
+    lateinit var chat_btn : ImageView
+    lateinit var home_btn : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_doctors_list)
+        inisialization()
+        ClickAction()
         mAuth = FirebaseAuth.getInstance()
         val specf = intent.getStringExtra("Spec")
         mRef = FirebaseDatabase.getInstance().getReference("/${specf.toString()}/Duser")
@@ -37,6 +46,7 @@ class Doctors_List : AppCompatActivity() {
        DoctorRecyclerView.layoutManager = LinearLayoutManager(this)
         DoctorRecyclerView.adapter = adapter
         ListingDoctorFromFirebase()
+
         searchbar = findViewById(R.id.search_bar)
         searchbar.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -52,8 +62,36 @@ class Doctors_List : AppCompatActivity() {
         })
 
 
+    }
+    private fun inisialization() {
 
-
+        home_btn = findViewById(R.id.home_icon)
+        setting_btn = findViewById(R.id.setting_icon)
+        your_profile_btn = findViewById(R.id.profile_icon_bar)
+        calender_btn = findViewById(R.id.calender_icon_bar)
+        chat_btn  = findViewById(R.id.goto_chat)
+    }
+    private fun ClickAction() {
+        home_btn.setOnClickListener {
+            val myintent1 = Intent(this , Patient_Home_Screen::class.java)
+            startActivity(myintent1)
+        }
+        setting_btn.setOnClickListener {
+            val myintent2 = Intent(this , Patient_Setting_Screen::class.java)
+            startActivity(myintent2)
+        }
+        your_profile_btn.setOnClickListener {
+            val myintent3 = Intent(this , My_Profile_Details_for_patient::class.java)
+            startActivity(myintent3)
+        }
+        calender_btn.setOnClickListener {
+            val myintent4 = Intent(this ,Patient_Calender_Screen ::class.java)
+            startActivity(myintent4)
+        }
+        chat_btn.setOnClickListener {
+            val myintent5 = Intent(this ,ContactActivity_For_Patient ::class.java)
+            startActivity(myintent5)
+        }
     }
 
 

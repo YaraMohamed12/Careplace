@@ -38,7 +38,7 @@
     <Button
         android:id="@+id/Doctor_btn"
         android:layout_width="225dp"
-        android:layout_height="58dp"
+        android:layout_height="70dp"
         android:layout_marginTop="52dp"
         android:backgroundTint="@color/white"
         android:fontFamily="serif"
@@ -55,7 +55,7 @@
     <Button
         android:id="@+id/Pateint_btn"
         android:layout_width="225dp"
-        android:layout_height="58dp"
+        android:layout_height="70dp"
         android:layout_marginTop="128dp"
         android:drawableEnd="@drawable/patient2"
         android:backgroundTint="@color/white"

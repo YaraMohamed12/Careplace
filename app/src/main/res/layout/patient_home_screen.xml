@@ -59,8 +59,8 @@
 
             <ImageView
                 android:id="@+id/goto_chat"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.779"
@@ -71,8 +71,8 @@
 
             <ImageView
                 android:id="@+id/setting_icon"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/goto_chat"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -83,8 +83,8 @@
 
             <ImageView
                 android:id="@+id/profile_icon_bar"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_marginStart="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -93,8 +93,8 @@
 
             <ImageView
                 android:id="@+id/calender_icon_bar"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/home_icon"
                 app:layout_constraintStart_toEndOf="@+id/profile_icon_bar"
@@ -127,7 +127,7 @@
                 android:layout_gravity="center"
                 android:layout_margin="20dp"
                 android:text="@string/doc"
-                android:textColor="@color/purple"
+                android:textColor="@color/black"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
@@ -164,7 +164,7 @@
                 android:layout_gravity="center"
                 android:layout_margin="20dp"
                 android:text="@string/medication"
-                android:textColor="@color/purple"
+                android:textColor="@color/black"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
@@ -205,7 +205,7 @@
                 android:layout_margin="20dp"
                 android:text="@string/medical_history"
                 android:gravity="center_vertical"
-                android:textColor="@color/purple"
+                android:textColor="@color/black"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
@@ -225,10 +225,9 @@
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:layout_marginStart="12dp"
-        android:background="@color/white"
         android:layout_marginTop="52dp"
         android:text="@string/hello"
-        android:textColor="@color/purple"
+        android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/select_image"
@@ -240,7 +239,7 @@
         android:layout_height="64dp"
         android:layout_marginTop="8dp"
         android:text="@string/welcome_text"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

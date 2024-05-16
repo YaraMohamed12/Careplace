@@ -7,10 +7,11 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.ListView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -24,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+
 
 class Medical_History_For_Patient_View : AppCompatActivity() {
     private lateinit var mRef1: DatabaseReference
@@ -44,6 +46,18 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
     lateinit var doc_txt : EditText
     lateinit var add_img : ImageView
     lateinit var add_btn : Button
+    private lateinit var mRef: DatabaseReference
+    lateinit var done_selecting : ImageButton
+    lateinit var c1 : CheckBox
+    lateinit var c2 : CheckBox
+    lateinit var c3 : CheckBox
+    lateinit var c4 : CheckBox
+    lateinit var c5 : CheckBox
+    lateinit var c6 : CheckBox
+    lateinit var c7 : CheckBox
+    lateinit var c8 : CheckBox
+    lateinit var c9 : CheckBox
+    lateinit var c10 : CheckBox
 
 
     @SuppressLint("MissingInflatedId")
@@ -53,24 +67,22 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
         mRef1 = FirebaseDatabase.getInstance().getReference("/user/${mAuth.currentUser?.uid}")
         mRef2 = FirebaseDatabase.getInstance().getReference("/user/${mAuth.currentUser?.uid}")
+        mRef = FirebaseDatabase.getInstance().getReference("user/${mAuth.currentUser?.uid}/ChronicDiseases")
         listViewMedication = findViewById(R.id.medication_form_listView)
         listViewSurgeries = findViewById(R.id.surgeries_listView)
         listViewDocment =findViewById(R.id.Docment_listView)
         Medication_list = ArrayList()
         Surgery_list = ArrayList()
         Docment_list = ArrayList()
+
         floatBtnDialog()
         iniliaztlisinter()
         cliciking()
         retrieveSurgeries()
         retrieveMedication()
         retrieveDoc()
-
-
+        isChecked()
     }
-
-
-
 
     private fun iniliaztlisinter() {
         home_btn = findViewById(R.id.home_icon)
@@ -78,8 +90,77 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
         your_profile_btn = findViewById(R.id.profile_icon_bar)
         calender_btn = findViewById(R.id.calender_icon_bar)
         chat_btn = findViewById(R.id.goto_chat)
-
+        done_selecting = findViewById(R.id.select_done)
+        c1 = findViewById(R.id.checkBox2)
+        c2= findViewById(R.id.checkBox3)
+        c3= findViewById(R.id.checkBox4)
+        c4= findViewById(R.id.checkBox5)
+        c5= findViewById(R.id.checkBox6)
+        c6= findViewById(R.id.checkBox7)
+        c7= findViewById(R.id.checkBox8)
+        c8= findViewById(R.id.checkBox9)
+        c9= findViewById(R.id.checkBox10)
+        c10= findViewById(R.id.checkBox11)
     }
+
+
+    private fun isChecked() {
+        val id = mRef.push().key ?: ""
+        // Create an ArrayList to store variables
+        val checkBoxes = ArrayList<CheckBox>().apply {
+            add(c1)
+            add(c2)
+            add(c3)
+            add(c4)
+            add(c5)
+            add(c6)
+            add(c7)
+            add(c8)
+            add(c9)
+            add(c10)
+        }
+
+        done_selecting.setOnClickListener {
+
+
+            // Remove all old values from Firebase
+            mRef.child(id).removeValue().addOnCompleteListener { removeTask ->
+                if (removeTask.isSuccessful) {
+                    // Old values removed successfully, now add new values
+                    for ((index, checkbox) in checkBoxes.withIndex()) {
+                        val value = when (index) {
+                            0 -> "Hypertension"
+                            1 -> "High cholesterol"
+                            2 -> "Obesity"
+                            3 -> "Ischemic heart disease"
+                            4 -> "Arthritis"
+                            5 -> "Depression"
+                            6 -> "Alzheimer's disease and dementia"
+                            7 -> "Chronic kidney disease"
+                            8 -> "Diabetes"
+                            9 -> "Heart Failure"
+                            else -> ""
+                        }
+                        if (checkbox.isChecked) {
+                            // Checkbox is checked, add to Firebase
+                            if (value.isNotEmpty()) {
+                                mRef.child(id).push().setValue(value)
+                            }
+                        }
+                    }
+                } else {
+                    // Handle failure to remove old values
+                    // You can show an error message or take appropriate action here
+                }
+            }
+            Toast.makeText(this, "Selected Done Successfully ", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
+
+
+
 
     private fun cliciking() {
         home_btn.setOnClickListener {
@@ -99,9 +180,10 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
             startActivity(myintent4)
         }
         chat_btn.setOnClickListener {
-            val myintent5 = Intent(this, ContactActivity::class.java)
+            val myintent5 = Intent(this, ContactActivity_For_Patient::class.java)
             startActivity(myintent5)
         }
+
     }
 
 

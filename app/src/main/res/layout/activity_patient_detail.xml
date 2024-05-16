@@ -30,181 +30,321 @@
         android:textColor="@color/black"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.74"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.328"
+        app:layout_constraintStart_toEndOf="@+id/select_image_patient"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/Medical_form_patient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:backgroundTint="@color/purple"
         android:text="Medical Form"
         android:textColor="@color/black"
         android:textSize="24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.799"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.367"
+        app:layout_constraintStart_toEndOf="@+id/select_image_patient"
         app:layout_constraintTop_toBottomOf="@+id/Selected_Patient_Name" />
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/sqarue"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/Text_view90">
-        <androidx.constraintlayout.widget.ConstraintLayout
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/pink"
+            android:layout_margin="20dp"
             >
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    >
             <TextView
-                android:id="@+id/p_weight"
-                android:layout_width="wrap_content"
+                android:id="@+id/weight_1"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="52dp"
-                android:text="Patient Weight"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="15dp"
+                android:text="Weight:"
+                android:textStyle="bold"
                 android:textColor="@color/black"
-                android:textSize="25dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/p_weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="15dp"
+        android:text=" "
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="25sp" />
+
+</LinearLayout>
             <View
+                android:id="@+id/view2"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/gray"
                 android:layout_marginStart="50dp"
                 android:layout_marginEnd="50dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/p_weight"
-                >
+                android:background="@color/gray">
 
             </View>
-            <TextView
-                android:id="@+id/p_height"
-                android:layout_width="wrap_content"
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="104dp"
-                android:text="Patient height"
-                android:textColor="@color/black"
-                android:textSize="25dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:id="@+id/height_1"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="15dp"
+                    android:text="Height:"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/p_height"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="15dp"
+                    android:text=" "
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
+
             <View
+                android:id="@+id/view8"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/gray"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginStart="50dp"
                 android:layout_marginEnd="50dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/p_height"
-                >
+                android:background="@color/gray">
 
             </View>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:id="@+id/birthday"
+                    android:layout_width="114dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="15dp"
+                    android:text="Birthdate:"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/p_birthday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="15dp"
+                    android:text=" "
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/view3"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:textStyle="bold"
+                android:background="@color/gray">
+
+            </View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:id="@+id/genderpp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="15dp"
+                android:text="Gender : "
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/p_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="160dp"
-                android:text="Patient Gender"
-                android:textSize="25dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="15dp"
+                android:text=" "
+                android:textStyle="bold"
                 android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="25sp" />
+
+        </LinearLayout>
+
             <View
+                android:id="@+id/view6"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/gray"
                 android:layout_marginStart="50dp"
                 android:layout_marginEnd="50dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/p_type"
-                >
+                android:background="@color/gray">
 
             </View>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
             <TextView
-                android:id="@+id/p_birthday"
-                android:layout_width="wrap_content"
+                android:id="@+id/number"
+                android:layout_width="109dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="276dp"
-                android:text="Patient birthday"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="15dp"
+                android:text="Phone Number :"
                 android:textColor="@color/black"
-                android:textSize="25dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/gray"
-                android:layout_marginStart="50dp"
-                android:layout_marginEnd="50dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/p_birthday"
-                >
-
-            </View>
-
+                android:textSize="25sp"
+                android:textStyle="bold"
+                />
 
             <TextView
                 android:id="@+id/p_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="220dp"
-                android:text="Patient Phone Number"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="15dp"
+                android:text=" "
                 android:textColor="@color/black"
-                android:textSize="25dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/gray"
-                android:layout_marginStart="50dp"
-                android:layout_marginEnd="50dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/p_phone"
-                >
+                android:textSize="25sp"
+                android:textStyle="bold"
+                />
+        </LinearLayout>
 
-            </View>
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
     </FrameLayout>
 
     <TextView
         android:id="@+id/Text_view90"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:layout_marginTop="264dp"
-        android:text=" Personal Information"
+        android:layout_width="330dp"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:background="@drawable/btn_style"
+        android:layout_marginTop="35dp"
+        android:text="@string/personal_information"
         android:textColor="@color/black"
         android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/select_image_patient" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="bottom"
+        android:background="@drawable/bardown_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.469"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bardown_menu">
+
+            <ImageView
+                android:id="@+id/home_icon"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/home" />
+
+            <ImageView
+                android:id="@+id/goto_chat"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.779"
+                app:layout_constraintStart_toEndOf="@+id/home_icon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.6"
+                app:srcCompat="@drawable/chat" />
+
+            <ImageView
+                android:id="@+id/setting_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/goto_chat"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/home_icon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/setting" />
+
+            <ImageView
+                android:id="@+id/profile_icon_bar"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/person_circle" />
+
+            <ImageView
+                android:id="@+id/calender_icon_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/home_icon"
+                app:layout_constraintStart_toEndOf="@+id/profile_icon_bar"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/calendar" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

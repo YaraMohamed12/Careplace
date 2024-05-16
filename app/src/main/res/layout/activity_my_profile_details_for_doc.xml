@@ -154,6 +154,7 @@
                 android:background="@color/white"
                 android:gravity="center_vertical"
                 android:text="  TextView"
+                android:padding="10dp"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -177,6 +178,7 @@
                 android:background="@color/white"
                 android:gravity="center_vertical"
                 android:text="  TextView"
+                android:padding="10dp"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -200,6 +202,7 @@
                 android:background="@color/white"
                 android:gravity="center_vertical"
                 android:text="  TextView"
+                android:padding="10dp"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -225,6 +228,7 @@
                 android:background="@color/white"
                 android:gravity="center_vertical"
                 android:text="  TextView"
+                android:padding="10dp"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -250,6 +254,7 @@
                 android:background="@color/white"
                 android:gravity="center_vertical"
                 android:text="  TextView"
+                android:padding="10dp"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -275,6 +280,7 @@
                 android:background="@color/white"
                 android:gravity="center_vertical"
                 android:text="  TextView"
+                android:padding="10dp"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -299,6 +305,7 @@
                 android:background="@color/white"
                 android:gravity="center_vertical"
                 android:text="  TextView"
+                android:padding="10dp"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -323,6 +330,7 @@
                 android:background="@color/white"
                 android:gravity="center_vertical"
                 android:text="  TextView"
+                android:padding="10dp"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -346,6 +354,7 @@
                 android:background="@color/white"
                 android:gravity="center_vertical"
                 android:text="  TextView"
+                android:padding="10dp"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 

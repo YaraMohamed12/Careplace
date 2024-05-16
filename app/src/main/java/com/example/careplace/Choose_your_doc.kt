@@ -28,41 +28,6 @@ class Choose_your_doc : AppCompatActivity() {
         calender_btn = findViewById(R.id.calender_icon_bar)
         chat_btn  = findViewById(R.id.goto_chat)
 
-        home_btn.setOnClickListener {
-
-            val myintent1 = Intent(this , Patient_Home_Screen::class.java)
-            startActivity(myintent1)
-
-        }
-
-        setting_btn.setOnClickListener {
-
-            val myintent2 = Intent(this , Patient_Setting_Screen::class.java)
-            startActivity(myintent2)
-
-        }
-//
-//        your_profile_btn.setOnClickListener {
-//
-//            val myintent3 = Intent(this , ::class.java)
-//            startActivity(myintent3)
-//
-//        }
-//
-        calender_btn.setOnClickListener {
-
-            val myintent4 = Intent(this ,Patient_Calender_Screen ::class.java)
-            startActivity(myintent4)
-
-        }
-
-        chat_btn.setOnClickListener {
-
-            val myintent5 = Intent(this ,ContactActivity ::class.java)
-            startActivity(myintent5)
-
-        }
-
         select_spec1.setOnClickListener {
             mySpec = "Cardiologist"
             val myIntent = Intent(this, Doctors_List::class.java)
@@ -74,6 +39,75 @@ class Choose_your_doc : AppCompatActivity() {
             val myIntent = Intent(this, Doctors_List::class.java)
             myIntent.putExtra("Spec",mySpec)
             startActivity(myIntent)
+        }
+        binding.spec3Frame.setOnClickListener {
+            mySpec = "orthopaedic"
+            val myIntent = Intent(this, Doctors_List::class.java)
+            myIntent.putExtra("Spec",mySpec)
+            startActivity(myIntent)
+        }
+        binding.spec4Frame.setOnClickListener {
+            mySpec = "Ophthalmologist"
+            val myIntent = Intent(this, Doctors_List::class.java)
+            myIntent.putExtra("Spec",mySpec)
+            startActivity(myIntent)
+        }
+        binding.spec5Frame.setOnClickListener {
+            mySpec = "Dentist"
+            val myIntent = Intent(this, Doctors_List::class.java)
+            myIntent.putExtra("Spec",mySpec)
+            startActivity(myIntent)
+        }
+        binding.spec6Frame.setOnClickListener {
+            mySpec = "Audiologist"
+            val myIntent = Intent(this, Doctors_List::class.java)
+            myIntent.putExtra("Spec",mySpec)
+            startActivity(myIntent)
+        }
+        binding.spec7Frame.setOnClickListener {
+            mySpec = "ENT Specialists"
+            val myIntent = Intent(this, Doctors_List::class.java)
+            myIntent.putExtra("Spec",mySpec)
+            startActivity(myIntent)
+        }
+        binding.spec8Frame.setOnClickListener {
+            mySpec = "Gynecologist"
+            val myIntent = Intent(this, Doctors_List::class.java)
+            myIntent.putExtra("Spec",mySpec)
+            startActivity(myIntent)
+        }
+        binding.spec9Frame.setOnClickListener {
+            mySpec = "Radiologist"
+            val myIntent = Intent(this, Doctors_List::class.java)
+            myIntent.putExtra("Spec",mySpec)
+            startActivity(myIntent)
+        }
+        binding.spec10Frame.setOnClickListener {
+            mySpec = "Pediatrician"
+            val myIntent = Intent(this, Doctors_List::class.java)
+            myIntent.putExtra("Spec",mySpec)
+            startActivity(myIntent)
+        }
+
+        home_btn.setOnClickListener {
+            val myintent1 = Intent(this , Patient_Home_Screen::class.java)
+            startActivity(myintent1)
+        }
+        setting_btn.setOnClickListener {
+            val myintent2 = Intent(this , Patient_Setting_Screen::class.java)
+            startActivity(myintent2)
+        }
+        your_profile_btn.setOnClickListener {
+            val myintent3 = Intent(this , My_Profile_Details_for_patient::class.java)
+            startActivity(myintent3)
+        }
+        calender_btn.setOnClickListener {
+            val myintent4 = Intent(this ,Patient_Calender_Screen ::class.java)
+            startActivity(myintent4)
+        }
+        chat_btn.setOnClickListener {
+            val myintent5 = Intent(this ,ContactActivity_For_Patient ::class.java)
+            startActivity(myintent5)
         }
 
     }

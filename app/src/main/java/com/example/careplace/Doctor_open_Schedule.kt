@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.CalendarView
+import android.widget.ImageView
 import android.widget.TimePicker
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -21,11 +22,17 @@ class Doctor_open_Schedule : AppCompatActivity() {
     private lateinit var mref: DatabaseReference
     private lateinit var mAuth: FirebaseAuth
     private lateinit var currentUser: FirebaseUser
+    lateinit var home_btn : ImageView
+    lateinit var setting_btn : ImageView
+    lateinit var your_profile_btn : ImageView
+    lateinit var calender_btn : ImageView
+    lateinit var chat_btn : ImageView
     private var selectedDate : String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_doctor_open_schedule)
         initialization()
+        SetupListner()
         selected_date.setOnDateChangeListener { view, year, month, dayOfMonth ->
              selectedDate = formatDate(year, month, dayOfMonth)
             Toast.makeText(this, "Selected date: $selectedDate", Toast.LENGTH_SHORT).show()
@@ -37,6 +44,28 @@ class Doctor_open_Schedule : AppCompatActivity() {
 
     }
 
+    private fun SetupListner() {
+        home_btn.setOnClickListener {
+            val myintent1 = Intent(this , Doctor_Home_Screen::class.java)
+            startActivity(myintent1)
+        }
+        setting_btn.setOnClickListener {
+            val myintent2 = Intent(this , Doctor_Setting_Screen::class.java)
+            startActivity(myintent2)
+        }
+        your_profile_btn.setOnClickListener {
+            val myintent3 = Intent(this , My_Profile_Details_for_doc::class.java)
+            startActivity(myintent3)
+        }
+        calender_btn.setOnClickListener {
+            val myintent4 = Intent(this , Doctor_Calender_Screen::class.java)
+            startActivity(myintent4)
+        }
+        chat_btn.setOnClickListener {
+            val myintent5 = Intent(this ,ContactActivity_For_Doctor ::class.java)
+            startActivity(myintent5)
+        }
+    }
 
 
     private fun formattingTime(timePicker: TimePicker): String {
@@ -63,6 +92,11 @@ class Doctor_open_Schedule : AppCompatActivity() {
         sumbit_btn = findViewById(R.id.create_schedule_btn)
         mref = FirebaseDatabase.getInstance().getReference()
         mAuth = FirebaseAuth.getInstance()
+        home_btn = findViewById(R.id.home_icon)
+        setting_btn = findViewById(R.id.setting_icon)
+        your_profile_btn = findViewById(R.id.profile_icon_bar)
+        calender_btn = findViewById(R.id.calender_icon_bar)
+        chat_btn  = findViewById(R.id.goto_chat)
         currentUser = mAuth.currentUser!!
     }
 

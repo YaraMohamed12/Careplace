@@ -93,7 +93,7 @@ number of doses of the prescribed treatment).</string>
     <string name="surgeries">Surgeries</string>
     <string name="alzheimer_s_disease_and_dementia">Alzheimer\'s disease and dementia</string>
     <string name="depression">Depression</string>
-    <string name="heart_failure">Heart failure</string>
+    <string name="heart_failure">Heart Failure</string>
     <string name="chronic_kidney_disease">Chronic kidney disease</string>
     <string name="diabetes">Diabetes</string>
     <string name="ischemic_heart_disease">Ischemic heart disease</string>
@@ -116,5 +116,8 @@ number of doses of the prescribed treatment).</string>
     <string name="edit">Edit</string>
     <string name="address">Address</string>
     <string name="enter_your_address">Enter Your Address</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="introduce_yourself_to_the_patient">Please write more information about yourself to introduce yourself to the patient</string>
+    <string name="about_me">About Me : </string>
 
 </resources>
