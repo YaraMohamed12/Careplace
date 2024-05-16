@@ -39,6 +39,10 @@ class My_Profile_Details_for_patient : AppCompatActivity() {
     lateinit var update_btn : FloatingActionButton
     private val GALLERY_REQUEST_CODE = 123
     lateinit var user2_image : ImageView
+    lateinit var home_btn : ImageView
+    lateinit var setting_btn : ImageView
+    lateinit var calender_btn : ImageView
+    lateinit var chat_btn : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +52,25 @@ class My_Profile_Details_for_patient : AppCompatActivity() {
         inilaztion()
         RetriveUserDate()
         UpdateUserData()
+        clickAction()
+    }
+
+    private fun clickAction() {
+        home_btn.setOnClickListener {
+            val myintent1 = Intent(this , Patient_Home_Screen::class.java)
+            startActivity(myintent1)
+        }
+        setting_btn.setOnClickListener {
+            val myintent2 = Intent(this ,Patient_Setting_Screen ::class.java)
+            startActivity(myintent2)
+        }
+        calender_btn.setOnClickListener {
+            val myintent4 = Intent(this ,Patient_Calender_Screen ::class.java)
+            startActivity(myintent4)
+        }
+        chat_btn.setOnClickListener {
+            val myintent5 = Intent(this ,ContactActivity_For_Patient ::class.java)
+            startActivity(myintent5) }
     }
 
     private fun inilaztion() {
@@ -62,6 +85,10 @@ class My_Profile_Details_for_patient : AppCompatActivity() {
         user_bdate = findViewById(R.id.birth_data)
         user_image = findViewById(R.id.prof_pic2)
         update_btn = findViewById(R.id.flobtn_user)
+        home_btn = findViewById(R.id.home_icon)
+        setting_btn = findViewById(R.id.setting_icon)
+        calender_btn = findViewById(R.id.calender_icon_bar)
+        chat_btn  = findViewById(R.id.goto_chat)
     }
 
     private fun RetriveUserDate() {

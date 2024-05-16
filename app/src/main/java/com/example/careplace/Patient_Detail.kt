@@ -6,11 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -29,6 +25,12 @@ class Patient_Detail : AppCompatActivity() {
     lateinit var Patient_Forms : Button
     lateinit var mRef : DatabaseReference
     lateinit var PateintId : String
+    lateinit var home_btn : ImageView
+    lateinit var setting_btn : ImageView
+    lateinit var your_profile_btn : ImageView
+    lateinit var calender_btn : ImageView
+    lateinit var chat_btn : ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_patient_detail)
@@ -52,6 +54,11 @@ class Patient_Detail : AppCompatActivity() {
         Patient_weight = findViewById(R.id.p_weight)
         Patient_height = findViewById(R.id.p_height)
         Patient_age = findViewById(R.id.p_birthday)
+        home_btn = findViewById(R.id.home_icon)
+        setting_btn = findViewById(R.id.setting_icon)
+        your_profile_btn = findViewById(R.id.profile_icon_bar)
+        calender_btn = findViewById(R.id.calender_icon_bar)
+        chat_btn  = findViewById(R.id.goto_chat)
         mRef = FirebaseDatabase.getInstance().getReference("user")
     }
     @SuppressLint("SuspiciousIndentation")
@@ -60,6 +67,26 @@ class Patient_Detail : AppCompatActivity() {
             val intent = Intent(this,Medical_History_For_Doctor_View::class.java)
             intent.putExtra("PateintId",PateintId)
             startActivity(intent)
+        }
+        home_btn.setOnClickListener {
+            val myintent1 = Intent(this , Doctor_Home_Screen::class.java)
+            startActivity(myintent1)
+        }
+        setting_btn.setOnClickListener {
+            val myintent2 = Intent(this , Doctor_Setting_Screen::class.java)
+            startActivity(myintent2)
+        }
+        your_profile_btn.setOnClickListener {
+            val myintent3 = Intent(this , My_Profile_Details_for_doc::class.java)
+            startActivity(myintent3)
+        }
+        calender_btn.setOnClickListener {
+            val myintent4 = Intent(this , Doctor_Calender_Screen::class.java)
+            startActivity(myintent4)
+        }
+        chat_btn.setOnClickListener {
+            val myintent5 = Intent(this ,ContactActivity_For_Patient ::class.java)
+            startActivity(myintent5)
         }
 
     }
@@ -73,11 +100,11 @@ class Patient_Detail : AppCompatActivity() {
                 val P_phone = snapshot.child("phone").getValue(String ::class.java)
                 val P_gender = snapshot.child("gender").getValue(String ::class.java)
                 Patient_name.text = P_name
-                Patient_height.text = "Patient Height:$P_height"
-                Patient_weight.text = "Patient Weight:$P_weight"
-                Patient_phone.text = "Patient Phone:$P_phone"
-                Patient_gender.text = "Patient Gender:$P_gender"
-                Patient_age.text = "Patient Birth Date:$P_age"
+                Patient_height.text = P_height
+                Patient_weight.text = P_weight
+                Patient_phone.text = P_phone
+                Patient_gender.text = P_gender
+                Patient_age.text = P_age
                 val profileImageUrl = snapshot.child("profileImageUrl").getValue(String::class.java)
                 Glide.with(this@Patient_Detail).load(profileImageUrl).into(Pateint_image)
             }

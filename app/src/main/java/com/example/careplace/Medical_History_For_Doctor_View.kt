@@ -1,14 +1,12 @@
 package com.example.careplace
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.ListView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -22,6 +20,12 @@ class Medical_History_For_Doctor_View : AppCompatActivity() {
     lateinit var Surgerieslist : ArrayList<Surgeries_Form_Data>
     lateinit var Medictionlist : ArrayList<Medicatin_Form_Data>
     lateinit var Documnetlist : ArrayList<Doc_class_Data>
+    lateinit var home_btn : ImageView
+    lateinit var setting_btn : ImageView
+    lateinit var your_profile_btn : ImageView
+    lateinit var calender_btn : ImageView
+    lateinit var chat_btn : ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_medical_history_for_doctor_view)
@@ -29,12 +33,42 @@ class Medical_History_For_Doctor_View : AppCompatActivity() {
         pateint_Document_list = findViewById(R.id.Docment_listView2)
         pateint_surgery_list = findViewById(R.id.surgeries_listView2)
         pateint_Medication_list = findViewById(R.id.medication_listView2)
+        home_btn = findViewById(R.id.home_icon)
+        setting_btn = findViewById(R.id.setting_icon)
+        your_profile_btn = findViewById(R.id.profile_icon_bar)
+        calender_btn = findViewById(R.id.calender_icon_bar)
+        chat_btn  = findViewById(R.id.goto_chat)
+
         Surgerieslist = ArrayList()
         Medictionlist = ArrayList()
         Documnetlist = ArrayList()
         retrivePatientSurgeries()
         retrivePatientMedication()
         retrivePatientDocumnet()
+        buttonlistener()
+    }
+
+    private fun buttonlistener() {
+        home_btn.setOnClickListener {
+            val myintent1 = Intent(this , Doctor_Home_Screen::class.java)
+            startActivity(myintent1)
+        }
+        setting_btn.setOnClickListener {
+            val myintent2 = Intent(this , Doctor_Setting_Screen::class.java)
+            startActivity(myintent2)
+        }
+        your_profile_btn.setOnClickListener {
+            val myintent3 = Intent(this , My_Profile_Details_for_doc::class.java)
+            startActivity(myintent3)
+        }
+        calender_btn.setOnClickListener {
+            val myintent4 = Intent(this , Doctor_Calender_Screen::class.java)
+            startActivity(myintent4)
+        }
+        chat_btn.setOnClickListener {
+            val myintent5 = Intent(this , ContactActivity_For_Doctor::class.java)
+            startActivity(myintent5)
+        }
     }
 
     private fun retrivePatientMedication() {

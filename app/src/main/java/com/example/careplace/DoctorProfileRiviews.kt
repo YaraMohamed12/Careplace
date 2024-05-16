@@ -19,7 +19,6 @@ import com.google.firebase.database.FirebaseDatabase
 class DoctorProfileRiviews : AppCompatActivity() {
     lateinit var schedule_btn : Button
     lateinit var info_btn : Button
-    lateinit var review_btn : Button
     lateinit var home_btn : ImageView
     lateinit var setting_btn : ImageView
     lateinit var your_profile_btn : ImageView
@@ -35,21 +34,21 @@ class DoctorProfileRiviews : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_doctor_profile_riviews)
         Iniliaztion()
+        buttonlistener()
 
         adding_review.setOnClickListener{ addInfo() }
         review_recycle.layoutManager = LinearLayoutManager(this)
         review_recycle.adapter= review_adabter
 
+    }
+
+    private fun buttonlistener() {
         schedule_btn.setOnClickListener {
             var myintent = Intent(this, DoctorProfileSchedule::class.java)
             startActivity(myintent)
         }
         info_btn.setOnClickListener {
             var myintent = Intent(this, DoctorProfileInfo::class.java)
-            startActivity(myintent)
-        }
-        review_btn.setOnClickListener {
-            var myintent = Intent(this, DoctorProfileRiviews::class.java)
             startActivity(myintent)
         }
         home_btn.setOnClickListener {
@@ -69,11 +68,9 @@ class DoctorProfileRiviews : AppCompatActivity() {
             startActivity(myintent4)
         }
         chat_btn.setOnClickListener {
-            val myintent5 = Intent(this ,ContactActivity ::class.java)
+            val myintent5 = Intent(this ,ContactActivity_For_Patient ::class.java)
             startActivity(myintent5)
         }
-
-
     }
 
     private fun addInfo() {
@@ -104,9 +101,7 @@ class DoctorProfileRiviews : AppCompatActivity() {
 
     fun Iniliaztion()
     {
-        schedule_btn = findViewById(R.id.schedule_btn1)
         info_btn = findViewById(R.id.info_btn1)
-        review_btn = findViewById(R.id.review_btn1)
         home_btn = findViewById(R.id.home_icon)
         setting_btn = findViewById(R.id.setting_icon)
         your_profile_btn = findViewById(R.id.profile_icon_bar)
@@ -114,6 +109,7 @@ class DoctorProfileRiviews : AppCompatActivity() {
         chat_btn  = findViewById(R.id.goto_chat)
         adding_review = findViewById(R.id.adding_review_btn)
         review_recycle = findViewById(R.id.reviews_list)
+        schedule_btn = findViewById(R.id.schedule_btn1)
         reviewList = ArrayList()
         review_adabter = ReviewAdapter(this,reviewList)
         mRef = FirebaseDatabase.getInstance().getReference()

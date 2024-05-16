@@ -3,7 +3,6 @@ package com.example.careplace
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
@@ -60,7 +59,6 @@ class DoctorProfileSchedule : AppCompatActivity() {
             var my_intent2 = Intent(this, DoctorProfileInfo::class.java)
             startActivity(my_intent2)
         }
-
         review_btn.setOnClickListener {
             var myintent = Intent(this, DoctorProfileRiviews::class.java)
             startActivity(myintent)
@@ -78,7 +76,7 @@ class DoctorProfileSchedule : AppCompatActivity() {
             startActivity(myintent4)
         }
         chat_btn.setOnClickListener {
-            val myintent5 = Intent(this ,ContactActivity ::class.java)
+            val myintent5 = Intent(this ,ContactActivity_For_Patient ::class.java)
             startActivity(myintent5)
         }
         val doctorname = intent.getStringExtra("DoctorName")

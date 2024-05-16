@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:gravity="center"
             >
             <EditText
@@ -31,8 +31,9 @@
                 android:textSize="20sp"
                 android:inputType="text"
                 android:textStyle="bold"
+                android:layout_marginTop="15dp"
                 android:textColor="@color/black"
-                android:layout_margin="20dp"
+
                 />
             <EditText
                 android:id="@+id/date1"
@@ -46,7 +47,8 @@
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:layout_gravity="end"
-                android:layout_margin="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="15dp"
                 />
         </LinearLayout>
 <LinearLayout

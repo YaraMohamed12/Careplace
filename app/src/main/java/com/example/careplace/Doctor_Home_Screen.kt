@@ -20,6 +20,7 @@ class Doctor_Home_Screen : AppCompatActivity() {
     private lateinit var OpenResavtion: Button
     private lateinit var doctorName: TextView
     private lateinit var Pateint_btn: Button
+    private lateinit var information_Btn : Button
     private lateinit var doctor_image: ImageView
     private lateinit var view: View
     private lateinit var updimg_img: ImageView
@@ -51,6 +52,7 @@ class Doctor_Home_Screen : AppCompatActivity() {
         doctorName = findViewById(R.id.Doctor_name)
         Pateint_btn = findViewById(R.id.my_patient_btn)
         doctor_image = findViewById(R.id.select_image_doctor)
+        information_Btn = findViewById(R.id.my_info)
     }
 
     private fun setButtonClickListeners() {
@@ -67,7 +69,7 @@ class Doctor_Home_Screen : AppCompatActivity() {
         }
 
         chat_btn.setOnClickListener {
-            startActivity(Intent(this, ContactActivity::class.java))
+            startActivity(Intent(this, ContactActivity_For_Doctor::class.java))
         }
 
         OpenResavtion.setOnClickListener {
@@ -80,6 +82,9 @@ class Doctor_Home_Screen : AppCompatActivity() {
 
         doctor_image.setOnClickListener {
             showImagePreviewDialog()
+        }
+        information_Btn.setOnClickListener {
+            startActivity(Intent(this,Information_About_Doctor::class.java))
         }
     }
 

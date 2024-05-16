@@ -12,13 +12,11 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.getValue
 
 class Patient_Calender_Screen : AppCompatActivity() {
     lateinit var home_btn : ImageView
     lateinit var setting_btn : ImageView
     lateinit var your_profile_btn : ImageView
-    lateinit var calender_btn : ImageView
     lateinit var chat_btn : ImageView
     lateinit var DoctorlistView: ListView
      lateinit var DoctorList: MutableList<Appointment>
@@ -31,50 +29,31 @@ class Patient_Calender_Screen : AppCompatActivity() {
         retrieveDoctors()
         DoctorList = mutableListOf()
 
-
-
-
-
     }
     private fun inilaztion()
-    {
-        home_btn = findViewById(R.id.home_icon)
+    { home_btn = findViewById(R.id.home_icon)
         setting_btn = findViewById(R.id.setting_icon)
         your_profile_btn = findViewById(R.id.profile_icon_bar)
-        calender_btn = findViewById(R.id.calender_icon_bar)
         chat_btn  = findViewById(R.id.goto_chat)
         DoctorlistView = findViewById(R.id.User_date_list)
-
-
     }
     private fun setuplistener()
     {
         home_btn.setOnClickListener {
-
             val myintent1 = Intent(this , Patient_Home_Screen::class.java)
             startActivity(myintent1)
-
         }
-
         setting_btn.setOnClickListener {
-
             val myintent2 = Intent(this ,Patient_Setting_Screen ::class.java)
             startActivity(myintent2)
-
         }
-
-        calender_btn.setOnClickListener {
-
-            val myintent4 = Intent(this ,Patient_Calender_Screen ::class.java)
-            startActivity(myintent4)
-
-        }
-
         chat_btn.setOnClickListener {
-
-            val myintent5 = Intent(this ,ContactActivity ::class.java)
+            val myintent5 = Intent(this ,ContactActivity_For_Patient ::class.java)
             startActivity(myintent5)
-
+        }
+        your_profile_btn.setOnClickListener {
+            val myintent6 = Intent(this ,My_Profile_Details_for_patient ::class.java)
+            startActivity(myintent6)
         }
     }
     private fun retrieveDoctors() {

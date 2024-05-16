@@ -25,6 +25,9 @@ class NewAccForDoc : AppCompatActivity() {
     val spec5 : String = "Dentist"
     val spec6 : String = "Audiologist"
     val spec7 : String = "ENT Specialists"
+    val spec8 : String = "Gynecologist"
+    val spec9 : String = "Radiologist"
+    val spec10 : String = "Pediatrician"
     private lateinit var Dmailtxt: TextInputEditText
     private lateinit var Dpasswordtxt: TextInputEditText
     private lateinit var sumbit: Button
@@ -49,7 +52,7 @@ class NewAccForDoc : AppCompatActivity() {
     private fun menupopulater()
     {
 
-        val listDoctor = listOf(spec1,spec2,spec3,spec4,spec5,spec6,spec7)
+        val listDoctor = listOf(spec1,spec2,spec3,spec4,spec5,spec6,spec7,spec8,spec9,spec10)
         val adapter = ArrayAdapter(this,R.layout.drop_down_menu,listDoctor)
         toDropDownMenu.setAdapter(adapter)
 

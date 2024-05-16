@@ -17,7 +17,9 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 @SuppressLint("CustomSplashScreen")
-class SplashActivity : AppCompatActivity() {
+class
+
+SplashActivity : AppCompatActivity() {
     private val SPLASH_TIME_OUT: Long = 1000
 
     override fun onCreate(savedInstanceState: Bundle?) {

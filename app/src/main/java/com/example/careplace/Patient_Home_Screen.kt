@@ -96,7 +96,7 @@ class Patient_Home_Screen : AppCompatActivity() {
 
     private fun setClickListeners() {
         Goto_chat.setOnClickListener {
-            startActivity(Intent(this, ContactActivity::class.java))
+            startActivity(Intent(this, ContactActivity_For_Patient::class.java))
         }
 
         select_doc.setOnClickListener {

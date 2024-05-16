@@ -1,6 +1,5 @@
 package com.example.careplace
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.CalendarView
@@ -18,7 +17,6 @@ class Doctor_Calender_Screen : AppCompatActivity() {
     private lateinit var home_btn: ImageView
     private lateinit var setting_btn: ImageView
     private lateinit var your_profile_btn: ImageView
-    private lateinit var calender_btn: ImageView
     private lateinit var chat_btn: ImageView
     private lateinit var scheduleListView: ListView
     private lateinit var scheduleList: MutableList<Schedule>
@@ -42,7 +40,6 @@ class Doctor_Calender_Screen : AppCompatActivity() {
         home_btn = findViewById(R.id.home_icon)
         setting_btn = findViewById(R.id.setting_icon)
         your_profile_btn = findViewById(R.id.profile_icon_bar)
-        calender_btn = findViewById(R.id.calender_icon_bar)
         chat_btn = findViewById(R.id.goto_chat)
     }
 
@@ -50,17 +47,15 @@ class Doctor_Calender_Screen : AppCompatActivity() {
         home_btn.setOnClickListener {
             startActivity(Intent(this, Doctor_Home_Screen::class.java))
         }
-
         setting_btn.setOnClickListener {
-            startActivity(Intent(this, Patient_Setting_Screen::class.java))
+            startActivity(Intent(this, Doctor_Setting_Screen::class.java))
         }
-
-        calender_btn.setOnClickListener {
-            // Current activity, no action needed
-        }
-
         chat_btn.setOnClickListener {
-            startActivity(Intent(this, ContactActivity::class.java))
+            startActivity(Intent(this, ContactActivity_For_Doctor::class.java))
+        }
+        your_profile_btn.setOnClickListener {
+            val myintent3 = Intent(this , My_Profile_Details_for_doc::class.java)
+            startActivity(myintent3)
         }
     }
 

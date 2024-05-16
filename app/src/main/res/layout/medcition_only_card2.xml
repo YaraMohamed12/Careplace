@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="start"
         android:orientation="vertical"
@@ -23,11 +23,13 @@
 
         <TextView
             android:id="@+id/name2_media2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:padding="10dp"
+            android:layout_margin="10dp"
+            android:background="@color/white"
             android:text="surgery or medicine"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="23sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -37,11 +39,13 @@
 
         <TextView
             android:id="@+id/date2_media2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:padding="10dp"
+            android:background="@color/white"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
             android:text="Date of Surgery"
-            android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -53,12 +57,12 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_marginTop="132dp"
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        >
 
     </View>
 
