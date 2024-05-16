@@ -9,6 +9,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.provider.MediaStore
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -41,6 +42,8 @@ class Medicine_List : AppCompatActivity() {
     lateinit var your_profile_btn : ImageView
     lateinit var calender_btn : ImageView
     lateinit var chat_btn : ImageView
+    lateinit var Mimage : ImageView
+    private val GALLERY_REQUEST_CODE = 123
 
 
     @SuppressLint("MissingInflatedId")
@@ -108,9 +111,8 @@ class Medicine_List : AppCompatActivity() {
             val medicineNo = view.findViewById<EditText>(R.id.doz_no_dialog1)
             val medicineBtn = view.findViewById<Button>(R.id.btnadd)
 
-            // Mname from editText -> medicinename ->  name = medcinename.tostring   store realtime
 
-              calculateTimeDifferenceInSeconds(medicinepicker)
+            calculateTimeDifferenceInSeconds(medicinepicker)
             val intent = Intent(this, MyBroadcastReciver::class.java)
             pendingIntent = PendingIntent.getBroadcast(this, 224, intent,
                 PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
@@ -225,6 +227,7 @@ class Medicine_List : AppCompatActivity() {
 
         return differenceInMillis / 1000
     }
+
 
 
 

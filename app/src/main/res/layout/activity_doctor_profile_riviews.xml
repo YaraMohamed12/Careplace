@@ -89,7 +89,7 @@
 
 
                 <TextView
-                    android:id="@+id/textView20"
+                    android:id="@+id/textView201"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -103,7 +103,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView21"
+                    android:id="@+id/textView210"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="52dp"
@@ -113,7 +113,7 @@
                     android:textSize="25sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView20" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView201" />
 
                 <RatingBar
                     android:id="@+id/ratingBar"
@@ -122,7 +122,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="12dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView21" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView210" />
 
                 <LinearLayout
                     android:id="@+id/linearLayout2"

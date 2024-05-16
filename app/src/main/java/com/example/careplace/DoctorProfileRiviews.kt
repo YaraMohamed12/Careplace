@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.RatingBar
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -17,8 +18,8 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
 class DoctorProfileRiviews : AppCompatActivity() {
-    lateinit var schedule_btn : Button
     lateinit var info_btn : Button
+    lateinit var review_btn : Button
     lateinit var home_btn : ImageView
     lateinit var setting_btn : ImageView
     lateinit var your_profile_btn : ImageView
@@ -29,26 +30,34 @@ class DoctorProfileRiviews : AppCompatActivity() {
     private lateinit var reviewList: ArrayList<Review>
     private lateinit var review_adabter : ReviewAdapter
     lateinit var mRef : DatabaseReference
+    lateinit var Doctorid :String
+    lateinit var doctor_name : TextView
+    lateinit var Doctor_spec : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_doctor_profile_riviews)
         Iniliaztion()
-        buttonlistener()
+        Doctorid = intent.getStringExtra("DoctorId")!!
+        val doctorname = intent.getStringExtra("DoctorName")
+        val doctorspec = intent.getStringExtra("Doctor_spec")
+        doctor_name.text = doctorname
+        Doctor_spec.text = doctorspec
 
         adding_review.setOnClickListener{ addInfo() }
         review_recycle.layoutManager = LinearLayoutManager(this)
         review_recycle.adapter= review_adabter
 
-    }
 
-    private fun buttonlistener() {
-        schedule_btn.setOnClickListener {
-            var myintent = Intent(this, DoctorProfileSchedule::class.java)
-            startActivity(myintent)
-        }
         info_btn.setOnClickListener {
             var myintent = Intent(this, DoctorProfileInfo::class.java)
+            myintent.putExtra("DoctorId",Doctorid)
+            myintent.putExtra("DoctorName",doctorname)
+            myintent.putExtra("Doctor_spec",doctorspec)
+            startActivity(myintent)
+        }
+        review_btn.setOnClickListener {
+            var myintent = Intent(this, DoctorProfileRiviews::class.java)
             startActivity(myintent)
         }
         home_btn.setOnClickListener {
@@ -68,9 +77,11 @@ class DoctorProfileRiviews : AppCompatActivity() {
             startActivity(myintent4)
         }
         chat_btn.setOnClickListener {
-            val myintent5 = Intent(this ,ContactActivity_For_Patient ::class.java)
+            val myintent5 = Intent(this ,ContactActivity_For_Patient::class.java)
             startActivity(myintent5)
         }
+
+
     }
 
     private fun addInfo() {
@@ -96,12 +107,14 @@ class DoctorProfileRiviews : AppCompatActivity() {
         }
         addReview.create()
         addReview.show()
-        
+
     }
 
     fun Iniliaztion()
     {
+
         info_btn = findViewById(R.id.info_btn1)
+        review_btn = findViewById(R.id.review_btn1)
         home_btn = findViewById(R.id.home_icon)
         setting_btn = findViewById(R.id.setting_icon)
         your_profile_btn = findViewById(R.id.profile_icon_bar)
@@ -109,9 +122,10 @@ class DoctorProfileRiviews : AppCompatActivity() {
         chat_btn  = findViewById(R.id.goto_chat)
         adding_review = findViewById(R.id.adding_review_btn)
         review_recycle = findViewById(R.id.reviews_list)
-        schedule_btn = findViewById(R.id.schedule_btn1)
         reviewList = ArrayList()
         review_adabter = ReviewAdapter(this,reviewList)
         mRef = FirebaseDatabase.getInstance().getReference()
+        doctor_name = findViewById(R.id.textView201)
+        Doctor_spec = findViewById(R.id.textView210)
     }
 }

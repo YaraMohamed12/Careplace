@@ -28,6 +28,9 @@ class DoctorProfileSchedule : AppCompatActivity() {
     private lateinit var scheduleList2: MutableList<Schedule>
     lateinit var doctor_name : TextView
     lateinit var Doctor_spec : TextView
+    lateinit var doctorname :String
+    lateinit var doctorspec :String
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,10 +60,16 @@ class DoctorProfileSchedule : AppCompatActivity() {
     {
         info_btn.setOnClickListener {
             var my_intent2 = Intent(this, DoctorProfileInfo::class.java)
+            my_intent2.putExtra("DoctorId",Doctorid)
+            my_intent2.putExtra("DoctorName",doctorname)
+            my_intent2.putExtra("Doctor_spec",doctorspec)
             startActivity(my_intent2)
         }
         review_btn.setOnClickListener {
             var myintent = Intent(this, DoctorProfileRiviews::class.java)
+            myintent.putExtra("DoctorId",Doctorid)
+            myintent.putExtra("DoctorName",doctorname)
+            myintent.putExtra("Doctor_spec",doctorspec)
             startActivity(myintent)
         }
         home_btn.setOnClickListener {
@@ -79,8 +88,8 @@ class DoctorProfileSchedule : AppCompatActivity() {
             val myintent5 = Intent(this ,ContactActivity_For_Patient ::class.java)
             startActivity(myintent5)
         }
-        val doctorname = intent.getStringExtra("DoctorName")
-        val doctorspec = intent.getStringExtra("Doctor_spec")
+         doctorname = intent.getStringExtra("DoctorName")!!
+         doctorspec = intent.getStringExtra("Doctor_spec")!!
         doctor_name.text = doctorname
         Doctor_spec.text = doctorspec
     }
