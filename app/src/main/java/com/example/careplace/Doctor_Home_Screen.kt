@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
+import com.google.firebase.messaging.FirebaseMessaging
 
 class Doctor_Home_Screen : AppCompatActivity() {
 
@@ -24,7 +25,7 @@ class Doctor_Home_Screen : AppCompatActivity() {
     private lateinit var doctor_image: ImageView
     private lateinit var view: View
     private lateinit var updimg_img: ImageView
-    private var profileImageUrl: String = ""
+    private var profileImageUrl: kotlin.String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +42,7 @@ class Doctor_Home_Screen : AppCompatActivity() {
 
         // Load and display doctor's profile image
         loadDoctorProfileImage()
+        currentuserToken()
     }
 
     private fun initializeViews() {
@@ -69,7 +71,7 @@ class Doctor_Home_Screen : AppCompatActivity() {
         }
 
         chat_btn.setOnClickListener {
-            startActivity(Intent(this, ContactActivity_For_Doctor::class.java))
+            startActivity(Intent(this, ContactActivity_For_Patient::class.java))
         }
 
         OpenResavtion.setOnClickListener {
@@ -90,7 +92,7 @@ class Doctor_Home_Screen : AppCompatActivity() {
 
     private fun fetchDoctorName() {
         val currentUser: FirebaseUser? = FirebaseAuth.getInstance().currentUser
-        val userId: String? = currentUser?.uid
+        val userId: kotlin.String? = currentUser?.uid
         if (userId != null) {
             val doctorRef: DatabaseReference = FirebaseDatabase.getInstance().getReference("DUser").child(userId)
             doctorRef.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -137,5 +139,31 @@ class Doctor_Home_Screen : AppCompatActivity() {
         myDialogBuilder.setView(view)
         val alertDialog = myDialogBuilder.create()
         alertDialog.show()
+    }
+    fun currentuserToken() {
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        if (currentUser != null) {
+            FirebaseMessaging.getInstance().token
+                .addOnSuccessListener { token ->
+                    val userId = currentUser.uid
+                    val userTokenRef = FirebaseDatabase.getInstance().getReference("DUser").child(userId).child("fcmToken")
+                    userTokenRef.setValue(token)
+                        .addOnSuccessListener {
+                            // Token stored successfully
+                            println("Token stored successfully for user $userId")
+                        }
+                        .addOnFailureListener { e ->
+                            // Failed to store token
+                            println("Failed to store token for user $userId: ${e.message}")
+                        }
+                }
+                .addOnFailureListener { e ->
+                    // Failed to get token
+                    println("Failed to get token: ${e.message}")
+                }
+        } else {
+            // No current user
+            println("No current user found")
+        }
     }
 }

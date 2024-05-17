@@ -89,18 +89,16 @@
         app:layout_constraintTop_toBottomOf="@id/doz_no_dialog1" />
 
 
-
-
     <Button
 
         android:id="@+id/btnadd"
         android:layout_width="162dp"
         android:layout_height="53dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/add"
-        android:textSize="20sp"
-        android:textColor="@color/black"
+        android:layout_marginTop="56dp"
         android:backgroundTint="@color/purple"
+        android:text="@string/add"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"

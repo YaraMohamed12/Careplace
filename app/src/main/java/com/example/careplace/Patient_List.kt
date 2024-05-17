@@ -59,7 +59,7 @@ class Patient_List : AppCompatActivity() {
             startActivity(myintent4)
         }
         chat_btn.setOnClickListener {
-            val myintent5 = Intent(this ,ContactActivity_For_Doctor::class.java)
+            val myintent5 = Intent(this ,ContactActivity_For_Patient::class.java)
             startActivity(myintent5)
         }
 

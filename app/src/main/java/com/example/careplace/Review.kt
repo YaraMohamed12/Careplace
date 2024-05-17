@@ -1,5 +1,7 @@
 package com.example.careplace
 
-data class Review(
-    var review_text: String ? = null, var patient_rate: Float
-    )
+import kotlin.String
+
+data class Review(val content: String = "", val rating: Float = 0f) {
+    constructor() : this("", 0f)
+}

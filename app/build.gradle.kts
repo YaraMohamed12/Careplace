@@ -71,6 +71,8 @@ dependencies {
 
 dependencies {
 
+    implementation ("com.google.firebase:firebase-messaging:23.0.0")
+
     implementation(libs.firebase.database.ktx)// Import the BoM for the Firebase platform
     implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
 

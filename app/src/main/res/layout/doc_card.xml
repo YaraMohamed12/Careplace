@@ -40,9 +40,20 @@
                 android:textColor="@color/black"
                 android:layout_marginStart="124dp"
                 android:layout_marginTop="60dp"
-                android:textSize="16sp"
+                android:textSize="18sp"
 
              />
+    <TextView
+        android:id="@+id/DocLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location"
+        android:textColor="@color/black"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="80dp"
+        android:textSize="18sp"
+
+        />
 
     <Button
         android:id="@+id/view_prof_btn1"
@@ -62,6 +73,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="140dp"
        android:layout_marginTop="100dp"
+        android:numStars="5"
+        android:progressTint="#FFEB3B"
+        android:isIndicator="true"
+
         />
 
     <View

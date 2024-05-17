@@ -27,8 +27,8 @@ class ReviewAdapter (val context : Context , val reviewList : List<Review>)
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val newReview =  reviewList[position]
-        holder.review.text = newReview.review_text
-        holder.rate.rating = newReview.patient_rate
+        holder.review.text = newReview.content
+        holder.rate.rating = newReview.rating
     }
 
 }

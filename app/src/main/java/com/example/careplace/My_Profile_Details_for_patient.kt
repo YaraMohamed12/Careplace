@@ -148,7 +148,7 @@ class My_Profile_Details_for_patient : AppCompatActivity() {
             val Nationid = view.findViewById<EditText>(R.id.edit_Nid)
             val bdate = view.findViewById<EditText>(R.id.edit_DOB)
              user2_image = view.findViewById<ImageView>(R.id.prof_pic)
-            var  profileImageUrl : String ?= null
+            var  profileImageUrl : kotlin.String?= null
 
             user2_image.setOnClickListener {
                 val galleryIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)

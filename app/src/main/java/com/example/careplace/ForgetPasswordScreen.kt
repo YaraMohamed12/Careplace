@@ -15,6 +15,7 @@ class ForgetPasswordScreen : AppCompatActivity() {
     lateinit var creatacc_txt: TextView
     lateinit var Blogin_btn: Button
     lateinit var myAuth: FirebaseAuth
+    lateinit var Notifacty_btn : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -2,7 +2,9 @@ package com.example.careplace
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
@@ -15,6 +17,8 @@ class Doctor_Setting_Screen : AppCompatActivity() {
     lateinit var calender_btn : ImageView
     lateinit var chat_btn : ImageView
     lateinit var Log_out_btn : Button
+    lateinit var reset_btn : Button
+    lateinit var Notifacty_btn : Button
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,9 +26,16 @@ class Doctor_Setting_Screen : AppCompatActivity() {
         inilaztionlistenr()
         clicking()
         DeleteAccount()
+        Resetpassword()
+        Logout()
+        Notifaction()
+
 
 
     }
+
+
+
 
     private fun inilaztionlistenr() {
         home_btn = findViewById(R.id.home_icon)
@@ -32,17 +43,12 @@ class Doctor_Setting_Screen : AppCompatActivity() {
         calender_btn = findViewById(R.id.calender_icon_bar)
         chat_btn  = findViewById(R.id.goto_chat)
         Log_out_btn = findViewById(R.id.Log_out_doctor)
+        reset_btn = findViewById(R.id.reset_pass_btn)
+        Notifacty_btn =findViewById(R.id.notification)
     }
 
     private fun clicking() {
-        Log_out_btn.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
-            val myIntent = Intent(this, DocOrPat::class.java)
-            // Add flags to clear the activity stack and prevent returning to the logout screen
-            myIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(myIntent)
-            finish()
-        }
+
         home_btn.setOnClickListener {
             val myintent1 = Intent(this , Doctor_Home_Screen::class.java)
             startActivity(myintent1)
@@ -56,9 +62,13 @@ class Doctor_Setting_Screen : AppCompatActivity() {
             startActivity(myintent4)
         }
         chat_btn.setOnClickListener {
-            val myintent5 = Intent(this ,ContactActivity_For_Doctor::class.java)
+            val myintent5 = Intent(this ,ContactActivity_For_Patient::class.java)
             startActivity(myintent5)
         }
+
+
+
+
     }
 
     private fun DeleteAccount() {
@@ -82,4 +92,56 @@ class Doctor_Setting_Screen : AppCompatActivity() {
 
         }
     }
+    private fun Resetpassword(){
+        reset_btn.setOnClickListener {
+            val myAuth = FirebaseAuth.getInstance()
+            val currentUser = myAuth.currentUser
+            if (currentUser != null) {
+                val userEmail = currentUser.email
+                myAuth.sendPasswordResetEmail(userEmail!!)
+                    .addOnSuccessListener {
+                        Toast.makeText(this, "Please check your email to reset your password", Toast.LENGTH_SHORT).show()
+                    }
+                    .addOnFailureListener { exception ->
+                        Toast.makeText(this, "Failed to send reset email: ${exception.message}", Toast.LENGTH_SHORT).show()
+                    }
+            } else {
+                Toast.makeText(this, "No user logged in", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+
+
+    }
+    private fun Logout() {
+        Log_out_btn.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            val myIntent = Intent(this, DocOrPat::class.java)
+            // Add flags to clear the activity stack and prevent returning to the logout screen
+            myIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(myIntent)
+            finish()
+        }
+    }
+    private fun Notifaction() {
+        Notifacty_btn.setOnClickListener {
+
+            val appSettingsIntent = Intent().apply {
+                action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
+                data = Uri.fromParts("package", packageName, null)
+            }
+
+            try {
+                // Attempt to start the app settings activity
+                startActivity(appSettingsIntent)
+            } catch (e: Exception) {
+                // Handle any exceptions that may occur
+                Toast.makeText(this, "Failed to open app settings", Toast.LENGTH_SHORT).show()
+                e.printStackTrace()
+            }
+        }
+    }
+
+
+
 }

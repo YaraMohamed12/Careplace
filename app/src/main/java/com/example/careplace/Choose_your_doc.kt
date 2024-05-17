@@ -6,6 +6,7 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.careplace.databinding.ActivityChooseYourDocBinding
+import kotlin.String
 
 class Choose_your_doc : AppCompatActivity() {
     lateinit var select_spec1 : FrameLayout

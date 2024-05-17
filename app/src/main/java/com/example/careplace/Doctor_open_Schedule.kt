@@ -14,6 +14,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.String
 
 class Doctor_open_Schedule : AppCompatActivity() {
     private lateinit var selected_date: CalendarView
@@ -62,7 +63,7 @@ class Doctor_open_Schedule : AppCompatActivity() {
             startActivity(myintent4)
         }
         chat_btn.setOnClickListener {
-            val myintent5 = Intent(this ,ContactActivity_For_Doctor ::class.java)
+            val myintent5 = Intent(this ,ContactActivity_For_Patient ::class.java)
             startActivity(myintent5)
         }
     }

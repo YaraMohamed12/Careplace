@@ -58,6 +58,8 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
     lateinit var c8 : CheckBox
     lateinit var c9 : CheckBox
     lateinit var c10 : CheckBox
+    lateinit var pateint_Alleriges : EditText
+    lateinit var sumbit_Allergies : Button
 
 
     @SuppressLint("MissingInflatedId")
@@ -82,7 +84,15 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
         retrieveMedication()
         retrieveDoc()
         isChecked()
+        retrieveAllergies()
+        sumbit_Allergies.setOnClickListener {
+            saveAllergies()
+        }
+
+
     }
+
+
 
     private fun iniliaztlisinter() {
         home_btn = findViewById(R.id.home_icon)
@@ -91,6 +101,8 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
         calender_btn = findViewById(R.id.calender_icon_bar)
         chat_btn = findViewById(R.id.goto_chat)
         done_selecting = findViewById(R.id.select_done)
+        pateint_Alleriges = findViewById(R.id.Pateint_Alleriges)
+        sumbit_Allergies = findViewById(R.id.sumbit_Alleriges)
         c1 = findViewById(R.id.checkBox2)
         c2= findViewById(R.id.checkBox3)
         c3= findViewById(R.id.checkBox4)
@@ -145,6 +157,7 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
                             // Checkbox is checked, add to Firebase
                             if (value.isNotEmpty()) {
                                 mRef.child(id).push().setValue(value)
+                                mRef.child("dieaseId").setValue(id)
                             }
                         }
                     }
@@ -396,6 +409,42 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
                 Toast.makeText(this@Medical_History_For_Patient_View, "Failed to retrieve schedules", Toast.LENGTH_SHORT).show()
             }
         })
+    }
+
+
+    private fun retrieveAllergies() {
+        val currentuser = FirebaseAuth.getInstance().currentUser?.uid
+        val allergiesRef = FirebaseDatabase.getInstance().getReference("user").child(currentuser!!)
+
+        allergiesRef.child("allergies").addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val allergies = dataSnapshot.getValue(String::class.java)
+                if (allergies != null) {
+                    pateint_Alleriges.setText(allergies)
+                } else {
+                    pateint_Alleriges.setText("please write your Alleriges")
+                }
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+
+                Toast.makeText(this@Medical_History_For_Patient_View, "Failed to load allergies.", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    private fun saveAllergies() {
+        val allergies = pateint_Alleriges.text.toString()
+        val currentuser = FirebaseAuth.getInstance().currentUser?.uid
+        val allergiesRef = FirebaseDatabase.getInstance().getReference("user").child(currentuser!!)
+
+        allergiesRef.child("allergies").setValue(allergies).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                Toast.makeText(this@Medical_History_For_Patient_View, "Allergies saved successfully.", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this@Medical_History_For_Patient_View, "Failed to save allergies.", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
 

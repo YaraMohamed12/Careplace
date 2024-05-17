@@ -13,6 +13,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kotlin.String
 
 class ChatActivity : AppCompatActivity() {
     lateinit var ChatRecyclerView : RecyclerView
@@ -20,8 +21,8 @@ class ChatActivity : AppCompatActivity() {
     lateinit var messageeBox : EditText
     lateinit var messageAdapter: MessageAdapter
     lateinit var messageList : ArrayList<Message>
-    var receiveRoom : String ?= null
-    var senderRoom : String ?= null
+    var receiveRoom : String?= null
+    var senderRoom : String?= null
     lateinit var mRef : DatabaseReference
 
 

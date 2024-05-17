@@ -14,6 +14,7 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import kotlin.String
 
 class NewAccForDoc : AppCompatActivity() {
     lateinit var back_btn : ImageView
@@ -117,9 +118,10 @@ class NewAccForDoc : AppCompatActivity() {
         }
     }
 
-    fun AddusertoDatabase(name: String, email: String, uid: String ,
-                          Phone :String, nationid : String ,
-                           Bdate : String, Age : String, Gender : String ,Spec : String)
+    fun AddusertoDatabase(name: String, email: String, uid: String,
+                          Phone : String, nationid : String,
+                          Bdate : String, Age : String, Gender : String, Spec : String
+    )
     {
 
         DmRef = FirebaseDatabase.getInstance().getReference()

@@ -1,5 +1,6 @@
 package com.example.careplace
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -9,12 +10,19 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.messaging.FirebaseMessaging
+import com.google.firebase.messaging.RemoteMessage
+import java.util.UUID
 
 class ScheduleAdapter_user(context: Context, private val scheduleList: List<Schedule>) :
     ArrayAdapter<Schedule>(context, 0, scheduleList) {
     private val sharedPreferences = context.getSharedPreferences("share_data", Context.MODE_PRIVATE)
     private val Doctorid = sharedPreferences.getString("Doctorid", "")
+    @SuppressLint("SuspiciousIndentation")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         // firebase inilaztion
         val mRef = FirebaseDatabase.getInstance().getReference("user")
@@ -37,6 +45,7 @@ class ScheduleAdapter_user(context: Context, private val scheduleList: List<Sche
         val Patientappointment = Appointment(schedule, Doctorid ?: "")
         val Doctorappointment = Appointment(schedule, currentuserid!!)
         book_btn.setOnClickListener {
+
             mRef.child(currentuserid).child("userbook").child(schudelid).setValue(Patientappointment).addOnSuccessListener {
                 Toast.makeText(context, "Booking Appoimntment is Succesful", Toast.LENGTH_SHORT).show()
             }.addOnFailureListener {
@@ -54,8 +63,39 @@ class ScheduleAdapter_user(context: Context, private val scheduleList: List<Sche
             ChatRef.child(Doctorid).child(currentuserid).setValue(currentuserid)
 
 
+
+            val tokenRef = FirebaseDatabase.getInstance().getReference("DUser").child(Doctorid).child("fcmToken")
+                tokenRef.addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                        val doctorToken = dataSnapshot.getValue(String::class.java)
+                        if (doctorToken != null) {
+                            FirebaseMessaging.getInstance().send(
+                                RemoteMessage.Builder(doctorToken)
+                                    .setMessageId(UUID.randomUUID().toString())
+                                    .addData("title", "Your Appoiment is book scuessfully")
+                                    .addData("body", "there is patient book your appoiment")
+                                    .build()
+                            )
+
+
+
+                        } else {
+
+                            Toast.makeText(context, "Doctor's token not found", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+
+                    override fun onCancelled(databaseError: DatabaseError) {
+
+                        Toast.makeText(context, "Failed to retrieve doctor's token", Toast.LENGTH_SHORT).show()
+                    }
+                })
+
+
         }
 
         return itemView
     }
+
+
 }

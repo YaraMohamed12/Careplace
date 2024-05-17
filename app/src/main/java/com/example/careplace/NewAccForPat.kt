@@ -89,9 +89,10 @@ class NewAccForPat : AppCompatActivity() {
         }
     }
 
-    fun AddusertoDatabase(name: String, email: String, uid: String ,
-                          Phone :String, nationid : String , lenght : String ,
-                          wieght : String, Bdate : String, Age : String, Gender : String )
+    fun AddusertoDatabase(name: kotlin.String, email: kotlin.String, uid: kotlin.String,
+                          Phone : kotlin.String, nationid : kotlin.String, lenght : kotlin.String,
+                          wieght : kotlin.String, Bdate : kotlin.String, Age : kotlin.String, Gender : kotlin.String
+    )
     {
 
         mRef = FirebaseDatabase.getInstance().getReference()

@@ -1,6 +1,5 @@
 package com.example.careplace
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -11,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
+import com.google.firebase.messaging.FirebaseMessaging
 
 class Patient_Home_Screen : AppCompatActivity() {
 
@@ -29,7 +29,7 @@ class Patient_Home_Screen : AppCompatActivity() {
     private lateinit var database: FirebaseDatabase
     private lateinit var mref: DatabaseReference
     private lateinit var myathun: FirebaseAuth
-    private var profileImageUrl: String = ""
+    private var profileImageUrl: kotlin.String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +48,7 @@ class Patient_Home_Screen : AppCompatActivity() {
 
         // Set click listeners
         setClickListeners()
+        currentuserToken()
 
         // Read user data from Firebase
         val myreadata = ReadData()
@@ -154,6 +155,32 @@ class Patient_Home_Screen : AppCompatActivity() {
             // Handle onCancelled
         }
     }
+    fun currentuserToken() {
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        if (currentUser != null) {
+            FirebaseMessaging.getInstance().token
+                .addOnSuccessListener { token ->
+                    val userId = currentUser.uid
+                    val userTokenRef = FirebaseDatabase.getInstance().getReference("user").child(userId).child("fcmToken")
+                    userTokenRef.setValue(token)
+                        .addOnSuccessListener {
+                            // Token stored successfully
+                            Toast.makeText(this, "Token stored successfully for user", Toast.LENGTH_SHORT).show()
+                        }
+                        .addOnFailureListener { e ->
+                            // Failed to store token
+                            Toast.makeText(this, "Failed to store token for user", Toast.LENGTH_SHORT).show()
+
+                        }
+                }
+                .addOnFailureListener { e ->
+                    Toast.makeText(this, "the error existist", Toast.LENGTH_SHORT).show()
+
+                }
+        }
+    }
+
+
 }
 
 

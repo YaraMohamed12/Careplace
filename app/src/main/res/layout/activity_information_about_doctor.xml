@@ -8,6 +8,7 @@
     tools:context=".Information_About_Doctor"
     android:background="@drawable/background"
     >
+
     <LinearLayout
         android:id="@+id/address_bar"
         android:layout_width="match_parent"
@@ -132,6 +133,7 @@
             android:layout_gravity="center_vertical"
             android:gravity="center"
             android:layout_height="35dp"
+            android:textColor="@color/black"
             android:background="@drawable/purple_rounded"
             android:text="@string/about_me"
             android:textSize="20sp"
@@ -149,13 +151,33 @@
             android:layout_marginBottom="20dp"
             android:gravity="start|top"
             android:inputType="textMultiLine"
+            android:textColor="@color/black"
             android:textColorHint="@color/gray"
             android:textStyle="bold"
             android:padding="20dp"
             android:textSize="20sp"
             android:hint="@string/introduce_yourself_to_the_patient"
             />
+
+
+
 </LinearLayout>
+
     </FrameLayout>
+
+    <ImageView
+        android:id="@+id/aboutme_donebtn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="732dp"
+        android:src="@drawable/check"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/white"
+        app:layout_constraintHorizontal_bias="0.872"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ImageView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

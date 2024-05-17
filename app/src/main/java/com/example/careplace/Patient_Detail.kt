@@ -24,7 +24,7 @@ class Patient_Detail : AppCompatActivity() {
     lateinit var Patient_phone : TextView
     lateinit var Patient_Forms : Button
     lateinit var mRef : DatabaseReference
-    lateinit var PateintId : String
+    lateinit var PateintId : kotlin.String
     lateinit var home_btn : ImageView
     lateinit var setting_btn : ImageView
     lateinit var your_profile_btn : ImageView
@@ -94,7 +94,7 @@ class Patient_Detail : AppCompatActivity() {
         mRef.child(PateintId).addValueEventListener(object  : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 val P_name = snapshot.child("name").getValue(String ::class.java)
-                val P_age = snapshot.child("bdate").getValue(String ::class.java)
+                val P_age = snapshot.child("bdate").getValue(String::class.java)
                 val P_weight = snapshot.child("wieght").getValue(String ::class.java)
                 val P_height= snapshot.child("lenght").getValue(String ::class.java)
                 val P_phone = snapshot.child("phone").getValue(String ::class.java)

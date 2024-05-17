@@ -16,8 +16,8 @@ class Users {
     constructor()
 
     constructor(name: String?, email: String?, uid: String? ,
-                 Phone :String?, nationid : String ?, lenght : String? ,
-                 wieght : String?, Bdate : String?, Age : String?,
+                Phone :String?, nationid : String ?, lenght : String? ,
+                wieght : String?, Bdate : String?, Age : String?,
                 Gender : String? ) {
         this.Name = name
         this.Email = email

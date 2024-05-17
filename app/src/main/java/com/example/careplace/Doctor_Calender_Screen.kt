@@ -51,7 +51,7 @@ class Doctor_Calender_Screen : AppCompatActivity() {
             startActivity(Intent(this, Doctor_Setting_Screen::class.java))
         }
         chat_btn.setOnClickListener {
-            startActivity(Intent(this, ContactActivity_For_Doctor::class.java))
+            startActivity(Intent(this, ContactActivity_For_Patient::class.java))
         }
         your_profile_btn.setOnClickListener {
             val myintent3 = Intent(this , My_Profile_Details_for_doc::class.java)

@@ -91,7 +91,7 @@ class My_Profile_Details_for_doc : AppCompatActivity() {
             startActivity(myintent4)
         }
         chat_btn.setOnClickListener {
-            val myintent5 = Intent(this ,ContactActivity_For_Doctor ::class.java)
+            val myintent5 = Intent(this ,ContactActivity_For_Patient ::class.java)
             startActivity(myintent5)
         }
         }
@@ -151,7 +151,7 @@ class My_Profile_Details_for_doc : AppCompatActivity() {
             val Nationid = view.findViewById<EditText>(R.id.edit_Nid_doc)
             val bdate = view.findViewById<EditText>(R.id.edit_DOB_doc)
             user2_image = view.findViewById<ImageView>(R.id.prof_pic_doc)
-            var  profileImageUrl : String ?= null
+            var  profileImageUrl : kotlin.String?= null
 
             user2_image.setOnClickListener {
                 val galleryIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)

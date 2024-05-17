@@ -28,12 +28,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="18dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="30dp"
                 android:gravity="start|top"
                 android:text=" patient rewiew "
-                android:textSize="18dp"
+                android:textSize="24dp"
                 app:layout_constraintVertical_bias="0.235" />
 
 
@@ -41,9 +41,11 @@
                 android:id="@+id/ratingBar3_review"
                 android:layout_width="240dp"
                 android:layout_height="45dp"
+                android:progressTint="#FFEB3B"
+                android:numStars="5"
                 android:layout_gravity="bottom"
                 android:layout_marginStart="15dp"
-                android:layout_marginBottom="25dp" />
+                android:layout_marginBottom="45dp" />
 
         </LinearLayout>
     </FrameLayout>

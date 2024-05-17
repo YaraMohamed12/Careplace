@@ -1,11 +1,11 @@
 package com.example.careplace
 
-import java.util.Date
+import kotlin.String
 
 data class MedicineData(
-    val medicineName: String ?= "",
+    val medicineName: String?= "",
     val numberOfDoses: String?= "",
-    val dateForTaking: String ?= "",
-    val medicineid : String ?= null
+    val dateForTaking: String?= "",
+    val medicineid : String?= null
 
 ) // name - doz - time from time picke - medicineid
