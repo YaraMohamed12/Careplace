@@ -32,11 +32,15 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
     private lateinit var mRef2: DatabaseReference
     private lateinit var mAuth: FirebaseAuth
     private lateinit var Medication_list: ArrayList<Medicatin_Form_Data>
+    private lateinit var Allegies_list: ArrayList<Allergy_Data>
+    private lateinit var Chronic_Diseases_list: ArrayList<Chronic_Diseases_Data>
     private lateinit var Surgery_list: ArrayList<Surgeries_Form_Data>
     private lateinit var Docment_list : ArrayList<Doc_class_Data>
     private lateinit var listViewMedication: ListView
     private lateinit var listViewSurgeries: ListView
     private lateinit var listViewDocment : ListView
+    private lateinit var listViewAllergies : ListView
+    private lateinit var listViewChronicDisease: ListView
     lateinit var home_btn: ImageView
     private val GALLERY_REQUEST_CODE = 100
     lateinit var setting_btn: ImageView
@@ -47,19 +51,7 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
     lateinit var add_img : ImageView
     lateinit var add_btn : Button
     private lateinit var mRef: DatabaseReference
-    lateinit var done_selecting : ImageButton
-    lateinit var c1 : CheckBox
-    lateinit var c2 : CheckBox
-    lateinit var c3 : CheckBox
-    lateinit var c4 : CheckBox
-    lateinit var c5 : CheckBox
-    lateinit var c6 : CheckBox
-    lateinit var c7 : CheckBox
-    lateinit var c8 : CheckBox
-    lateinit var c9 : CheckBox
-    lateinit var c10 : CheckBox
-    lateinit var pateint_Alleriges : EditText
-    lateinit var sumbit_Allergies : Button
+
 
 
     @SuppressLint("MissingInflatedId")
@@ -69,29 +61,25 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
         mRef1 = FirebaseDatabase.getInstance().getReference("/user/${mAuth.currentUser?.uid}")
         mRef2 = FirebaseDatabase.getInstance().getReference("/user/${mAuth.currentUser?.uid}")
-        mRef = FirebaseDatabase.getInstance().getReference("user/${mAuth.currentUser?.uid}/ChronicDiseases")
         listViewMedication = findViewById(R.id.medication_form_listView)
         listViewSurgeries = findViewById(R.id.surgeries_listView)
         listViewDocment =findViewById(R.id.Docment_listView)
+        listViewAllergies = findViewById(R.id.Allerige_text)
+        listViewChronicDisease = findViewById(R.id.Chroinc_disease)
         Medication_list = ArrayList()
         Surgery_list = ArrayList()
         Docment_list = ArrayList()
-
+        Chronic_Diseases_list = ArrayList()
+        Allegies_list = ArrayList()
+        retrieveAllergies()
+        retrieveChronicDiseases()
         floatBtnDialog()
         iniliaztlisinter()
         cliciking()
         retrieveSurgeries()
         retrieveMedication()
         retrieveDoc()
-        isChecked()
-        retrieveAllergies()
-        sumbit_Allergies.setOnClickListener {
-            saveAllergies()
-        }
-
-
     }
-
 
 
     private fun iniliaztlisinter() {
@@ -100,79 +88,7 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
         your_profile_btn = findViewById(R.id.profile_icon_bar)
         calender_btn = findViewById(R.id.calender_icon_bar)
         chat_btn = findViewById(R.id.goto_chat)
-        done_selecting = findViewById(R.id.select_done)
-        pateint_Alleriges = findViewById(R.id.Pateint_Alleriges)
-        sumbit_Allergies = findViewById(R.id.sumbit_Alleriges)
-        c1 = findViewById(R.id.checkBox2)
-        c2= findViewById(R.id.checkBox3)
-        c3= findViewById(R.id.checkBox4)
-        c4= findViewById(R.id.checkBox5)
-        c5= findViewById(R.id.checkBox6)
-        c6= findViewById(R.id.checkBox7)
-        c7= findViewById(R.id.checkBox8)
-        c8= findViewById(R.id.checkBox9)
-        c9= findViewById(R.id.checkBox10)
-        c10= findViewById(R.id.checkBox11)
     }
-
-
-    private fun isChecked() {
-        val id = mRef.push().key ?: ""
-        // Create an ArrayList to store variables
-        val checkBoxes = ArrayList<CheckBox>().apply {
-            add(c1)
-            add(c2)
-            add(c3)
-            add(c4)
-            add(c5)
-            add(c6)
-            add(c7)
-            add(c8)
-            add(c9)
-            add(c10)
-        }
-
-        done_selecting.setOnClickListener {
-
-
-            // Remove all old values from Firebase
-            mRef.child(id).removeValue().addOnCompleteListener { removeTask ->
-                if (removeTask.isSuccessful) {
-                    // Old values removed successfully, now add new values
-                    for ((index, checkbox) in checkBoxes.withIndex()) {
-                        val value = when (index) {
-                            0 -> "Hypertension"
-                            1 -> "High cholesterol"
-                            2 -> "Obesity"
-                            3 -> "Ischemic heart disease"
-                            4 -> "Arthritis"
-                            5 -> "Depression"
-                            6 -> "Alzheimer's disease and dementia"
-                            7 -> "Chronic kidney disease"
-                            8 -> "Diabetes"
-                            9 -> "Heart Failure"
-                            else -> ""
-                        }
-                        if (checkbox.isChecked) {
-                            // Checkbox is checked, add to Firebase
-                            if (value.isNotEmpty()) {
-                                mRef.child(id).push().setValue(value)
-                                mRef.child("dieaseId").setValue(id)
-                            }
-                        }
-                    }
-                } else {
-                    // Handle failure to remove old values
-                    // You can show an error message or take appropriate action here
-                }
-            }
-            Toast.makeText(this, "Selected Done Successfully ", Toast.LENGTH_SHORT).show()
-        }
-    }
-
-
-
-
 
 
     private fun cliciking() {
@@ -205,6 +121,8 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
         val myFlotbtn1 = findViewById<FloatingActionButton>(R.id.add_medicine)
         val myFlotbtn2 = findViewById<FloatingActionButton>(R.id.add_surgery)
         val myFlotbtn3 = findViewById<FloatingActionButton>(R.id.add_pic)
+        val myFloayingbtn4 = findViewById<FloatingActionButton>(R.id.add_your_illness)
+        val myFloayingbtn5 = findViewById<FloatingActionButton>(R.id.add_allergy)
         myFlotbtn1.setOnClickListener {
             val view = layoutInflater.inflate(R.layout.medication_and_surgeries_dialog, null)
             val myDialogBuilder = AlertDialog.Builder(this)
@@ -286,9 +204,128 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
 
         }
 
+        myFloayingbtn4.setOnClickListener {
+            val view = layoutInflater.inflate(R.layout.simple_dialog, null)
+            val myDialogBuilder = AlertDialog.Builder(this)
+            myDialogBuilder.setView(view)
+            val alertDialog = myDialogBuilder.create()
+            alertDialog.show()
+            val disease_name = view.findViewById<EditText>(R.id.operation_name_edit)
+            val add_illness_Btn = view.findViewById<Button>(R.id.adding)
+
+            add_illness_Btn.setOnClickListener {
+                val name = disease_name.text.toString()
+
+                if (name.isNotEmpty() && name.isNotEmpty()) {
+                    val id = mRef1.push().key ?: ""
+                    val myillness = Chronic_Diseases_Data(name, id)
+                    mRef1.child("Chronic Diseases").child(id).setValue(myillness)
+                        .addOnSuccessListener {
+                            Toast.makeText(this, "Chronic disease added successfully", Toast.LENGTH_SHORT).show()
+                            alertDialog.dismiss()
+                        }
+                        .addOnFailureListener { e ->
+                            Toast.makeText(
+                                this, "Failed to add Chronic disease: ${e.message}", Toast.LENGTH_SHORT).show() }
+                } else {
+                    Toast.makeText(this, " Enter Name of Disease ", Toast.LENGTH_SHORT).show()
+                }
+
+
+            }
+        }
+
+        myFloayingbtn5.setOnClickListener {
+            val view = layoutInflater.inflate(R.layout.simple_dialog, null)
+            val myDialogBuilder = AlertDialog.Builder(this)
+            myDialogBuilder.setView(view)
+            val alertDialog = myDialogBuilder.create()
+            alertDialog.show()
+            val allergy_name = view.findViewById<EditText>(R.id.operation_name_edit)
+            val add_allergy_Btn = view.findViewById<Button>(R.id.adding)
+
+            add_allergy_Btn.setOnClickListener {
+                val name = allergy_name.text.toString()
+
+                if (name.isNotEmpty() && name.isNotEmpty()) {
+                    val id = mRef1.push().key ?: ""
+                    val myallergy = Allergy_Data(name, id)
+                    mRef1.child("allergies").child(id).setValue(myallergy)
+                        .addOnSuccessListener {
+                            Toast.makeText(this, "Allergy  added successfully", Toast.LENGTH_SHORT).show()
+                            alertDialog.dismiss()
+                        }
+                        .addOnFailureListener { e ->
+                            Toast.makeText(
+                                this, "Failed to add Allergy : ${e.message}", Toast.LENGTH_SHORT).show() }
+                } else {
+                    Toast.makeText(this, " Enter Your Allergy ", Toast.LENGTH_SHORT).show()
+                }
+
+
+            }
+        }
 
 
     }
+    private fun retrieveAllergies() {
+        val mAuth = FirebaseAuth.getInstance()
+        val currentuserid = mAuth.currentUser?.uid
+        val mref = FirebaseDatabase.getInstance().getReference("user").child(currentuserid!!).child("allergies")
+        mref.addValueEventListener(object : ValueEventListener {
+            @SuppressLint("SuspiciousIndentation")
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                Allegies_list.clear()
+
+                for (DataSnapshot in dataSnapshot.children) {
+                    val Name = DataSnapshot.child("allergy_name").getValue(String::class.java)
+                    val allergies_id = DataSnapshot.child("allergy_id").getValue(String::class.java)
+
+
+                    val allergiess_data = Allergy_Data(Name,allergies_id)
+                    Allegies_list.add(allergiess_data)
+
+                }
+                val adapter = Allergy_Adapter(this@Medical_History_For_Patient_View, Allegies_list)
+                listViewAllergies.adapter = adapter
+
+            }
+            override fun onCancelled(databaseError: DatabaseError) {
+                Toast.makeText(this@Medical_History_For_Patient_View, "Failed to retrieve Allergy ", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+
+    private fun retrieveChronicDiseases() {
+        val mAuth = FirebaseAuth.getInstance()
+        val currentuserid = mAuth.currentUser?.uid
+        val mref = FirebaseDatabase.getInstance().getReference("user").child(currentuserid!!).child("Chronic Diseases")
+        mref.addValueEventListener(object : ValueEventListener {
+            @SuppressLint("SuspiciousIndentation")
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                Chronic_Diseases_list.clear()
+
+                for (DataSnapshot in dataSnapshot.children) {
+                    val Name = DataSnapshot.child("illness_name").getValue(String::class.java)
+                    val disease_id = DataSnapshot.child("illness_id").getValue(String::class.java)
+
+
+                    val chronic_disease_data = Chronic_Diseases_Data(Name,disease_id)
+                    Chronic_Diseases_list.add(chronic_disease_data)
+
+                }
+                val adapter = Chronic_Diseases_Adapter(this@Medical_History_For_Patient_View, Chronic_Diseases_list)
+                listViewChronicDisease.adapter = adapter
+
+            }
+            override fun onCancelled(databaseError: DatabaseError) {
+                Toast.makeText(this@Medical_History_For_Patient_View, "Failed to retrieve Chronic Diseases ", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+
     private fun retrieveSurgeries() {
         val mAuth = FirebaseAuth.getInstance()
         val currentuserid = mAuth.currentUser?.uid
@@ -412,40 +449,8 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
     }
 
 
-    private fun retrieveAllergies() {
-        val currentuser = FirebaseAuth.getInstance().currentUser?.uid
-        val allergiesRef = FirebaseDatabase.getInstance().getReference("user").child(currentuser!!)
 
-        allergiesRef.child("allergies").addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val allergies = dataSnapshot.getValue(String::class.java)
-                if (allergies != null) {
-                    pateint_Alleriges.setText(allergies)
-                } else {
-                    pateint_Alleriges.setText("please write your Alleriges")
-                }
-            }
 
-            override fun onCancelled(databaseError: DatabaseError) {
-
-                Toast.makeText(this@Medical_History_For_Patient_View, "Failed to load allergies.", Toast.LENGTH_SHORT).show()
-            }
-        })
-    }
-
-    private fun saveAllergies() {
-        val allergies = pateint_Alleriges.text.toString()
-        val currentuser = FirebaseAuth.getInstance().currentUser?.uid
-        val allergiesRef = FirebaseDatabase.getInstance().getReference("user").child(currentuser!!)
-
-        allergiesRef.child("allergies").setValue(allergies).addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                Toast.makeText(this@Medical_History_For_Patient_View, "Allergies saved successfully.", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this@Medical_History_For_Patient_View, "Failed to save allergies.", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
 
 
 

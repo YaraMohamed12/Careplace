@@ -59,7 +59,7 @@ class Surgeries_Form_Adapter (context : Context, surgeryFormList : ArrayList <Su
                     val new_detail = details_op.text.toString().trim()
 
                     // Update the medicine data with the new values
-                    val updatedData = MedicineData( newName, new_detail,it.surgery_id)
+                    val updatedData = Surgeries_Form_Data( newName, new_detail,it.surgery_id)
 
                     // Perform the update in the database
                     mRef.child("Operation").child(it.surgery_id!!).setValue(updatedData)

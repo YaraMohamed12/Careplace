@@ -14,18 +14,18 @@ import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
-class Medication_Form_Adapter (context : Context, MedicationFormList : ArrayList <Medicatin_Form_Data>)
-    : ArrayAdapter<Medicatin_Form_Data >(context ,0 ,MedicationFormList ) {
+class Chronic_Diseases_Adapter (context : Context, chronicDiseasesFormList: ArrayList <Chronic_Diseases_Data>)
+    : ArrayAdapter<Chronic_Diseases_Data>(context ,0 ,chronicDiseasesFormList ) {
+
     @SuppressLint("MissingInflatedId")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        val view = LayoutInflater.from(context).inflate(R.layout.medcition_only_card, parent,false)
-        val data: Medicatin_Form_Data? = getItem(position)
-        val surgery_name : TextView = view.findViewById(R.id.name2_media)
-        val surgery_details : TextView = view.findViewById(R.id.date2_media)
-        val Uptbtn : Button = view.findViewById(R.id.edit_btn_medi)
-
-        surgery_name.text = data?.medicin_name.toString()
-        surgery_details.text = data?.medicin_date.toString()
+        val view = LayoutInflater.from(context).inflate(R.layout.simple_list_card, parent,false)
+        val data: Chronic_Diseases_Data? = getItem(position)
+        val disease_name : TextView = view.findViewById(R.id.operation_name_text1)
+        val Uptbtn : Button = view.findViewById(R.id.editt_btn)
+//        val mAuth : FirebaseAuth = FirebaseAuth.getInstance()
+//        val mRef = FirebaseDatabase.getInstance().getReference("/user/${mAuth.currentUser?.uid}/Chronic_Diseases")
+        disease_name.text = data?.illness_name.toString()
 
         Uptbtn.setOnClickListener {
             showUpdateDialog(data)
@@ -33,19 +33,18 @@ class Medication_Form_Adapter (context : Context, MedicationFormList : ArrayList
 
         return view
     }
+
     @SuppressLint("MissingInflatedId")
-    private fun showUpdateDialog(data: Medicatin_Form_Data?) {
-        val dialogView = LayoutInflater.from(context).inflate(R.layout.medication_and_surgeries_update, null)
+    private fun showUpdateDialog(data: Chronic_Diseases_Data?) {
+        val dialogView = LayoutInflater.from(context).inflate(R.layout.simple_card_update, null)
         val dialogBuilder = AlertDialog.Builder(context)
         dialogBuilder.setView(dialogView)
         val alertDialog = dialogBuilder.create()
         alertDialog.show()
-        val name: EditText = dialogView.findViewById(R.id.name1)
-        val details_op: EditText = dialogView.findViewById(R.id.date1)
-        val updBtn: Button = dialogView.findViewById(R.id.upd_btn_medic)
-        val delBtn: Button = dialogView.findViewById(R.id.remove_btn_medic)
-        name.setText(data!!.medicin_name)
-        details_op.setText(data.medicin_date)
+        val name: EditText = dialogView.findViewById(R.id.operation_name_editt)
+        val updBtn: Button = dialogView.findViewById(R.id.update)
+        val delBtn: Button = dialogView.findViewById(R.id.remove)
+        name.setText(data!!.illness_name)
 
         updBtn.setOnClickListener {
             val mAuth = FirebaseAuth.getInstance()
@@ -54,15 +53,14 @@ class Medication_Form_Adapter (context : Context, MedicationFormList : ArrayList
             // Ensure data is not null before attempting update
             data?.let {
                 val newName = name.text.toString().trim()
-                val new_detail = details_op.text.toString().trim()
 
                 // Update the medicine data with the new values
-                val updatedData = Medicatin_Form_Data( newName, new_detail,it.medicin_id)
+                val updatedData = Chronic_Diseases_Data( newName ,it.illness_id)
 
                 // Perform the update in the database
-                mRef.child("Medication").child(it.medicin_id!!).setValue(updatedData)
+                mRef.child("Chronic Diseases").child(it.illness_id!!).setValue(updatedData)
                     .addOnSuccessListener {
-                        Toast.makeText(context, "Surgery Updated Successfully", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Chronic disease Updated Successfully", Toast.LENGTH_SHORT).show()
                         alertDialog.dismiss() // Dismiss the dialog after successful update
                     }
                     .addOnFailureListener { exception ->
@@ -72,14 +70,14 @@ class Medication_Form_Adapter (context : Context, MedicationFormList : ArrayList
         }
         delBtn.setOnClickListener {
             val mAuth = FirebaseAuth.getInstance()
-            val mRef = FirebaseDatabase.getInstance().getReference("/user/${mAuth.currentUser?.uid}/Medication")
+            val mRef = FirebaseDatabase.getInstance().getReference("/user/${mAuth.currentUser?.uid}/Chronic Diseases")
 
             // Ensure data is not null before attempting deletion
             data?.let {
                 // Remove the medicine data from the database based on its unique ID
-                mRef.child(it.medicin_id!!).removeValue()
+                mRef.child(it.illness_id!!).removeValue()
                     .addOnSuccessListener {
-                        Toast.makeText(context, "Surgery Deleted Successfully", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Chronic disease Deleted Successfully", Toast.LENGTH_SHORT).show()
                         alertDialog.dismiss() // Dismiss the dialog after successful deletion
                     }
                     .addOnFailureListener { exception ->
@@ -89,4 +87,4 @@ class Medication_Form_Adapter (context : Context, MedicationFormList : ArrayList
         }
 
     }
-    }
+}
