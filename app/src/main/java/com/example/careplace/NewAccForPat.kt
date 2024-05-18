@@ -17,7 +17,6 @@ class NewAccForPat : AppCompatActivity() {
     private lateinit var mailtxt: TextInputEditText
     private lateinit var passwordtxt: TextInputEditText
     private lateinit var sumbit: Button
-    private lateinit var back_btn: ImageView
     private lateinit var binding: ActivityNewAccForPatBinding
     private lateinit var database: FirebaseDatabase
     private lateinit var myAuthn1: FirebaseAuth
@@ -29,7 +28,6 @@ class NewAccForPat : AppCompatActivity() {
         setContentView(binding.root)
         initializeViews()
         register()
-        backbutton()
     }
 
     private fun register() {
@@ -65,17 +63,11 @@ class NewAccForPat : AppCompatActivity() {
         mailtxt = binding.editxtemail
         passwordtxt = binding.editxtpassword
         sumbit = binding.sumbitBtn
-        back_btn = binding.imageView2
         database = FirebaseDatabase.getInstance()
         myAuthn1 = FirebaseAuth.getInstance()
     }
 
-    private fun backbutton() {
-        back_btn.setOnClickListener {
-            val myIntent3 = Intent(this, LogandSignForPatient::class.java)
-            startActivity(myIntent3)
-        }
-    }
+
 
     private fun SendMailVerification() {
         val user = myAuthn1.currentUser

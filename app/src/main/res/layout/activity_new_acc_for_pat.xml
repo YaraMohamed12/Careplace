@@ -13,17 +13,6 @@
         android:layout_height="wrap_content">
 
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="37dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/left_arrow"
-            app:layout_constraintEnd_toStartOf="@+id/Newacc"
-            app:layout_constraintHorizontal_bias="0.379"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <TextView
             android:id="@+id/Newacc"
             android:layout_width="wrap_content"

@@ -50,7 +50,7 @@
 
                 <ScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="390dp"
+                    android:layout_height="350dp"
                     android:layout_margin="15dp"
                     android:background="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -77,85 +77,122 @@
                 </ScrollView>
 
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toTopOf="@+id/ratlinear"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.115"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/Doctor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:text="DR/ "
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
                 <TextView
                     android:id="@+id/textView20"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="DR/full name"
+                    android:text="full name"
+                    android:layout_marginTop="5dp"
                     android:textColor="@color/black"
                     android:textSize="30sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.115"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                     />
+
+                </LinearLayout>
+                <HorizontalScrollView
+                    android:id="@+id/Doctor_schedule_spec_scroll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/textView21"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="52dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"
                     android:text="@string/specialization"
                     android:textColor="@color/black"
                     android:textSize="25sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView20" />
-
-                <TextView
-                    android:id="@+id/Doctor_info_loc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="256dp"
-                    android:layout_marginTop="10dp"
-                    android:text="Location"
-                    android:textColor="@color/black"
-                    android:textSize="25sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView20" />
+                     />
 
                 <TextView
                     android:id="@+id/slash"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="224dp"
-                    android:layout_marginTop="14dp"
+                    android:layout_marginStart="10dp"
                     android:text="-"
                     android:textColor="@color/black"
                     android:textSize="25sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView20" />
+                     />
+                <TextView
+                    android:id="@+id/Doctor_info_loc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="Location"
+                    android:layout_marginEnd="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    />
 
+                </LinearLayout>
+                </HorizontalScrollView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ratlinear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="120dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    >
                 <RatingBar
                     android:id="@+id/ratingBar"
                     android:layout_width="wrap_content"
                     android:layout_height="45dp"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="12dp"
                     android:numStars="5"
                     android:stepSize="1"
                     android:progressTint="#FFEB3B"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView21" />
+                    />
                 <Button
                     android:id="@+id/Rate_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="108dp"
-                    android:backgroundTint="@color/pink"
+                    android:backgroundTint="@color/purple"
                     android:text="select rate"
                     android:textColor="@color/black"
                     android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.946"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    android:layout_marginStart="10dp"
+                    >
 
                 </Button>
+                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/linearLayout2"
@@ -165,7 +202,7 @@
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ratingBar"
+                    app:layout_constraintTop_toBottomOf="@+id/ratlinear"
                     tools:ignore="TextSizeCheck">
 
 

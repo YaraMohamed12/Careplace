@@ -86,24 +86,15 @@
         android:layout_margin="10dp"
         android:background="@drawable/btn_style"
         android:orientation="horizontal"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <ImageButton
-            android:id="@+id/back_btn1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="15dp"
-            android:background="@drawable/left_arrow"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="85dp"
             android:text="@string/profile"
             android:textColor="@color/black"
             android:textSize="40sp"

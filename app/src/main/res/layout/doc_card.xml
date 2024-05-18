@@ -20,12 +20,17 @@
         android:src="@drawable/doctorot"
         app:shapeAppearanceOverlay="@style/RoundedCorner" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="20dp"
+        >
             <TextView
                 android:id="@+id/crd_name1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-              android:layout_marginStart="124dp"
-                android:layout_marginTop="38dp"
                 android:text="@string/name"
                 android:textColor="@color/black"
                 android:textStyle="bold"
@@ -38,23 +43,30 @@
                 android:layout_height="wrap_content"
                 android:text="@string/specialization"
                 android:textColor="@color/black"
-                android:layout_marginStart="124dp"
-                android:layout_marginTop="60dp"
                 android:textSize="18sp"
-
+                android:layout_margin="2dp"
              />
     <TextView
         android:id="@+id/DocLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Location"
+        android:layout_margin="2dp"
         android:textColor="@color/black"
-        android:layout_marginStart="124dp"
-        android:layout_marginTop="80dp"
         android:textSize="18sp"
 
         />
 
+        <RatingBar
+            android:id="@+id/ratingBar_incard1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:progressTint="#FFEB3B"
+            android:isIndicator="true"
+            android:layout_margin="5dp"
+            />
+    </LinearLayout>
     <Button
         android:id="@+id/view_prof_btn1"
         android:layout_width="wrap_content"
@@ -67,22 +79,12 @@
         android:textColor="@color/black"
         android:textSize="15sp" />
 
-    <RatingBar
-        android:id="@+id/ratingBar_incard1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-       android:layout_marginTop="100dp"
-        android:numStars="5"
-        android:progressTint="#FFEB3B"
-        android:isIndicator="true"
 
-        />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_marginTop="170dp"
+        android:layout_gravity="bottom"
         android:background="@color/purple"
         />
 </androidx.cardview.widget.CardView>
