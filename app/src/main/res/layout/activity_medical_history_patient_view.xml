@@ -166,170 +166,22 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-                <ScrollView
-                    android:layout_gravity="center_horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="450dp"
-                    android:layout_margin="15dp"
-                    >
-
-                <LinearLayout
+                <ListView
+                    android:id="@+id/Chroinc_disease"
                     android:layout_width="match_parent"
+                    android:layout_height="450dp"
+                    android:layout_margin="20dp"
+                    tools:listitem="simple_list_card"
+                    />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/add_your_illness"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    >
-
-                    <CheckBox
-                        android:id="@+id/checkBox2"
-                        android:layout_width="300dp"
-                        android:layout_height="wrap_content"
-                        android:background="@color/pink"
-                        android:textColor="@color/black"
-                        android:layout_gravity="center_horizontal"
-                        android:text="@string/alzheimer_s_disease_and_dementia"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/checkBox8" />
-
-                    <CheckBox
-                        android:id="@+id/checkBox8"
-                        android:layout_width="300dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:background="@color/pink"
-                        android:textColor="@color/black"
-                        android:layout_gravity="center_horizontal"
-                        android:text="@string/depression"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/checkBox11" />
-
-                    <CheckBox
-                        android:id="@+id/checkBox11"
-                        android:layout_width="300dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:background="@color/pink"
-                        android:textColor="@color/black"
-                        android:layout_gravity="center_horizontal"
-                        android:text="@string/heart_failure"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/checkBox9" />
-
-                    <CheckBox
-                        android:id="@+id/checkBox9"
-                        android:layout_width="300dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:textColor="@color/black"
-                        android:background="@color/pink"
-                        android:layout_gravity="center_horizontal"
-                        android:text="@string/chronic_kidney_disease"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/checkBox10" />
-
-                    <CheckBox
-                        android:id="@+id/checkBox10"
-                        android:layout_width="300dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:background="@color/pink"
-                        android:textColor="@color/black"
-                        android:text="@string/diabetes"
-                        android:layout_gravity="center_horizontal"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/checkBox6" />
-
-                    <CheckBox
-                        android:id="@+id/checkBox6"
-                        android:layout_width="300dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:textColor="@color/black"
-                        android:background="@color/pink"
-                        android:layout_gravity="center_horizontal"
-                        android:text="@string/ischemic_heart_disease"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/checkBox7" />
-
-                    <CheckBox
-                        android:id="@+id/checkBox7"
-                        android:layout_width="300dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:background="@color/pink"
-                        android:textColor="@color/black"
-                        android:layout_gravity="center_horizontal"
-                        android:text="@string/arthritis"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/checkBox5" />
-
-                    <CheckBox
-                        android:id="@+id/checkBox5"
-                        android:layout_width="300dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:background="@color/pink"
-                        android:textColor="@color/black"
-                        android:layout_gravity="center_horizontal"
-                        android:text="@string/obesity"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/checkBox4" />
-
-                    <CheckBox
-                        android:id="@+id/checkBox4"
-                        android:layout_width="300dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:background="@color/pink"
-                        android:textColor="@color/black"
-                        android:layout_gravity="center_horizontal"
-                        android:text="@string/high_cholesterol"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/checkBox3" />
-
-                    <CheckBox
-                        android:id="@+id/checkBox3"
-                        android:layout_width="300dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:background="@color/pink"
-                        android:layout_gravity="center_horizontal"
-                        android:text="@string/hypertension"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        android:textColor="@color/black"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                </LinearLayout>
-            </ScrollView>
-
-                <ImageButton
-                    android:id="@+id/select_done"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
                     android:layout_gravity="end"
-                    android:layout_marginEnd="50dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    app:srcCompat="@drawable/check" />
+                    android:clickable="true"
+                    android:layout_marginEnd="30dp"
+                    android:src="@drawable/plus" />
 
 
             </LinearLayout>
@@ -439,31 +291,22 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <EditText
-                    android:id="@+id/Pateint_Alleriges"
-                    android:layout_width="330dp"
+                <ListView
+                    android:id="@+id/Allerige_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="450dp"
                     android:layout_margin="20dp"
-                    android:layout_gravity="center"
-                    android:layout_height="100dp"
-                    android:ems="10"
-                    android:inputType="textMultiLine"
-                    android:hint="@string/what_is_your_allergies"
-                    android:textColorHint="@color/black"
-                    android:textColor="@color/black"
-                    android:textSize="26sp"
+                    tools:listitem="simple_list_card"
                     />
-                <Button
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/add_allergy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_gravity="center"
-                    android:text="Sumbit"
-                    android:textSize="18sp"
-                    android:backgroundTint="@color/purple"
-                    android:id="@+id/sumbit_Alleriges"
-                    >
-
-                </Button>
+                    android:layout_gravity="end"
+                    android:clickable="true"
+                    android:layout_marginEnd="30dp"
+                    android:src="@drawable/plus" />
 
 
 

@@ -18,88 +18,40 @@ class Medical_History_For_Doctor_View : AppCompatActivity() {
     lateinit var pateint_surgery_list : ListView
     lateinit var pateint_Medication_list : ListView
     lateinit var pateint_Document_list : ListView
+    private lateinit var listViewAllergies : ListView
+    private lateinit var listViewChronicDisease: ListView
     lateinit var Surgerieslist : ArrayList<Surgeries_Form_Data>
     lateinit var Medictionlist : ArrayList<Medicatin_Form_Data>
     lateinit var Documnetlist : ArrayList<Doc_class_Data>
-    lateinit var home_btn : ImageView
-    lateinit var setting_btn : ImageView
-    lateinit var your_profile_btn : ImageView
-    lateinit var calender_btn : ImageView
-    lateinit var chat_btn : ImageView
-    lateinit var pateint_Alleriges : TextView
-    lateinit var chorinc_diease : TextView
-    lateinit var diesaseId : kotlin.String
+    lateinit var pateint_AllerigesList : ArrayList<Allergy_Data>
+    lateinit var chorinc_dieaseList: ArrayList<Chronic_Diseases_Data>
+
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_medical_history_for_doctor_view)
         Pateintid = intent.getStringExtra("PateintId")!!
-        pateint_Document_list = findViewById(R.id.Docment_listView2)
-        pateint_surgery_list = findViewById(R.id.surgeries_listView2)
-        pateint_Medication_list = findViewById(R.id.medication_listView2)
-        home_btn = findViewById(R.id.home_icon)
-        setting_btn = findViewById(R.id.setting_icon)
-        your_profile_btn = findViewById(R.id.profile_icon_bar)
-        calender_btn = findViewById(R.id.calender_icon_bar)
-        chat_btn  = findViewById(R.id.goto_chat)
-        pateint_Alleriges = findViewById(R.id.Allerige_text)
-        chorinc_diease = findViewById(R.id.chroinc_diseases)
-
         Surgerieslist = ArrayList()
         Medictionlist = ArrayList()
         Documnetlist = ArrayList()
+        chorinc_dieaseList = ArrayList()
+        pateint_AllerigesList = ArrayList()
         retrivePatientSurgeries()
         retrivePatientMedication()
         retrivePatientDocumnet()
-        retrivePatientAlleriges()
-        buttonlistener()
+        retrivePatientAllergies()
+        retrivePatientChronicDiseases()
+        inisialization1()
     }
 
 
-
-    private fun retrivePatientAlleriges() {
-
-        val allergiesRef = FirebaseDatabase.getInstance().getReference("user").child(Pateintid)
-
-        allergiesRef.child("allergies").addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val allergies = dataSnapshot.getValue(String::class.java)
-                if (allergies != null) {
-                    pateint_Alleriges.text = allergies
-                } else {
-                    pateint_Alleriges.text = "this patient have no Alleriges"
-                }
-            }
-
-            override fun onCancelled(databaseError: DatabaseError) {
-
-                Toast.makeText(this@Medical_History_For_Doctor_View, "Failed to load allergies.", Toast.LENGTH_SHORT).show()
-            }
-        })
-    }
-
-    private fun buttonlistener() {
-        home_btn.setOnClickListener {
-            val myintent1 = Intent(this , Doctor_Home_Screen::class.java)
-            startActivity(myintent1)
-        }
-        setting_btn.setOnClickListener {
-            val myintent2 = Intent(this , Doctor_Setting_Screen::class.java)
-            startActivity(myintent2)
-        }
-        your_profile_btn.setOnClickListener {
-            val myintent3 = Intent(this , My_Profile_Details_for_doc::class.java)
-            startActivity(myintent3)
-        }
-        calender_btn.setOnClickListener {
-            val myintent4 = Intent(this , Doctor_Calender_Screen::class.java)
-            startActivity(myintent4)
-        }
-        chat_btn.setOnClickListener {
-            val myintent5 = Intent(this , ContactActivity_For_Patient::class.java)
-            startActivity(myintent5)
-        }
+    private fun inisialization1() {
+        pateint_Document_list = findViewById(R.id.Docment_listView2)
+        pateint_surgery_list = findViewById(R.id.surgeries_listView2)
+        pateint_Medication_list = findViewById(R.id.medication_listView2)
+        listViewAllergies = findViewById(R.id.allergy_card)
+        listViewChronicDisease = findViewById(R.id.illness_card)
     }
 
     private fun retrivePatientMedication() {
@@ -129,6 +81,60 @@ class Medical_History_For_Doctor_View : AppCompatActivity() {
         })
 
     }
+
+    private fun retrivePatientChronicDiseases() {
+        val mref = FirebaseDatabase.getInstance().getReference("user").child(Pateintid).child("Chronic Diseases")
+        mref.addValueEventListener(object : ValueEventListener {
+            @SuppressLint("SuspiciousIndentation")
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                chorinc_dieaseList.clear()
+
+                for (DataSnapshot in dataSnapshot.children) {
+                    val Name = DataSnapshot.child("illness_name").getValue(String::class.java)
+                    val disease_id = DataSnapshot.child("illness_id").getValue(String::class.java)
+
+
+                    val Chronic_disease_data = Chronic_Diseases_Data(Name,disease_id)
+                    chorinc_dieaseList.add(Chronic_disease_data)
+
+                }
+                val adapter = Chronic_Diseases_Adapter(this@Medical_History_For_Doctor_View, chorinc_dieaseList)
+                listViewChronicDisease.adapter = adapter
+
+            }
+            override fun onCancelled(databaseError: DatabaseError) {
+                Toast.makeText(this@Medical_History_For_Doctor_View, "Failed to add Chronic disease", Toast.LENGTH_SHORT).show()
+            }
+        })
+
+    }
+
+    private fun retrivePatientAllergies() {
+        val mref = FirebaseDatabase.getInstance().getReference("user").child(Pateintid).child("allergies")
+        mref.addValueEventListener(object : ValueEventListener {
+            @SuppressLint("SuspiciousIndentation")
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                pateint_AllerigesList.clear()
+
+                for (DataSnapshot in dataSnapshot.children) {
+                    val Name = DataSnapshot.child("allergy_name").getValue(String::class.java)
+                    val allergies_id = DataSnapshot.child("allergy_id").getValue(String::class.java)
+
+
+                    val Allergy_data = Allergy_Data(Name,allergies_id)
+                    pateint_AllerigesList.add(Allergy_data)
+
+                }
+                val adapter = Allergy_Adapter(this@Medical_History_For_Doctor_View, pateint_AllerigesList)
+                listViewAllergies.adapter = adapter
+
+            }
+            override fun onCancelled(databaseError: DatabaseError) {
+                Toast.makeText(this@Medical_History_For_Doctor_View, "Failed to add Allergy", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
 
     private fun retrivePatientDocumnet() {
         val mref = FirebaseDatabase.getInstance().getReference("user").child(Pateintid).child("user_rays")
@@ -184,8 +190,6 @@ class Medical_History_For_Doctor_View : AppCompatActivity() {
         })
 
     }
-
-
 
 
 
