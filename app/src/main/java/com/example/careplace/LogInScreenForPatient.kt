@@ -12,7 +12,6 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 
 class LogInScreenForPatient : AppCompatActivity() {
-    lateinit var back_icon : ImageView
     lateinit var new_app: TextView
     lateinit var email_txt : TextInputEditText
     lateinit var passowrd_txt : TextInputEditText
@@ -29,14 +28,12 @@ class LogInScreenForPatient : AppCompatActivity() {
             startActivity(myIntent5)
         }
        inilazaiton()
-        back()
         LogIn_opt()
         newAccount()
 
         }
       fun inilazaiton()
       {
-          back_icon = findViewById(R.id.imageView2)
           new_app = findViewById(R.id.textView8)
           email_txt = findViewById(R.id.email_txt)
           passowrd_txt =findViewById(R.id.passowrd_txt)
@@ -71,13 +68,7 @@ class LogInScreenForPatient : AppCompatActivity() {
 
 
     }
-    fun back()
-    {
-        back_icon.setOnClickListener {
-            val myintent3 = Intent(this , LogandSignForPatient::class.java)
-            startActivity(myintent3)
-        }
-    }
+
     fun newAccount()
     {
         new_app.setOnClickListener {

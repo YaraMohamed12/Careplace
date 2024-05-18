@@ -17,7 +17,6 @@ import com.google.firebase.database.FirebaseDatabase
 import kotlin.String
 
 class NewAccForDoc : AppCompatActivity() {
-    lateinit var back_btn : ImageView
     lateinit var toDropDownMenu : AutoCompleteTextView
     val spec1 : String = "Cardiologist"
     val spec2 : String = "Pulmonologist"
@@ -43,11 +42,9 @@ class NewAccForDoc : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityNewAccForDocBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        back_btn =findViewById(R.id.backbtndoc)
         toDropDownMenu = findViewById(R.id.editxtSpecialization)
          initializeViews()
         menupopulater()
-        backbutton()
         register()
     }
     private fun menupopulater()
@@ -57,14 +54,6 @@ class NewAccForDoc : AppCompatActivity() {
         val adapter = ArrayAdapter(this,R.layout.drop_down_menu,listDoctor)
         toDropDownMenu.setAdapter(adapter)
 
-
-    }
-    private fun backbutton()
-    {
-        back_btn.setOnClickListener {
-            val myIntent3 = Intent(this ,DocOrPat::class.java)
-            startActivity(myIntent3)
-        }
 
     }
     private fun register() {
