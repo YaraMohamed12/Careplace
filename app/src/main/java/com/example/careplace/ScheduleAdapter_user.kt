@@ -64,12 +64,16 @@ class ScheduleAdapter_user(context: Context, private val scheduleList: List<Sche
 
             var patient_name : String = ""
             var Doctor_name : String = ""
+            var Doctor_img : String = ""
+            var patient_img : String = ""
+
 
 
             mRef.child(currentuserid).addValueEventListener(object :ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
                     patient_name = snapshot.child("name").getValue(String::class.java)!!
-                    val patient_info = Contact_info_Data(currentuserid,patient_name)
+                    patient_img = snapshot.child("profileImageUrl").getValue(String::class.java) ?:" "
+                    val patient_info = Contact_info_Data(currentuserid,patient_name,patient_img)
                     ChatRef.child(Doctorid).child(currentuserid).setValue(patient_info)
                 }override fun onCancelled(error: DatabaseError) {} })
 
@@ -77,7 +81,8 @@ class ScheduleAdapter_user(context: Context, private val scheduleList: List<Sche
             mRef2.child(Doctorid).addValueEventListener(object :ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
                     Doctor_name = snapshot.child("dname").getValue(String::class.java)!!
-                    val doctor_info = Contact_info_Data(Doctorid,Doctor_name)
+                    Doctor_img = snapshot.child("profileImageUrl").getValue(String::class.java) ?: ""
+                    val doctor_info = Contact_info_Data(Doctorid,Doctor_name,Doctor_img)
                     ChatRef.child(currentuserid).child(Doctorid).setValue(doctor_info)
                 }
                 override fun onCancelled(error: DatabaseError) {} })

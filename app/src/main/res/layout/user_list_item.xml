@@ -7,9 +7,11 @@
     >
 
     <ImageView
+        android:id="@+id/user_chatphoto"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginStart="10dp"
         android:src="@drawable/person"
         android:scaleType="centerInside"

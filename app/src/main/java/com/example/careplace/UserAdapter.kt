@@ -5,11 +5,15 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.google.firebase.database.FirebaseDatabase
 
 class UserAdapter(private val context: Context, private val userList: ArrayList<Contact_info_Data>) :
     RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         val view: View = LayoutInflater.from(context).inflate(R.layout.user_list_item, parent, false)
@@ -34,9 +38,16 @@ class UserAdapter(private val context: Context, private val userList: ArrayList<
 
     inner class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val textName: TextView = itemView.findViewById(R.id.name_txt1)
+        private val userphoto: ImageView = itemView.findViewById(R.id.user_chatphoto)
 
         fun bind(user: Contact_info_Data) {
             textName.text = user.Name
+            if(!user.profileImageUrl.isNullOrEmpty()) {
+                Glide.with(itemView.context).load(user.profileImageUrl).into(userphoto)
+            }
+
+
+
         }
     }
 }
