@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,6 +25,7 @@ class ChatActivity : AppCompatActivity() {
     var receiveRoom : String?= null
     var senderRoom : String?= null
     lateinit var mRef : DatabaseReference
+    lateinit var chat_name : TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +43,7 @@ class ChatActivity : AppCompatActivity() {
         receiveRoom = SenderUID + RecevierUID
         messageList = ArrayList()
         messageAdapter = MessageAdapter(this,messageList)
-        supportActionBar?.title = name
+        chat_name.text = name
         // logic for add data to RecyclView
 
         ChatRecyclerView.layoutManager =LinearLayoutManager(this)
@@ -90,6 +92,7 @@ class ChatActivity : AppCompatActivity() {
         Send_btn =findViewById(R.id.sending_png)
         messageeBox = findViewById(R.id.messagebox)
         messageList = ArrayList()
+        chat_name = findViewById(R.id.chat_name)
         messageAdapter = MessageAdapter(this,messageList)
         mRef = FirebaseDatabase.getInstance().getReference()
 

@@ -17,7 +17,7 @@ import com.google.firebase.database.ValueEventListener
 
 class ContactActivity_For_Patient : AppCompatActivity() {
     private lateinit var userRecyclerView: RecyclerView
-    private lateinit var userlist: ArrayList<Users>
+    private lateinit var userlist: ArrayList<Contact_info_Data>
     private lateinit var adapter: UserAdapter
     private lateinit var mAuth: FirebaseAuth
     private lateinit var mRef: DatabaseReference
@@ -32,7 +32,7 @@ class ContactActivity_For_Patient : AppCompatActivity() {
         setContentView(R.layout.activity_contact_for_patient)
 
         mAuth = FirebaseAuth.getInstance()
-        mRef = FirebaseDatabase.getInstance().getReference("user")
+        mRef = FirebaseDatabase.getInstance().getReference("Chatid")
         userlist = ArrayList()
         adapter = UserAdapter(this, userlist)
 
@@ -73,13 +73,13 @@ class ContactActivity_For_Patient : AppCompatActivity() {
 
 
     private fun fetchDataFromFirebase() {
-        mRef.addValueEventListener(object : ValueEventListener {
+        mRef.child(mAuth.currentUser!!.uid).addValueEventListener(object : ValueEventListener {
             @SuppressLint("NotifyDataSetChanged", "SuspiciousIndentation")
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 userlist.clear()
                 for (postSnapshot in dataSnapshot.children) {
 
-                    val currentUser = postSnapshot.getValue(Users::class.java)
+                    val currentUser = postSnapshot.getValue(Contact_info_Data::class.java)
                     if(mAuth.currentUser?.uid != currentUser?.UID)
                         currentUser?.let { userlist.add(it) }
                 }

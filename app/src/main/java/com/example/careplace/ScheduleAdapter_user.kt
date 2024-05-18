@@ -26,6 +26,7 @@ class ScheduleAdapter_user(context: Context, private val scheduleList: List<Sche
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         // firebase inilaztion
         val mRef = FirebaseDatabase.getInstance().getReference("user")
+        val mRef2 = FirebaseDatabase.getInstance().getReference("DUser")
         val Bref = FirebaseDatabase.getInstance().getReference("/Doctors_schedule/$Doctorid/schedules")
         val Aref = FirebaseDatabase.getInstance().getReference("Doctor_Booked")
         val ChatRef = FirebaseDatabase.getInstance().getReference("Chatid")
@@ -59,37 +60,30 @@ class ScheduleAdapter_user(context: Context, private val scheduleList: List<Sche
          }
             val scheduleRef = Bref.child(schudelid)
             scheduleRef.removeValue()
-          ChatRef.child(currentuserid).child(Doctorid).setValue(Doctorid)
-            ChatRef.child(Doctorid).child(currentuserid).setValue(currentuserid)
+
+
+            var patient_name : String = ""
+            var Doctor_name : String = ""
+
+
+            mRef.child(currentuserid).addValueEventListener(object :ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    patient_name = snapshot.child("name").getValue(String::class.java)!!
+                    val patient_info = Contact_info_Data(currentuserid,patient_name)
+                    ChatRef.child(Doctorid).child(currentuserid).setValue(patient_info)
+                }override fun onCancelled(error: DatabaseError) {} })
+
+
+            mRef2.child(Doctorid).addValueEventListener(object :ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    Doctor_name = snapshot.child("dname").getValue(String::class.java)!!
+                    val doctor_info = Contact_info_Data(Doctorid,Doctor_name)
+                    ChatRef.child(currentuserid).child(Doctorid).setValue(doctor_info)
+                }
+                override fun onCancelled(error: DatabaseError) {} })
 
 
 
-            val tokenRef = FirebaseDatabase.getInstance().getReference("DUser").child(Doctorid).child("fcmToken")
-                tokenRef.addListenerForSingleValueEvent(object : ValueEventListener {
-                    override fun onDataChange(dataSnapshot: DataSnapshot) {
-                        val doctorToken = dataSnapshot.getValue(String::class.java)
-                        if (doctorToken != null) {
-                            FirebaseMessaging.getInstance().send(
-                                RemoteMessage.Builder(doctorToken)
-                                    .setMessageId(UUID.randomUUID().toString())
-                                    .addData("title", "Your Appoiment is book scuessfully")
-                                    .addData("body", "there is patient book your appoiment")
-                                    .build()
-                            )
-
-
-
-                        } else {
-
-                            Toast.makeText(context, "Doctor's token not found", Toast.LENGTH_SHORT).show()
-                        }
-                    }
-
-                    override fun onCancelled(databaseError: DatabaseError) {
-
-                        Toast.makeText(context, "Failed to retrieve doctor's token", Toast.LENGTH_SHORT).show()
-                    }
-                })
 
 
         }

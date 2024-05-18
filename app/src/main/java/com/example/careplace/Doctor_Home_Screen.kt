@@ -25,7 +25,7 @@ class Doctor_Home_Screen : AppCompatActivity() {
     private lateinit var doctor_image: ImageView
     private lateinit var view: View
     private lateinit var updimg_img: ImageView
-    private var profileImageUrl: kotlin.String = ""
+    private var profileImageUrl: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -167,3 +167,4 @@ class Doctor_Home_Screen : AppCompatActivity() {
         }
     }
 }
+

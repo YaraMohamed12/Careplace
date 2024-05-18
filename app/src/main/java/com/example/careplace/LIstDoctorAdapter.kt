@@ -26,13 +26,12 @@ class LIstDoctorAdapter(private val originalDoctorsList: ArrayList<DUsers>) :
         private val docNameTextView: TextView = itemView.findViewById(R.id.crd_name1)
         private val docspecTextView: TextView = itemView.findViewById(R.id.DocSpeclia)
         private val docprofilebtn: TextView = itemView.findViewById(R.id.view_prof_btn1)
-        private val doctorRate : RatingBar = itemView.findViewById(R.id.ratingBar_incard1)
-        private val Doctor_location : TextView = itemView.findViewById(R.id.DocLocation)
-        lateinit var DoctorId : kotlin.String
-        lateinit var DoctorName : kotlin.String
-        lateinit var Doctor_spec : kotlin.String
-        lateinit var Doctor_loc : kotlin.String
-
+        private val doctorRate: RatingBar = itemView.findViewById(R.id.ratingBar_incard1)
+        private val Doctor_location: TextView = itemView.findViewById(R.id.DocLocation)
+        lateinit var DoctorId: String
+        lateinit var DoctorName: String
+        lateinit var Doctor_spec: String
+        lateinit var Doctor_loc: String
 
         init {
             // Set click listener in the ViewHolder constructor
@@ -42,10 +41,12 @@ class LIstDoctorAdapter(private val originalDoctorsList: ArrayList<DUsers>) :
                     val context: Context = itemView.context
                     // Navigate to DoctorProfileSchedule activity
                     val intent = Intent(context, DoctorProfileSchedule::class.java)
-                    intent.putExtra("DoctorId",DoctorId)
-                    intent.putExtra("DoctorName",DoctorName)
-                    intent.putExtra("Doctor_spec",Doctor_spec)
-                    intent.putExtra("Doctor_loc",Doctor_loc)
+                    intent.putExtra("DoctorId", DoctorId)
+                    intent.putExtra("DoctorName", DoctorName)
+                    intent.putExtra("Doctor_spec", Doctor_spec)
+                    if (::Doctor_loc.isInitialized) {  // Check if Doctor_loc is initialized
+                        intent.putExtra("Doctor_loc", Doctor_loc)
+                    }
                     context.startActivity(intent)
                 }
             }
@@ -59,36 +60,37 @@ class LIstDoctorAdapter(private val originalDoctorsList: ArrayList<DUsers>) :
             Doctor_spec = user.Specialization!!
             val database = FirebaseDatabase.getInstance()
             val ratingsRef = database.getReference("doctor_ratings").child(DoctorId)
-            ratingsRef.addValueEventListener(object  : ValueEventListener{
+            ratingsRef.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
                         val ratingValue = snapshot.getValue(Float::class.java)
                         if (ratingValue != null) {
                             doctorRate.rating = ratingValue
-
                         }
                     }
                 }
-                override fun onCancelled(error: DatabaseError) {
-                } })
 
-             val locatRef = database.getReference("/DUser/$DoctorId/Location")
-            locatRef.addValueEventListener(object  : ValueEventListener{
+                override fun onCancelled(error: DatabaseError) {
+                    // Handle error if necessary
+                }
+            })
+
+            val locatRef = database.getReference("/DUser/$DoctorId/Location")
+            locatRef.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
-                        val Location = snapshot.getValue(String::class.java)
-                        if (Location != null) {
-                            Doctor_location.text = Location
-                            Doctor_loc = Location
+                        val location = snapshot.getValue(String::class.java)
+                        if (location != null) {
+                            Doctor_location.text = location
+                            Doctor_loc = location
                         }
                     }
                 }
+
                 override fun onCancelled(error: DatabaseError) {
-                } })
-
-
-
-
+                    // Handle error if necessary
+                }
+            })
         }
     }
 
@@ -106,7 +108,6 @@ class LIstDoctorAdapter(private val originalDoctorsList: ArrayList<DUsers>) :
         holder.bind(currentUser)
     }
 
-    // Custom filter logic for search functionality
     override fun getFilter(): Filter {
         return object : Filter() {
             override fun performFiltering(constraint: CharSequence?): FilterResults {
@@ -137,5 +138,6 @@ class LIstDoctorAdapter(private val originalDoctorsList: ArrayList<DUsers>) :
         }
     }
 }
+
 
 
