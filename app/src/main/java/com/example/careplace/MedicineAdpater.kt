@@ -66,7 +66,7 @@ class MedicineAdpater(context: Context, NoteList : ArrayList<MedicineData>)
                 val newDose = doz.text.toString().trim()
 
                 // Update the medicine data with the new values
-                val updatedData = MedicineData( newName,"Number Doz : ${newDose}", newTime,it.medicineid)
+                val updatedData = MedicineData( newName,newDose, newTime,it.medicineid)
 
                 // Perform the update in the database
                 mRef.child(it.medicineid!!).setValue(updatedData)

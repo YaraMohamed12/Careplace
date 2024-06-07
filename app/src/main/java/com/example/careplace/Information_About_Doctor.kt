@@ -72,6 +72,8 @@ class Information_About_Doctor : AppCompatActivity() {
             val aboutMeRef = database.getReference("DUser").child(userId!!).child("aboutMe")
             val about_string: kotlin.String = aboutme_text.text.toString()
             aboutMeRef.setValue(about_string)
+            val intent = Intent(this,Doctor_Home_Screen::class.java)
+            startActivity(intent)
         }
     }
     private fun ReadoctorABout()

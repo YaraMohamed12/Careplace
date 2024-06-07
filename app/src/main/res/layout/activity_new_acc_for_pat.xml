@@ -58,10 +58,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="16dp"
                 android:textColor="@color/black"
+                android:inputType="textPersonName"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:id="@+id/editxtname"
-                android:inputType="text"
+
                 >
 
             </com.google.android.material.textfield.TextInputEditText>
@@ -169,7 +170,6 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="date"
                 android:background="@drawable/edititextbackground"
                 app:layout_constraintStart_toStartOf="parent"
                 android:hint="@string/date"
@@ -248,6 +248,7 @@
                 android:layout_height="match_parent"
                 android:inputType="number"
                 android:textColor="@color/black"
+                android:maxLength="11"
                 app:layout_constraintStart_toStartOf="parent"
                 android:background="@drawable/edititextbackground"
                 android:layout_marginTop="16dp"
@@ -336,7 +337,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/weight"
+            android:text="Weight"
             android:id="@+id/weight"
             android:textStyle="bold"
             android:textColor="@color/darkblue"
@@ -361,7 +362,6 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="number"
                 android:textColor="@color/black"
                 android:background="@drawable/edititextbackground"
                 app:layout_constraintStart_toStartOf="parent"
@@ -375,7 +375,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/height"
+            android:text="Height"
             android:id="@+id/Height"
             android:textStyle="bold"
             android:textColor="@color/darkblue"
@@ -400,7 +400,6 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="number"
                 android:textColor="@color/black"
                 android:background="@drawable/edititextbackground"
                 app:layout_constraintStart_toStartOf="parent"

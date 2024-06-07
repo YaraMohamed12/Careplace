@@ -20,7 +20,16 @@
             android:layout_marginTop="20dp"
             android:scaleType="centerInside"
             android:background="@color/white"
-            tools:srcCompat="@drawable/doctorot" />
+            tools:srcCompat="@drawable/add_userphoto" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Your image"
+            android:textSize="16dp"
+            android:layout_gravity="center"
+           android:layout_marginTop="18dp">
+
+        </TextView>
 
         <TextView
             android:id="@+id/fullname"

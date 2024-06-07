@@ -28,41 +28,54 @@ class NewAccForPat : AppCompatActivity() {
         setContentView(binding.root)
         initializeViews()
         register()
+
     }
 
     private fun register() {
         sumbit.setOnClickListener {
-            val mail = mailtxt.text.toString()
-            val password = passwordtxt.text.toString()
-            if (mail.isNotEmpty() && password.isNotEmpty()) {
-                myAuthn1.createUserWithEmailAndPassword(mail, password)
-                    .addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
-                                val userEmail = mail
-                                val fullname = binding.editxtname.text.toString()
-                                val phone = binding.editxtphone.text.toString()
-                                val BDT = binding.editxtBDT.text.toString()
-                                val ID = binding.editxtID.text.toString()
-                                val gender = binding.editxtGender.text.toString()
-                                val age = binding.editxtAge.text.toString()
-                                val height = binding.editxtHeight.text.toString()
-                                val weight = binding.editxtWeight.text.toString()
-                               AddusertoDatabase(fullname,userEmail,myAuthn1.currentUser?.uid!!,phone,ID,height,weight,BDT,age,gender )
+             // edittextview -> variables -> dataclass -> send to store in database
+            val mail = mailtxt.text.toString().trim()
+            val password = passwordtxt.text.toString().trim()
+            val fullname = binding.editxtname.text.toString().trim()
+            val phone = binding.editxtphone.text.toString().trim()
 
-                        } else {
-                            Toast.makeText(this, "Registration Failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+            if (mail.isNotEmpty() && password.isNotEmpty() && fullname.isNotEmpty() && phone.isNotEmpty()) {
+                if (!isValidName(fullname)) {
+                    Toast.makeText(this, "Invalid name. Please use letters only.", Toast.LENGTH_SHORT).show()
+                } else if (!isValidPhoneNumber(phone)) {
+                    Toast.makeText(this, "Invalid phone number. Please enter 11 digits only.", Toast.LENGTH_SHORT).show()
+                } else if (!isValidPassword(password)) {
+                    Toast.makeText(this, "Invalid password. Please enter at least 8 characters with letters, numbers, and special characters.", Toast.LENGTH_SHORT).show()
+                } else {
+                    myAuthn1.createUserWithEmailAndPassword(mail, password)
+                        .addOnCompleteListener { task ->
+                            if (task.isSuccessful) {
+                                val userEmail = mail
+                                val BDT = binding.editxtBDT.text.toString().trim()
+                                val ID = binding.editxtID.text.toString().trim()
+                                val gender = binding.editxtGender.text.toString().trim()
+                                val age = binding.editxtAge.text.toString().trim()
+                                val height = binding.editxtHeight.text.toString().trim()
+                                val weight = binding.editxtWeight.text.toString().trim()
+
+                                AddusertoDatabase(fullname, userEmail, myAuthn1.currentUser?.uid!!, phone, ID, height, weight, BDT, age, gender)
+                            } else {
+                                Toast.makeText(this, "Registration Failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                            }
                         }
-                    }
+                }
             } else {
-                Toast.makeText(this, " please Enter your Data", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please enter all required data.", Toast.LENGTH_SHORT).show()
             }
         }
     }
+
 
     private fun initializeViews() {
         mailtxt = binding.editxtemail
         passwordtxt = binding.editxtpassword
         sumbit = binding.sumbitBtn
+        // vairables connect activity realtime & athuntaction
         database = FirebaseDatabase.getInstance()
         myAuthn1 = FirebaseAuth.getInstance()
     }
@@ -81,9 +94,9 @@ class NewAccForPat : AppCompatActivity() {
         }
     }
 
-    fun AddusertoDatabase(name: kotlin.String, email: kotlin.String, uid: kotlin.String,
-                          Phone : kotlin.String, nationid : kotlin.String, lenght : kotlin.String,
-                          wieght : kotlin.String, Bdate : kotlin.String, Age : kotlin.String, Gender : kotlin.String
+    fun AddusertoDatabase(name: String, email: String, uid: String,
+                          Phone : String, nationid : String, lenght : String,
+                          wieght : String, Bdate : String, Age : String, Gender : String
     )
     {
 
@@ -98,6 +111,23 @@ class NewAccForPat : AppCompatActivity() {
             }
 
 
+    }
+
+    private fun isValidName(name: String): Boolean {
+
+        val regex = "^[a-zA-Z\\s]+$".toRegex()
+        return name.matches(regex)
+    }
+
+    private fun isValidPhoneNumber(phoneNumber: String): Boolean {
+        val regex = "^\\d{11}$".toRegex()
+        return phoneNumber.matches(regex)
+    }
+
+
+    private fun isValidPassword(password: String): Boolean{
+        val regex = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@#$%^&+=!]).{8,}$".toRegex()
+        return password.matches(regex)
     }
 
 

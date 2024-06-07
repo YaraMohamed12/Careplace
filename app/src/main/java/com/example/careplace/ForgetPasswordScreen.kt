@@ -55,7 +55,7 @@ class ForgetPasswordScreen : AppCompatActivity() {
         val remail = email_Reset.text.toString()
         if (remail.isNotEmpty()) {
             myAuth.sendPasswordResetEmail(remail).addOnSuccessListener {
-                Toast.makeText(this, "P+lease Check Your Email", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please Check Your Email", Toast.LENGTH_SHORT).show()
             }.addOnFailureListener {
                 Toast.makeText(this, it.toString(), Toast.LENGTH_SHORT).show()
             }

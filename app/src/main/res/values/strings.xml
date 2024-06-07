@@ -117,7 +117,7 @@ number of doses of the prescribed treatment).</string>
     <string name="address">Address</string>
     <string name="enter_your_address">Enter Your Address</string>
     <string name="personal_information">Personal Information</string>
-    <string name="introduce_yourself_to_the_patient">Please write more information about yourself to introduce yourself to the patient</string>
+    <string name="introduce_yourself_to_the_patient">Please write Full information about yourself and Your Workplace introduce yourself to the patient</string>
     <string name="about_me">About Me : </string>
 
 </resources>

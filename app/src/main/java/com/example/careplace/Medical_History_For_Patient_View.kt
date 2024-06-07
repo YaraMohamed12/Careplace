@@ -195,9 +195,9 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
              doc_txt = view.findViewById(R.id.doc_txt)
             add_btn = view.findViewById<Button>(R.id.upimagpt)
              add_img = view.findViewById(R.id.xrayimg)
-            add_img.setOnClickListener {
+            add_img.setOnClickListener { // palce holder image
                 val galleryIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-                startActivityForResult(galleryIntent, GALLERY_REQUEST_CODE)
+                startActivityForResult(galleryIntent , GALLERY_REQUEST_CODE)
             }
 
 
@@ -305,12 +305,9 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
             @SuppressLint("SuspiciousIndentation")
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 Chronic_Diseases_list.clear()
-
                 for (DataSnapshot in dataSnapshot.children) {
                     val Name = DataSnapshot.child("illness_name").getValue(String::class.java)
                     val disease_id = DataSnapshot.child("illness_id").getValue(String::class.java)
-
-
                     val chronic_disease_data = Chronic_Diseases_Data(Name,disease_id)
                     Chronic_Diseases_list.add(chronic_disease_data)
 

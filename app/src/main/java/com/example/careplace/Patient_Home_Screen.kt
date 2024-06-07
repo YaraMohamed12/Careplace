@@ -83,7 +83,7 @@ class Patient_Home_Screen : AppCompatActivity() {
             userRef.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     profileImageUrl = snapshot.getValue(String::class.java) ?: ""
-                    if (profileImageUrl.isNotEmpty()) {
+                    if (!profileImageUrl.isNullOrEmpty()) {
                         Glide.with(this@Patient_Home_Screen).load(profileImageUrl).into(user_image)
                     }
                 }
@@ -148,7 +148,7 @@ class Patient_Home_Screen : AppCompatActivity() {
     inner class ReadData : ValueEventListener {
         override fun onDataChange(snapshot: DataSnapshot) {
             val username = snapshot.getValue(String::class.java)
-            patname.text = "Hi ${username ?: ""}"
+            patname.text = username
         }
 
         override fun onCancelled(error: DatabaseError) {
@@ -165,7 +165,7 @@ class Patient_Home_Screen : AppCompatActivity() {
                     userTokenRef.setValue(token)
                         .addOnSuccessListener {
                             // Token stored successfully
-                            Toast.makeText(this, "Token stored successfully for user", Toast.LENGTH_SHORT).show()
+
                         }
                         .addOnFailureListener { e ->
                             // Failed to store token
@@ -179,6 +179,10 @@ class Patient_Home_Screen : AppCompatActivity() {
                 }
         }
     }
+
+
+
+
 
 
 }

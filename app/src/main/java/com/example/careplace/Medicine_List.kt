@@ -100,33 +100,49 @@ class Medicine_List : AppCompatActivity() {
     @SuppressLint("MissingInflatedId", "SuspiciousIndentation")
     private fun floatBtnDialog() {
         val myFlotbtn = findViewById<FloatingActionButton>(R.id.myFloatButton)
+        // user click floatbutton
         myFlotbtn.setOnClickListener {
+
+
+            // after user clicked the dialog inflate in the screen
+
             val view = layoutInflater.inflate(R.layout.medicine_dialog, null)
             val myDialogBuilder = AlertDialog.Builder(this)
             myDialogBuilder.setView(view)
             val alertDialog = myDialogBuilder.create()
             alertDialog.show()
+            // dialog setview -> creata -> show -> dimiss
+            // view = medicine dialog
+
             val medicinepicker = view.findViewById<TimePicker>(R.id.timePicker)
             val medicineName = view.findViewById<EditText>(R.id.doz_name_dialog1)
             val medicineNo = view.findViewById<EditText>(R.id.doz_no_dialog1)
             val medicineBtn = view.findViewById<Button>(R.id.btnadd)
-
-
+             // call view ui elment name,timepicker
 
             calculateTimeDifferenceInSeconds(medicinepicker)
+
+            // choosentime - currenttime = output -> for bulding notifaction
+
+
             val intent = Intent(this, MyBroadcastReciver::class.java)
             pendingIntent = PendingIntent.getBroadcast(this, 224, intent,
                 PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
             )
+            // broadcast recive  action done when the app is not running
+            // action is notifaction , notifaction click on it to intent to alarmscreen
+            // this intent is activite when action happen pending intent
 
             medicineBtn.setOnClickListener {
                 val name = medicineName.text.toString()
                 val time = formatTimeToString(medicinepicker)
+                //  timerpicker view -> mytimpucker : timerpicker
                 val doz = medicineNo.text.toString()
 
 
                 if (time.isNotEmpty() && name.isNotEmpty() && doz.isNotEmpty()) {
-                    val id = mRef.push().key ?: "" // aut gen uid for each medicine
+                    val id = mRef.push().key ?: ""
+                    // aut gen uid for each medicine
                     val myMedicine = MedicineData(name, "Number Doz : ${doz}", time,id)
                     mRef.child(id).setValue(myMedicine)
                         .addOnSuccessListener {
@@ -139,12 +155,18 @@ class Medicine_List : AppCompatActivity() {
                 } else {
                     Toast.makeText(this, "Enter Name, Time, and Dose of Medicine", Toast.LENGTH_SHORT).show()
                 }
+
+                // notifaction -> Alamrmanger
                 alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+                // alarm inhert all the property of alarm manger seriver like alarming function
+
                 alarmManager.set(
                     AlarmManager.RTC_WAKEUP,
                     System.currentTimeMillis() + calculateTimeDifferenceInSeconds(medicinepicker) * 1000,
                     pendingIntent)
                 Toast.makeText(this, "Alarm is Activated", Toast.LENGTH_SHORT).show()
+
+                //  alarmManager.set( current time , what time alarm must be happen , pending intent)
 
             }
 
@@ -172,6 +194,8 @@ class Medicine_List : AppCompatActivity() {
             }
         })
     }
+    // target part in retrive medcineclasses data store in arraylist for display them in list view
+
     fun formatTimeToString(timePicker: TimePicker): String {
         val hour = timePicker.hour
         val minute = timePicker.minute
@@ -188,6 +212,9 @@ class Medicine_List : AppCompatActivity() {
         return dateFormat.format(calendar.time)
     }
     private fun createNotificationChannel() {
+
+        // andriod < 14  it must to make notfaction channel
+        //  why notify channel  because app can make acess to bluid notifaction
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channelId = "your_channel_id"

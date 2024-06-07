@@ -14,11 +14,11 @@ import kotlin.String
 class MyBroadcastReciver: BroadcastReceiver() {
 
     private var mediaPlayer: MediaPlayer? = null
-
+    // any varable from type mediaplayer is sound or video
 
     override fun onReceive(context: Context?, intent: Intent?) {
 
-        mediaPlayer = MediaPlayer.create(context, R.raw.notification_sound)
+        mediaPlayer = MediaPlayer.create(context, R.raw.notification_sound) // pass value valrable
         mediaPlayer?.start()
         // Create an explicit intent for AlarmingScreen
         val notificationIntent = Intent(context, AlarmingScreen::class.java)
@@ -28,7 +28,7 @@ class MyBroadcastReciver: BroadcastReceiver() {
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
-        // Create the notification channel (required for Android Oreo and higher)
+        // Create the notification channel (required for Android 12 and higher)
         val channelId = "your_channel_id"
         val channelName = "Alarm Notifications"
         val importance = NotificationManager.IMPORTANCE_DEFAULT
@@ -43,7 +43,6 @@ class MyBroadcastReciver: BroadcastReceiver() {
             .setContentIntent(pendingIntent)
             .setAutoCancel(true)
 
-        // Notify using the NotificationManager
         val notificationManager =
             context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.notify(123, notificationBuilder.build())

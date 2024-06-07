@@ -1,5 +1,6 @@
 package com.example.careplace
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -92,14 +93,14 @@ class Doctor_Home_Screen : AppCompatActivity() {
 
     private fun fetchDoctorName() {
         val currentUser: FirebaseUser? = FirebaseAuth.getInstance().currentUser
-        val userId: kotlin.String? = currentUser?.uid
+        val userId: String? = currentUser?.uid
         if (userId != null) {
             val doctorRef: DatabaseReference = FirebaseDatabase.getInstance().getReference("DUser").child(userId)
             doctorRef.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val doctorNameValue = snapshot.child("dname").getValue(String::class.java)
                     if (!doctorNameValue.isNullOrBlank()) {
-                        doctorName.text = "Hi $doctorNameValue"
+                        doctorName.text = doctorNameValue
                     }
                 }
 
@@ -140,30 +141,30 @@ class Doctor_Home_Screen : AppCompatActivity() {
         val alertDialog = myDialogBuilder.create()
         alertDialog.show()
     }
+    @SuppressLint("SuspiciousIndentation")
     fun currentuserToken() {
         val currentUser = FirebaseAuth.getInstance().currentUser
         if (currentUser != null) {
             FirebaseMessaging.getInstance().token
                 .addOnSuccessListener { token ->
                     val userId = currentUser.uid
-                    val userTokenRef = FirebaseDatabase.getInstance().getReference("DUser").child(userId).child("fcmToken")
-                    userTokenRef.setValue(token)
-                        .addOnSuccessListener {
+                    val userTokenRef = FirebaseDatabase.getInstance()
+                        .getReference("DUser").child(userId).child("fcmToken")
+                          userTokenRef.setValue(token).addOnSuccessListener {
                             // Token stored successfully
-                            println("Token stored successfully for user $userId")
                         }
                         .addOnFailureListener { e ->
                             // Failed to store token
-                            println("Failed to store token for user $userId: ${e.message}")
+                            Toast.makeText(this, "Failed to store token for user", Toast.LENGTH_SHORT).show()
                         }
                 }
                 .addOnFailureListener { e ->
                     // Failed to get token
-                    println("Failed to get token: ${e.message}")
+                    Toast.makeText(this, "Failed to get token for user", Toast.LENGTH_SHORT).show()
                 }
         } else {
             // No current user
-            println("No current user found")
+            Toast.makeText(this, "the error existist", Toast.LENGTH_SHORT).show()
         }
     }
 }

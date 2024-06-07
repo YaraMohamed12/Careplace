@@ -119,9 +119,11 @@ class My_Profile_Details_for_doc : AppCompatActivity() {
                     user_bdate.text = P_bdate
                     user_email.text = P_email
                     user_Notional_id.text = P_nId
-
                     val profileImageUrl = snapshot.child("profileImageUrl").getValue(String::class.java)
-                    Glide.with(this@My_Profile_Details_for_doc).load(profileImageUrl).into(user_image)
+                    if(!profileImageUrl.isNullOrEmpty()) {
+                        Glide.with(this@My_Profile_Details_for_doc).load(profileImageUrl)
+                            .into(user_image)
+                    }
                 }
 
                 override fun onCancelled(error: DatabaseError) {

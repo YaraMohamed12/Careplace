@@ -1,7 +1,13 @@
 package com.example.careplace
 
 import android.annotation.SuppressLint
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
+import android.media.RingtoneManager
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +15,11 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.app.NotificationCompat
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -16,6 +27,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.messaging.RemoteMessage
+import org.json.JSONObject
 import java.util.UUID
 
 class ScheduleAdapter_user(context: Context, private val scheduleList: List<Schedule>) :
@@ -66,9 +78,6 @@ class ScheduleAdapter_user(context: Context, private val scheduleList: List<Sche
             var Doctor_name : String = ""
             var Doctor_img : String = ""
             var patient_img : String = ""
-
-
-
             mRef.child(currentuserid).addValueEventListener(object :ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
                     patient_name = snapshot.child("name").getValue(String::class.java)!!
@@ -88,13 +97,62 @@ class ScheduleAdapter_user(context: Context, private val scheduleList: List<Sche
                 override fun onCancelled(error: DatabaseError) {} })
 
 
-
-
-
+//            val doctorTokenRef = FirebaseDatabase.getInstance()
+//                .getReference("DUser").child(Doctorid).child("fcmToken")
+//            doctorTokenRef.get().addOnSuccessListener { dataSnapshot ->
+//                val doctorToken = dataSnapshot.getValue(String::class.java)
+//                if (doctorToken != null) {
+//                    sendNotification(context, doctorToken, "Booked Your Appointment", "A patient has booked an appointment with you.")
+//
+//                } else {
+//                    Toast.makeText(context, "Doctor token not found", Toast.LENGTH_SHORT).show()
+//                }
+//            }.addOnFailureListener { e ->
+//                Toast.makeText(context, "Failed to retrieve doctor token", Toast.LENGTH_SHORT).show()
+//            }
         }
 
         return itemView
     }
+
+
+//    fun sendNotification(context: Context, token: String, title: String, message: String) {
+//        val requestQueue = Volley.newRequestQueue(context)
+//        val url = "https://fcm.googleapis.com/fcm/send"
+//
+//        val jsonObject = JSONObject()
+//        val notification = JSONObject()
+//
+//        notification.put("title", title)
+//        notification.put("body", message)
+//        jsonObject.put("to", token)
+//        jsonObject.put("notification", notification)
+//
+//        val request = object : JsonObjectRequest(Request.Method.POST, url, jsonObject,
+//            Response.Listener { response ->
+//                Toast.makeText(context, "Notification sent", Toast.LENGTH_SHORT).show()
+//            },
+//            Response.ErrorListener { error ->
+//                Toast.makeText(context, "Failed to send notification", Toast.LENGTH_SHORT).show()
+//                error.printStackTrace()
+//            }) {
+//            override fun getHeaders(): Map<String, String> {
+//                val headers = HashMap<String, String>()
+//                headers["Content-Type"] = "application/json"
+//                headers["Authorization"] = "key=AAAA0Pk4dWQ:APA91bFqeFVP26kpOQaC40RC_fj0spbkt63WrTdxOI-dTxdK0OB4vFDjSWvReQP3arDv8MXC8ds8qNoP2ICFMrc27LR81uTNpPCUpQjhUcp9cgyR0Gg508Om96bkZa2JgPHaCNXztdhR"
+//                return headers
+//            }
+//        }
+//
+//        requestQueue.add(request)
+//    }
+
+
+
+
+
+
+
 
 
 }

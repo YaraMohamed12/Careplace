@@ -20,7 +20,14 @@
                 android:layout_marginTop="20dp"
                android:scaleType="centerInside"
                 android:background="@color/white"
-                tools:srcCompat="@drawable/person" />
+                tools:srcCompat="@drawable/add_userphoto" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Your image"
+                android:textSize="16dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="18dp"/>
 
             <TextView
                 android:id="@+id/fullname"
@@ -200,7 +207,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/weight"
+                android:text="Weight"
                 android:id="@+id/weight"
                 android:textStyle="bold"
                 android:textColor="@color/darkblue"
@@ -222,7 +229,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/height"
+                android:text="Height"
                 android:id="@+id/Height"
                 android:textStyle="bold"
                 android:textColor="@color/darkblue"
