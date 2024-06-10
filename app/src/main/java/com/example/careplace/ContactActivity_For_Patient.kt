@@ -46,10 +46,7 @@ class ContactActivity_For_Patient : AppCompatActivity() {
     }
 
     private fun buttonlistener() {
-        home_btn.setOnClickListener {
-            val myintent1 = Intent(this , Patient_Home_Screen::class.java)
-            startActivity(myintent1)
-        }
+
         setting_btn.setOnClickListener {
             val myintent2 = Intent(this , Patient_Setting_Screen::class.java)
             startActivity(myintent2)
