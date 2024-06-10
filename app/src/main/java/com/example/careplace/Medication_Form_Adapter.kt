@@ -18,6 +18,7 @@ class Medication_Form_Adapter (context : Context, MedicationFormList : ArrayList
     : ArrayAdapter<Medicatin_Form_Data >(context ,0 ,MedicationFormList ) {
     @SuppressLint("MissingInflatedId")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+
         val view = LayoutInflater.from(context).inflate(R.layout.medcition_only_card, parent,false)
         val data: Medicatin_Form_Data? = getItem(position)
         val surgery_name : TextView = view.findViewById(R.id.name2_media)
@@ -44,10 +45,12 @@ class Medication_Form_Adapter (context : Context, MedicationFormList : ArrayList
         val details_op: EditText = dialogView.findViewById(R.id.date1)
         val updBtn: Button = dialogView.findViewById(R.id.upd_btn_medic)
         val delBtn: Button = dialogView.findViewById(R.id.remove_btn_medic)
+
         name.setText(data!!.medicin_name)
         details_op.setText(data.medicin_date)
 
         updBtn.setOnClickListener {
+
             val mAuth = FirebaseAuth.getInstance()
             val mRef = FirebaseDatabase.getInstance().getReference("/user/${mAuth.currentUser?.uid}")
 
@@ -79,8 +82,9 @@ class Medication_Form_Adapter (context : Context, MedicationFormList : ArrayList
                 // Remove the medicine data from the database based on its unique ID
                 mRef.child(it.medicin_id!!).removeValue()
                     .addOnSuccessListener {
-                        Toast.makeText(context, "Surgery Deleted Successfully", Toast.LENGTH_SHORT).show()
-                        alertDialog.dismiss() // Dismiss the dialog after successful deletion
+                        Toast.makeText(context, "Medicine Deleted Successfully", Toast.LENGTH_SHORT).show()
+                        alertDialog.dismiss()
+                    // Dismiss the dialog after successful deletion
                     }
                     .addOnFailureListener { exception ->
                         Toast.makeText(context, "Error: ${exception.message}", Toast.LENGTH_SHORT).show()

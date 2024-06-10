@@ -98,7 +98,7 @@ class Medical_History_For_Doctor_View : AppCompatActivity() {
                     chorinc_dieaseList.add(Chronic_disease_data)
 
                 }
-                val adapter = Chronic_Diseases_Adapter(this@Medical_History_For_Doctor_View, chorinc_dieaseList)
+                val adapter = Chronic_Diseases_Adapter2(this@Medical_History_For_Doctor_View, chorinc_dieaseList)
                 listViewChronicDisease.adapter = adapter
 
             }
@@ -125,7 +125,7 @@ class Medical_History_For_Doctor_View : AppCompatActivity() {
                     pateint_AllerigesList.add(Allergy_data)
 
                 }
-                val adapter = Allergy_Adapter(this@Medical_History_For_Doctor_View, pateint_AllerigesList)
+                val adapter = Allergy_Adapter2(this@Medical_History_For_Doctor_View, pateint_AllerigesList)
                 listViewAllergies.adapter = adapter
 
             }

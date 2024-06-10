@@ -99,5 +99,3 @@ class MedicineAdpater(context: Context, NoteList : ArrayList<MedicineData>)
 
     }
 }
-
-

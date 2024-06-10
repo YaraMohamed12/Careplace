@@ -58,8 +58,8 @@ class Medicine_List : AppCompatActivity() {
         listViewMedicine.adapter = medicineAdapter
         floatBtnDialog()
         createNotificationChannel()
-         iniliaztlisinter()
-          cliciking()
+        iniliaztlisinter()
+        cliciking()
 
 
     }
@@ -74,9 +74,9 @@ class Medicine_List : AppCompatActivity() {
     }
     private fun cliciking()
     {  home_btn.setOnClickListener {
-            val myintent1 = Intent(this , Patient_Home_Screen::class.java)
-            startActivity(myintent1)
-        }
+        val myintent1 = Intent(this , Patient_Home_Screen::class.java)
+        startActivity(myintent1)
+    }
         setting_btn.setOnClickListener {
             val myintent2 = Intent(this ,Patient_Setting_Screen ::class.java)
             startActivity(myintent2)
@@ -84,7 +84,7 @@ class Medicine_List : AppCompatActivity() {
         your_profile_btn.setOnClickListener {
             val myintent3 = Intent(this , My_Profile_Details_for_patient::class.java)
             startActivity(myintent3)
-      }
+        }
         calender_btn.setOnClickListener {
             val myintent4 = Intent(this ,Patient_Calender_Screen ::class.java)
             startActivity(myintent4)
@@ -118,7 +118,7 @@ class Medicine_List : AppCompatActivity() {
             val medicineName = view.findViewById<EditText>(R.id.doz_name_dialog1)
             val medicineNo = view.findViewById<EditText>(R.id.doz_no_dialog1)
             val medicineBtn = view.findViewById<Button>(R.id.btnadd)
-             // call view ui elment name,timepicker
+            // call view ui elment name,timepicker
 
             calculateTimeDifferenceInSeconds(medicinepicker)
 

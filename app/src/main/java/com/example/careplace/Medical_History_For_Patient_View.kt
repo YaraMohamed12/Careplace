@@ -125,6 +125,7 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
         val myFloayingbtn5 = findViewById<FloatingActionButton>(R.id.add_allergy)
         myFlotbtn1.setOnClickListener {
             val view = layoutInflater.inflate(R.layout.medication_and_surgeries_dialog, null)
+            // view = mediacl dialog -> diloagbludi.setview(view)  -> dialog.show()
             val myDialogBuilder = AlertDialog.Builder(this)
             myDialogBuilder.setView(view)
             val alertDialog = myDialogBuilder.create()
@@ -132,6 +133,7 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
             val medicineName = view.findViewById<EditText>(R.id.name)
             val medicine_date = view.findViewById<EditText>(R.id.date)
             val add_medicine_Btn = view.findViewById<Button>(R.id.add_btn)
+            // acess dialog elment name , date , sumbit
 
             add_medicine_Btn.setOnClickListener {
                 val name = medicineName.text.toString()
@@ -139,7 +141,11 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
 
                 if (date.isNotEmpty() && name.isNotEmpty()) {
                     val id = mRef1.push().key ?: ""
+                    // each time process insert mecdicine with geenerate unique key
+                    // key store with the rest of data of medicine
+                    // operate display , delete , update
                     val myMedicine = Medicatin_Form_Data(name, date, id)
+                    // realtime database recommend to put date in class data to be well sturcture
                     mRef1.child("Medication").child(id).setValue(myMedicine)
                         .addOnSuccessListener {
                             Toast.makeText(this, "Medicine added successfully", Toast.LENGTH_SHORT).show()
@@ -353,8 +359,10 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
     }
     private fun retrieveMedication() {
         val mAuth = FirebaseAuth.getInstance()
+        // get data for current user
         val currentuserid = mAuth.currentUser?.uid
         val mref = FirebaseDatabase.getInstance().getReference("user").child(currentuserid!!).child("Medication")
+        // database -> user -> current user(ID) -> previous medcincines file
         mref.addValueEventListener(object : ValueEventListener {
             @SuppressLint("SuspiciousIndentation")
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -369,9 +377,14 @@ class Medical_History_For_Patient_View : AppCompatActivity() {
                     val Medicate_data = Medicatin_Form_Data(Name,date,Surgery_id)
                     Medication_list.add(Medicate_data)
 
+                    // retrive data from database -> varabile -> dataclass -> array : medicine_data
+
                 }
                 val adapter = Medication_Form_Adapter(this@Medical_History_For_Patient_View, Medication_list)
                 listViewMedication.adapter = adapter
+
+                //  array of data -> adpater -> display data in the listview
+
 
             }
             override fun onCancelled(databaseError: DatabaseError) {
